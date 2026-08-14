@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exércicio 1</title>
+</head>
+
+<body>
+
+    <h1>Cadastro de Local e Nascimento</h1>
+
+    <span>Cidade Natal:</span>
+    <input type="text" id="input_cidade_natal">
+
+    <span>Ano de Nascimento:</span>
+    <input type="text" id="input_data_nascimento">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+</body>
+
+<script>
+
+    function cadastrar() {
+        alert('Você nasceu na cidade de ' + input_cidade_natal.value + ' em ' + input_data_nascimento.value)
+    }
+
+</script>
+
+</html>
