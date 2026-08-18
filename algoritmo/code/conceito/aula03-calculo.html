@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <h1>Minha calculadora preferida</h1>
+
+    <span>Entre com o primeiro número: </span>
+    <input type="text" id="input_num1"> <br>
+
+    <span>Entre com o segundo número: </span>
+    <input type="text" id="input_num2"> <br>
+    <button onclick="multiplicar()">Multiplicação</button> <br> <br>
+
+    <div id="div_result">
+        Resultado
+    </div>
+</body>
+
+<script>
+
+    // por padrao usar verbo
+    // calcular num1 * num 2
+    function multiplicar() {
+        div_result.innerHTML = `A multiplicação de ${input_num1.value} por ${input_num2.value} é ${input_num1.value * input_num2.value}`;
+    }
+</script>
+
+</html>

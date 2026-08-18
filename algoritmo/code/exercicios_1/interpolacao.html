@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+<body>
+
+    <h1>Recomendação de Clima</h1>
+
+    <span>Temperatura Atual:</span>
+    <input type="text" id="input_temperatura">
+
+    <span>Condição do Tempo:</span>
+    <input type="text" id="input_tempo">
+
+    <button onclick="dica()">Ver dica</button> <br><br>
+    
+
+    
+</body>
+
+<script>
+    function dica(){
+        alert(`Está fazendo ${input_temperatura.value} graus e o dia está ${input_tempo.value} `)
+    }
+</script>
+
+</html>
