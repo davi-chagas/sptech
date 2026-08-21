@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    <h1>Economia com o Bilhete Único</h1>
+
+    <span>Insira o valor da passagem: </span>
+    <input type="text" id="input_valor_passagem"> <br>
+
+    <span>Insira a quantidade de viagens por mês: </span>
+    <input type="text" id="input_qtd_viagens">
+
+    <button onclick="calcular()">Ver economia</button>
+
+    <div id="div_result">
+        <!-- corpo do inner -->
+    </div>
+
+</body>
+
+<script>
+    function calcular(){
+        div_result.innerHTML = `Você economizará R$${Number((input_valor_passagem.value / 2) * input_qtd_viagens.value).toFixed(2)} por mês`
+    }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1>O Ki dos Saiyajins! </h1>
+
+    <span>Insira o ki base: </span>
+    <input type="text" id="input_ki"> <br>
+
+    
+    <span>Transformar em...</span>
+    <button onclick="transformarSSJ()">SSJ</button>
+    <button onclick="transformarSSJ2()">SSJ2</button>
+    <button onclick="transformarSSJ3()">SSJ3</button>
+
+    <div id="div_result">
+       
+    </div>
+</body>
+
+<script>
+    function transformarSSJ() {
+        //   Após se transformar em X, o ki desse Saiyajin passa a ser de Y 
+        //  Onde X é o nome da transformação (SSJ, SSJ2 ou SSJ3) e Y é o valor calculado em d)  
+        div_result.innerHTML = `<br> Após se transformar em SSJ, o ki desse Saiyajin passa a ser de ${input_ki.value * 50}`;
+    }
+
+    function transformarSSJ2(){
+        div_result.innerHTML = `<br> Após se transformar em SSJ2, o ki desse Saiyajin passa a ser de ${input_ki.value * 100}`
+    }
+
+    function transformarSSJ3(){
+        div_result.innerHTML = `<br> Após se transformar em SSJ3, o ki desse Saiyajin passa a ser de ${input_ki.value * 200}`
+    }
+
+</script>
+
+</html>

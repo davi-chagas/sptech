@@ -271,8 +271,192 @@ WHERE preco >= 30.50;
 -- Limpar a tabela.
 TRUNCATE misteriosSa;
 
+-- Exercicios 5 --
+CREATE DATABASE vingadores;
+
+use vingadores;
+
+CREATE TABLE herois(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    versao VARCHAR(45),
+    habilidade VARCHAR(45),
+    altura INT
+);
+
+INSERT INTO herois ( nome, versao, habilidade, altura) VALUES
+('Homem-Aranha', 'Homem Aranha 3	', 'Soltar Teia', 172),
+('Homem de Ferro', 'Homem de Ferro 2', 'Armadura', 176),
+('Capitão América', 'Capitão América Guerra Civil', 'Super Soro', 172),
+('Jean Gray', 'X-Men', 'Telecinese', 160),
+('Wolverine', 'Logan', 'Super Regeneração', 158);
+
+SELECT * FROM herois;
+
+-- Adicionar um campo de regeneracao, onde ele aceitará apenas os valores booleanos de TRUE ou FALSE.
+ALTER TABLE herois ADD COLUMN regeneracao TINYINT;
+
+-- Modificar o campo versao para aceitar até 100 caracteres.
+ALTER TABLE herois MODIFY COLUMN versao VARCHAR(100);
+
+-- Remover o herói de id 3 pois ele se morreu em batalha.
+DELETE FROM herois
+WHERE id = 3;
+DESC herois;
+-- Chegou reforços, inserir um novo herói para a equipe.
+INSERT INTO herois (nome, versao, habilidade, altura, regeneracao) VALUE
+('Doutor Estranho', 'Vingadores Guerra Infinita', 'Magia', 175, 0);
+
+-- Exibir todos os dados inseridos na tabela onde o nome do herói começa com “C” ou “H”.
+SELECT * FROM herois
+WHERE nome LIKE 'c%' OR nome LIKE 'H%';
+
+-- Exibir todos os dados inseridos na tabela onde o nome do herói não contém a letra “A” no campo nome.
+SELECT * FROM herois
+WHERE nome NOT LIKE '%a%';
+
+
+-- Exibir apenas o nome do herói onde a altura for maior que 190.
+UPDATE herois
+SET altura = 182
+WHERE id = 6;
+
+SELECT nome FROM herois
+WHERE altura > 190;
+
+-- Exibir todos os dados da tabela de forma decrescente pelo nome onde a altura do herói for maior que 180.
+SELECT * FROM herois
+WHERE altura > 180
+ORDER BY nome DESC;
+
+TRUNCATE TABLE herois;
+
+-- Exercicio 6 --
+use sprint1;
+
+CREATE TABLE revista (
+	idRevista INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(40),
+    categoria VARCHAR(30)
+) AUTO_INCREMENT = 1;	
+
+INSERT INTO revista (nome, categoria) VALUES
+('Variety', ''),
+('Vogue', ''),
+('Deadline', ''),
+('Forbes', '');
+
+-- Exibir todos os dados da tabela.
+SELECT * FROM revista;
+
+-- Atualizar os dados das categorias das 3 revistas inseridas. Exibir os dados da tabela novamente para verificar se atualizou corretamente.
+UPDATE revista
+SET categoria = 'Moda'
+WHERE idRevista = 4;
+
+UPDATE revista
+SET categoria = 'Música'
+WHERE idRevista = 1;
+
+UPDATE revista
+SET categoria = 'Filmes e Séries'
+WHERE idRevista = 3;
+
+INSERT INTO revista (nome, categoria) VALUES 
+('Shounen Jump', 'Mangá'),
+('Recreio', 'Jovem'),
+('Veja', 'Noticias');
+
+-- Exibir novamente os dados da tabela.
+SELECT * FROM revista;
+
+-- Exibir a descrição da estrutura da tabela.
+DESC revista;
+
+-- Alterar a tabela para que a coluna categoria possa ter no máximo 40 caracteres.
+ALTER TABLE revista MODIFY COLUMN categoria VARCHAR(40);
 
 
 
+-- Exibir novamente a descrição da estrutura da tabela, para verificar se alterou o tamanho da coluna categoria.
+DESC revista;
 
+-- Acrescentar a coluna periodicidade à tabela, que é varchar(15).
+ALTER TABLE revista ADD COLUMN periodicidade VARCHAR(15);
+
+-- Exibir os dados da tabela.
+SELECT * FROM revista;
+
+-- Excluir a coluna periodicidade da tabela.
+ALTER TABLE revista DROP COLUMN periodicidade;
+
+DESC revista;
+
+CREATE TABLE carro (
+	idCarro INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(40),
+    placa CHAR(7)
+) AUTO_INCREMENT = 1000;
+
+INSERT INTO carro (nome, placa) VALUES 
+('Gol quadrado', 'abcdefg'),
+('Gol bolinha', 'abcdef1'),
+('Ferrari', 'lsjfiwo'),
+('Porsche', 'nchek13');
+
+-- Exibir todos os dados da tabela.
+SELECT * FROM carro;
+
+-- Inserir mais 3 registros sem a placa dos carros.
+INSERT INTO carro (nome) VALUES
+('BMW'),
+('Mercedes'),
+('BYD');
+
+-- Exibir novamente os dados da tabela.
+SELECT * FROM carro;
+
+-- Exibir a descrição da estrutura da tabela.
+DESC carro;
+
+-- Alterar a tabela para que a coluna nome possa ter no máximo 28 caracteres.
+ALTER TABLE carro MODIFY COLUMN nome VARCHAR(28);
+
+-- Exibir novamente a descrição da estrutura da tabela, para verificar se alterou o tamanho da coluna.
+DESC carro;
+
+-- Acrescentar a coluna ano à tabela, que é char(4).
+ALTER TABLE carro ADD COLUMN ano CHAR(4);
+
+-- Atualizar todos os dados nulos da tabela.
+UPDATE carro
+SET ano = 2001 
+WHERE idCarro = 1000;
+
+UPDATE carro
+SET ano = 1999
+WHERE idCarro = 1002;
+
+UPDATE carro
+SET ano = 2003, placa = '12g4d67'
+WHERE idCarro = 1004;
+
+UPDATE carro
+SET ano = 2017, placa = '14683fb'
+WHERE idCarro = 1006;
+
+UPDATE carro
+SET ano = 1993
+WHERE idCarro = 1001;
+
+UPDATE carro
+SET ano = 2025, placa = 'kdnv82d'
+WHERE idCarro = 1005;
+
+UPDATE carro
+SET ano = 2023
+WHERE idCarro = 1003;
+
+-- exibir dados novamente
+SELECT * FROM carro;
 

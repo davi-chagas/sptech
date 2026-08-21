@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    
+    <h1>Aposentadoria: Quanto Falta?</h1>
+    
+    <span>Inserir idade: </span>
+    <input type="text" id="input_idade">
+
+    <button onclick="homem()">Aposentadoria Homem</button>
+    <button onclick="mulher()">Aposentadoria Mulher</button>
+
+    <div id="div_result">
+        <!-- conteudo -->
+    </div>
+
+</body>
+
+    <script>
+        function homem(){
+            div_result.innerHTML = `Falta  ${70 - input_idade.value} anos para a aposentadoria sendo homem`
+        }
+
+        function mulher(){
+            div_result.innerHTML = `Falta ${60 - input_idade.value} anos para a aposentadoria sendo mulher`
+        }
+    </script>
+
+</html>

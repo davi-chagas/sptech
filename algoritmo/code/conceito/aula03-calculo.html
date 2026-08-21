@@ -15,20 +15,40 @@
 
     <span>Entre com o segundo número: </span>
     <input type="text" id="input_num2"> <br>
-    <button onclick="multiplicar()">Multiplicação</button> <br> <br>
+    <button onclick="multiplicar()">Multiplicação</button>
+    <button onclick="dividir()">Divisão</button>
+    <button onclick="subtrair()">Subtração</button>
+    <button onclick="somar()">Adição</button>
+    <button onclick="resto()">Resto</button>
 
     <div id="div_result">
-        Resultado
+        <!-- corpo do innerHTML -->
     </div>
 </body>
 
 <script>
 
     // por padrao usar verbo
-    // calcular num1 * num 2
     function multiplicar() {
         div_result.innerHTML = `A multiplicação de ${input_num1.value} por ${input_num2.value} é ${input_num1.value * input_num2.value}`;
     }
+
+    function dividir() {
+        div_result.innerHTML = `A divisão de ${input_num1.value} por ${input_num2.value} é ${(input_num1.value / input_num2.value).toFixed(2)}`;
+    }
+
+    function subtrair() {
+        div_result.innerHTML = `A subtração de ${input_num1.value} por ${input_num2.value} é ${input_num1.value - input_num2.value}`
+    }
+
+    function somar() {
+        div_result.innerHTML = `A soma de ${input_num1.value} pelo ${input_num2.value} é ${Number(input_num1.value) + Number(input_num2.value)}`
+    }
+
+    function resto() {
+        div_result.innerHTML = `O resto da divisão de ${input_num1.value} por ${input_num2.value} é ${Number(input_num1.value) % Number(input_num2.value)}`
+    }
+
 </script>
 
 </html>

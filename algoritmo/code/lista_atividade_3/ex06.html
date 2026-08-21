@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Conversor de Moedas da Barbie: De "B-Dollars" para Real</h1>
+
+    <span>Insira a quantidade de B-Dollars</span>
+    <input type="text" id="input_bdollars"> <br>
+
+    <span>Insira o valor da cotação</span>
+    <input type="text" id="input_valor_cotacao"> 
+
+    <button onclick="calcular()">Calcular Cambio</button>
+
+    <div id="div_result">
+
+    </div>
+
+</body>
+    <script>
+        function calcular(){
+            div_result.innerHTML = `<br> Ao converter seus B-Dollars, o dinheiro disponível será: R$${(input_bdollars.value * input_valor_cotacao.value - 5.50).toFixed(2)}`
+        }
+    </script>
+</html>
