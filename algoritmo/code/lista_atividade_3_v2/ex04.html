@@ -28,7 +28,7 @@
             let nome = ipt_nome.value;
             let continuada = Number(ipt_continuada.value);
             let semestral = Number(ipt_semestral.value);
-            let media = ((ipt_continuada.value * 0.4) + (ipt_semestral.value) * 0.6);
+            let media = ((ipt_continuada.value * 0.4) + (ipt_semestral.value) * 0.6).toFixed(2);
 
             div_result.innerHTML = `A média de ${nome} será de ${media}`
         }

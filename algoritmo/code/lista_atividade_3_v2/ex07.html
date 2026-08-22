@@ -28,13 +28,13 @@
 
 <script>
     function calcular() {
-        let valorPizza = Number(ipt_valor.value);
-        let valorComTaxa = valorPizza + (valorPizza * 0.1);
+        let valor_pizza = Number(ipt_valor.value);
+        let valor_com_taxa = valor_pizza + (valor_pizza * 0.1);
         let sabor = ipt_sabor.value;
-        let qtdAmigos = ipt_qtd_amigos.value;
-        let valorAmigos = (valorComTaxa / qtdAmigos).toFixed(2);
+        let qtd_amigos = ipt_qtd_amigos.value;
+        let valor_dividido = (valor_com_taxa / qtd_amigos).toFixed(2);
 
-        div_result.innerHTML = `Cada amigo vai colaborar com R$${valorAmigos} para a pizza de ${sabor}        `
+        div_result.innerHTML = `Cada amigo vai colaborar com R$${valor_dividido} para a pizza de ${sabor}        `
     }
 </script>
 

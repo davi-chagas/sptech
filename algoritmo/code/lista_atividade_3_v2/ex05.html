@@ -24,18 +24,15 @@
 <script>
     function calcular() {
         let horas = ipt_horas.value;
-        let fase1 = horas * 0.05;
-        let fase2 = horas * 0.45;
-        let fase3 = horas * 0.3;
-        let faseREM = horas * 0.2;
+        let fase1 = (horas * 0.05).toFixed(2);
+        let fase2 = (horas * 0.45).toFixed(2);
+        let fase3 = (horas * 0.3).toFixed(2);
+        let faseREM = (horas * 0.2).toFixed(2);
 
         div_result.innerHTML = `Ao dormir ${horas} horas, você dormiu: <br>
             ${fase1} horas na fase 1 <br>
-
             ${fase2} horas na fase 2 <br>
-
             ${fase3} horas na fase 3 <br>
-
             ${faseREM} horas na fase REM`
     }
 </script>

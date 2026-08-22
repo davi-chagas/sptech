@@ -37,12 +37,13 @@
         let valor_venda_servico = Number(ipt_valor_venda_servico.value);
         let porcentual = Number(ipt_porcentual.value)
         let gastos = Number(ipt_gastos.value);
+
         let total = valor_venda_recebido + valor_venda_servico;
         let valor_do_imposto = (valor_venda_recebido + valor_venda_servico) / porcentual;
-        let saldo_final = total - gastos - porcentual;
+        let saldo_final = total - gastos - valor_do_imposto;
         acumulado += saldo_final;
 
-        div_result.innerHTML += `<br> Resumo do mês ${contagem} <br>
+        div_result.innerHTML += `<br> <b>Resumo do mês ${contagem}</b> <br>
         Total recebido = R$${total} <br>
         Valor do imposto = R$${valor_do_imposto} <br>
         Saldo final de = R$${saldo_final} <br>

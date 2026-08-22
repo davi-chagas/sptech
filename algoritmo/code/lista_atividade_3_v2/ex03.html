@@ -11,7 +11,7 @@
     <span>Insira o seu nome: </span>
     <input type="text" id="ipt_nome"> <br>
 
-    <span>Insira sua nota da ativ. avaliativa 1</span>
+    <span>Insira sua nota da Ativ. Avaliativa 1</span>
     <input type="text" id="ipt_ativ1"> <br>
 
     <span>Insira sua nota da Ativ. Avaliativa 2</span>
@@ -34,10 +34,10 @@
         let ativ2 = Number(ipt_ativ2.value);
         let ativ3 = Number(ipt_ativ3.value);
         let soma = ativ1 + ativ2 + ativ3;
-        let media = (ativ1 + ativ2 + ativ3) / 3;
+        let media = ((ativ1 + ativ2 + ativ3) / 3).toFixed(2);
 
-        div_result.innerHTML = `A soma das três atividades é: ${soma} <br>
-        ${nome}, a média das atividades é: ${media} 
+        div_result.innerHTML = `<br> A soma das suas três atividades é: ${soma} <br>
+        ${nome}, a média das suas atividades é: ${media} 
         `
 
 

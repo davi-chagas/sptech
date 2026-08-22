@@ -16,10 +16,10 @@
     <span>Insira o segundo número: </span>
     <input type="text" id="ipt_n2"> <br>
 
-    <button onclick="somar()">Somar</button>
-    <button onclick="multiplicar()">Multiplicar</button>
-    <button onclick="dividir()">Dividir</button>
-    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="calcularSoma()">Somar</button>
+    <button onclick="calcularProduto()">Multiplicar</button>
+    <button onclick="calcularRazao()">Dividir</button>
+    <button onclick="calcularDiferenca()">Subtrair</button>
 
     <div id="div_result">
 
@@ -30,34 +30,34 @@
 
 <script>
 
-    function somar() {
+    function calcularSoma() {
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
         let resultado = n1 + n2;
-        div_result.innerHTML = `A soma entre ${n1} e ${n2} é ${resultado}`
+        div_result.innerHTML = `<br> A soma entre ${n1} e ${n2} é ${resultado}`
     }
 
-    function subtrair() {
+    function calcularDiferenca() {
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
         let resultado = n1 - n2;
-        div_result.innerHTML = `A diferença entre ${n1} e ${n2} é ${resultado}`
+        div_result.innerHTML = `<br> A diferença entre ${n1} e ${n2} é ${resultado}`
 
     }
 
-    function multiplicar() {
+    function calcularProduto() {
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
         let resultado = n1 * n2;
-        div_result.innerHTML = `O produto entre ${n1} e ${n2} é ${resultado}`
+        div_result.innerHTML = `<br> O produto entre ${n1} e ${n2} é ${resultado}`
 
     }
 
-    function dividir() {
+    function calcularRazao() {
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
-        let resultado = n1 / 2;
-        div_result.innerHTML = `A razão entre ${n1} e ${n2} é ${resultado}`
+        let resultado = n1 / n2;
+        div_result.innerHTML = `<br> A razão entre ${n1} e ${n2} é ${resultado}`
 
     }
 </script>
