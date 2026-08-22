@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h1>Calculadora Básica</h1>
+
+    <span>Insira o primeiro número: </span>
+    <input type="text" id="ipt_n1"> <br>
+
+    <span>Insira o segundo número: </span>
+    <input type="text" id="ipt_n2"> <br>
+
+    <button onclick="somar()">Somar</button>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <button onclick="subtrair()">Subtrair</button>
+
+    <div id="div_result">
+
+    </div>
+
+
+</body>
+
+<script>
+
+    function somar() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 + n2;
+        div_result.innerHTML = `A soma entre ${n1} e ${n2} é ${resultado}`
+    }
+
+    function subtrair() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 - n2;
+        div_result.innerHTML = `A diferença entre ${n1} e ${n2} é ${resultado}`
+
+    }
+
+    function multiplicar() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 * n2;
+        div_result.innerHTML = `O produto entre ${n1} e ${n2} é ${resultado}`
+
+    }
+
+    function dividir() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 / 2;
+        div_result.innerHTML = `A razão entre ${n1} e ${n2} é ${resultado}`
+
+    }
+</script>
+
+</html>

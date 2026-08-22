@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1> Fases do sono </h1>
+
+    <span>Insira a quantidade de horas de sono: </span>
+    <input type="text" id="ipt_horas"> <br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_result">
+
+    </div>
+
+</body>
+
+<script>
+    function calcular() {
+        let horas = ipt_horas.value;
+        let fase1 = horas * 0.05;
+        let fase2 = horas * 0.45;
+        let fase3 = horas * 0.3;
+        let faseREM = horas * 0.2;
+
+        div_result.innerHTML = `Ao dormir ${horas} horas, você dormiu: <br>
+            ${fase1} horas na fase 1 <br>
+
+            ${fase2} horas na fase 2 <br>
+
+            ${fase3} horas na fase 3 <br>
+
+            ${faseREM} horas na fase REM`
+    }
+</script>
+
+</html>

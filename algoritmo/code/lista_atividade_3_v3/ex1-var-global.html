@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <h1>Atualizar saldo bancário</h1>
+
+    <button onclick="receber()">Receber 100</button>
+    <button onclick="pagar()">Pagar 50</button>
+
+    <div id="div_result">
+
+    </div>
+
+</body>
+
+<script>
+
+    let contador = 0;
+    function receber() {
+        contador += 100;
+        div_result.innerHTML = `Transferência de R$100 recebida! <br>
+        Saldo atual: ${contador}`
+    }
+
+    function pagar() {
+        contador -= 50;
+        div_result.innerHTML = `Pagamento de R$50 efetuado! <br>
+        Saldo atual: ${contador}`
+    }
+
+</script>
+
+</html>

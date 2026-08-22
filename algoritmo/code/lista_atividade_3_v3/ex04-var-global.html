@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 (desafio)</title>
+</head>
+
+<body>
+    <h1>Controle de TVM de caldeira de geração energia elétrica</h1>
+
+    <span>Insira a quantidade de dias de operação: </span>
+    <input type="text" id="ipt_qtd_dias">
+
+    <button onclick="calcular()">Processar DIAS</button>
+    <button onclick="stop()">Stop Operação</button>
+    <button onclick="reiniciar()">Reiniciar Processo</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    let tvm = 1000;
+    function calcular() {
+        let saldo_anterior = tvm
+        let qtd_dias = ipt_qtd_dias.value;
+        let horas = qtd_dias * 24;
+        tvm -= horas;
+
+        div_result.innerHTML += `O TVM anterior era de <b>${saldo_anterior}</b> horas e após <b>${qtd_dias}</b> dias de operação o TVM passou para <b>${tvm}</b> horas <br>`
+    }
+
+    function stop(){
+        let saldo_anterior = tvm;
+        tvm -= 100;
+
+        div_result.innerHTML += `O TVM anterior era de <b>${saldo_anterior}</b> horas, após o Stop de operação o TVM passou para <b>${tvm}</b> horas <br>`
+    }
+
+    function reiniciar(){
+        let saldo_anterior = tvm;
+        tvm = 1000;
+        div_result.innerHTML += `Ainda existia <b>${saldo_anterior}</b> horas, com o reinicio do processo, o TVM passou para <b>1000</b> horas. <br>`
+    }
+
+</script>
+
+</html>

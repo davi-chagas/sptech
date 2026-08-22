@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>Nota da Atividade Avaliativa</h1>
+
+    <span>Insira o seu nome: </span>
+    <input type="text" id="ipt_nome"> <br>
+
+    <span>Insira sua nota da ativ. avaliativa 1</span>
+    <input type="text" id="ipt_ativ1"> <br>
+
+    <span>Insira sua nota da Ativ. Avaliativa 2</span>
+    <input type="text" id="ipt_ativ2"> <br>
+    
+    <span>Insira sua nota da Ativ. Avaliativa 3</span>
+    <input type="text" id="ipt_ativ3"> <br>
+
+    <button onclick="calcularMedia()">Mostrar nota</button>
+
+    <div id="div_result">
+
+    </div>
+</body>
+
+<script>
+    function calcularMedia(){
+        let nome = ipt_nome.value;
+        let ativ1 = Number(ipt_ativ1.value);
+        let ativ2 = Number(ipt_ativ2.value);
+        let ativ3 = Number(ipt_ativ3.value);
+        let soma = ativ1 + ativ2 + ativ3;
+        let media = (ativ1 + ativ2 + ativ3) / 3;
+
+        div_result.innerHTML = `A soma das três atividades é: ${soma} <br>
+        ${nome}, a média das atividades é: ${media} 
+        `
+
+
+    }
+</script>
+</html>

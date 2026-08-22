@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <h1>Dividindo a pizza e a caixinha do entregador</h1>
+
+    <span>Insira o sabor da pizza: </span>
+    <input type="text" id="ipt_sabor"> <br>
+
+    <span>Insira o valor da pizza: </span>
+    <input type="text" id="ipt_valor"> <br>
+
+    <span>Insira a quantidade de amigos: </span>
+    <input type="text" id="ipt_qtd_amigos"> <br>
+
+    <button onclick="calcular()">Ver valor por amigo</button>
+
+    <div id="div_result">
+
+    </div>
+</body>
+
+<script>
+    function calcular() {
+        let valorPizza = Number(ipt_valor.value);
+        let valorComTaxa = valorPizza + (valorPizza * 0.1);
+        let sabor = ipt_sabor.value;
+        let qtdAmigos = ipt_qtd_amigos.value;
+        let valorAmigos = (valorComTaxa / qtdAmigos).toFixed(2);
+
+        div_result.innerHTML = `Cada amigo vai colaborar com R$${valorAmigos} para a pizza de ${sabor}        `
+    }
+</script>
+
+
+</html>

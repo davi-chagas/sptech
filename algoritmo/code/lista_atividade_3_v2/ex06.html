@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+<body>
+    <h1>Eleição</h1>
+
+    <span>Insira a quantidade de votos do Candidato A: </span> 
+    <input type="text" id="ipt_candidato1"> <br>
+
+    <span>Insira a quantidade de votos do Candidato B: </span>
+    <input type="text" id="ipt_candidato2"> <br>
+
+    <span>Insira a quantidade de votos brancos: </span>
+    <input type="text" id="ipt_brancos"> <br>
+
+    <span>Insira a quantidade de votos nulos: </span>
+    <input type="text" id="ipt_nulos"> <br>
+
+    <button onclick="calcular()">Resultado da Eleição</button>
+
+    <div id="div_result">
+
+    </div>
+</body>
+
+<script>
+    function calcular(){
+        let candidato1 = Number(ipt_candidato1.value);
+        let candidato2 = Number(ipt_candidato2.value);
+        let brancos = Number(ipt_brancos.value);
+        let nulos = Number(ipt_nulos.value);
+        
+        let totalVotos = candidato1 + candidato2 + brancos + nulos;
+        let percentualCandidato1 = candidato1 * 100 / totalVotos;
+        let percentualCandidato2 = candidato2 * 100 / totalVotos;
+        let percentualInvalidos = (brancos + nulos) * 100 / totalVotos;
+
+        div_result.innerHTML = `<br> Total de votos: ${totalVotos} <br>
+        Candidato A: ${percentualCandidato1}% (${candidato1} votos) <br>
+        Candidato B: ${percentualCandidato2}% (${candidato2} votos) <br>
+        Inválidos: ${percentualInvalidos}% (${brancos + nulos} votos)
+        `
+    }
+</script>
+</html>

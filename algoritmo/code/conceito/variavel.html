@@ -14,11 +14,17 @@
     <span>Número 2: </span>
     <input type="text" id="ipt_n2">
 
-    <button onclick="calcular()"></button>
+    <button onclick="calcular()">Calcular média</button>
 
     <div id="div_result">
-        
+
     </div>
 </body>
+
+    <script>
+        function calcular(){
+            div_result.innerHTML = `A média entre ${ipt_n1.value} e ${ipt_n2.value} é: ${(Number(ipt_n1.value) + Number(ipt_n2.value)) / 2}`
+        }
+    </script>
 
 </html>

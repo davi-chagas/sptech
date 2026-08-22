@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <h1>Cálculo da média da SPTech</h1>
+
+    <span>Insira sua nota da Avaliação Continuada: </span>
+    <input type="text" id="ipt_continuada"> <br>
+
+    <span>Insira sua nota da Avaliação Semestral: </span>
+    <input type="text" id="ipt_semestral"> <br>
+
+    <span>Insira o seu nome: </span>
+    <input type="text" id="ipt_nome"> <br>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <div id="div_result"></div>
+</body>
+    <script>
+        function calcularMedia(){
+            let nome = ipt_nome.value;
+            let continuada = Number(ipt_continuada.value);
+            let semestral = Number(ipt_semestral.value);
+            let media = ((ipt_continuada.value * 0.4) + (ipt_semestral.value) * 0.6);
+
+            div_result.innerHTML = `A média de ${nome} será de ${media}`
+        }
+    </script>
+</html>

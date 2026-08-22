@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <h1>Controle Financeiro Mensal de uma empresa</h1>
+
+    <span>Insira o valor recebido com a venda das peças: </span>
+    <input type="text" id="ipt_valor_venda_recebido"> <br>
+
+    <span>Insira o valor recebido com a venda de serviço</span>
+    <input type="text" id="ipt_valor_venda_servico"> <br>
+
+    <span>Insira o porcentual de imposto sobre os valores recebidos: </span>
+    <input type="text" id="ipt_porcentual"> <br>
+
+    <span>Insira o valor de gastos</span>
+    <input type="text" id="ipt_gastos"> <br>
+
+    <button onclick="calcular()">Acumular</button>
+
+    <div id="div_result"></div>
+
+</body>
+
+<script>
+    let contagem = 0;
+    let acumulado = 0;
+    function calcular() {
+        contagem += 1;
+        let valor_venda_recebido = Number(ipt_valor_venda_recebido.value);
+        let valor_venda_servico = Number(ipt_valor_venda_servico.value);
+        let porcentual = Number(ipt_porcentual.value)
+        let gastos = Number(ipt_gastos.value);
+        let total = valor_venda_recebido + valor_venda_servico;
+        let valor_do_imposto = (valor_venda_recebido + valor_venda_servico) / porcentual;
+        let saldo_final = total - gastos - porcentual;
+        acumulado += saldo_final;
+
+        div_result.innerHTML += `<br> Resumo do mês ${contagem} <br>
+        Total recebido = R$${total} <br>
+        Valor do imposto = R$${valor_do_imposto} <br>
+        Saldo final de = R$${saldo_final} <br>
+        Acumulado até o Momento = R${acumulado} <br> `
+    }
+</script>
+
+</html>
