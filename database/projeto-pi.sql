@@ -2,7 +2,11 @@ CREATE DATABASE projeto_pi;
 
 USE projeto_pi;
 
- /* padrão snake_case*/
+ /* padrões: 
+	snake_case 
+	tinyint - para boolean 
+    cep e cnpj não armazenarão . e -
+ */
  
 CREATE TABLE usuario(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,7 +16,7 @@ CREATE TABLE usuario(
     dt_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     status TINYINT DEFAULT 1, -- por default ativo
     role VARCHAR(10),
-    CONSTRAINT chRole CHECK (role IN('ADMIN', 'USUARIO'))
+    CONSTRAINT chRole CHECK (role IN('ADMIN', 'USUARIO', 'GESTOR'))
 );
 
 CREATE TABLE empresa (
@@ -39,7 +43,7 @@ CREATE TABLE unidade (
 
 CREATE TABLE sensor (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    tolva_id INT,
+    tolva_id INT NULL,
 	status TINYINT DEFAULT 1 -- por default ativo
 );
 
@@ -50,7 +54,6 @@ CREATE TABLE leitura_sensor (
     nivel_percentual DECIMAL(5,2) NOT NULL,
     estado VARCHAR (10) NOT NULL
     CONSTRAINT chEstado CHECK (estado IN('baixo', 'médio', 'alto', 'critico')),
-    -- alerta
     dt_leitura DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -62,33 +65,45 @@ CREATE TABLE tolva (
     residuo VARCHAR(45) NOT NULL
 );
 
--- COMANDOS DE ADMIN
+-- INSERÇÃO DE DADOS
+INSERT INTO usuario (nome, email, senha, dt_cadastro, role) VALUES 
+('Brian', 'brian@gmail.com', 'senha123', NOW(), 'ADMIN'),
+('Fernando Brandão', 'fernando@gmail.com', 'senha123', NOW(), 'USUARIO'),
+('Julia Araripe', 'julia@gmail.com', 'senha123', NOW(), 'GESTOR');
+
+INSERT INTO empresa (nome, cnpj, logradouro, cidade, estado, cep, dt_cadastro) VALUES 
+('Grupo Braido', '1234567891234', 'Rua lala', 'São Caetano do Sul', 'SP', '00000000', NOW());
 
 -- LISTAR TODOS OS USUARIOS
 SELECT * FROM usuario;
 
--- LISTAR TODOS OS USUARIOS ATIVOS
-SELECT * FROM usuario
-WHERE status != 0;
-
--- LISTAR TODOS OS USUARIOS INATIVOS
-SELECT * FROM usuario
-WHERE status = 0;
+-- LISTAR USUÁRIOS ATIVOS E INATIVOS
+SELECT id, nome,
+CASE
+	WHEN status = 1 THEN 'Ativo'
+	WHEN status = 0 THEN 'Inativo'
+    END as 'Status do usuário'
+FROM usuario;
 
 -- LISTAR TODAS AS EMPRESAS
 SELECT * from empresa;
 
--- Listar todas as empresas ativas
-SELECT * FROM empresa
-WHERE status != 0;
+-- Listar empresas ativas e inativas
+SELECT id, 
+nome,
+CASE
+	WHEN status = 1 THEN 'Ativo'
+    WHEN status = 0 THEN 'Inativo'
+END as 'Status empresa'
+FROM empresa;
 
--- Listar todas as empresas inativas;
-SELECT * FROM empresa
-WHERE status = 0;
+-- Exibir tempo da empresa cadastrada
+SELECT id, nome,
+TIMESTAMPDIFF(DAY, dt_cadastro, NOW()) as tempo_cadastrado
+from empresa;
 
 
 -- MONITORAMENTO DAS TOLVAS
-
 -- Contar a quantidade de tolvas não nulls.
 SELECT COUNT(id) FROM tolva;
 
@@ -98,9 +113,3 @@ SELECT id, capacidade FROM tolva;
 -- Exibir o id e codigo do sensor do qual alerta é TRUE
 SELECT id, codigo from sensor
 WHERE alerta = 1;
-
-
-
-
-
-
