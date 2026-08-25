@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 09</title>
 </head>
+
 <body>
     <h1>Controle de horas assistindo streaming</h1>
 
@@ -19,18 +21,18 @@
     <div id="div_result"></div>
 </body>
 <script>
-    function verificarNivel(){
+    function verificarNivel() {
         let serie = ipt_serie.value;
         let qtd_eps = Number(ipt_qtd_eps.value);
-        
-        // se o usuario gastou mais de 30 hrs
-        // 22 * 3 == 1h
+
+        // 22 * 81 == 1800 Min == 30hrs
 
         div_result.innerHTML = `Vejo que você gosta da série ${serie} <br>`;
-            if(qtd_eps > 30){
-                div_result.innerHTML += `<br> Uau, você realmente gosta dessa série!`
-            }
+        if (qtd_eps > 81) {
+            div_result.innerHTML += `<br> Uau, você realmente gosta dessa série!`
+        }
 
     }
 </script>
+
 </html>

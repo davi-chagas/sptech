@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 03</title>
 </head>
+
 <body>
     <h1>Controle de notas </h1>
 
-    <span>Insira o valor da sua primeira nota: </span>
+    <span>Digite o valor da sua primeira nota: </span>
     <input type="text" id="ipt_n1"> <br>
 
-    <span>Insira o valor da sua segunda nota: </span>
+    <span>Digite o valor da sua segunda nota: </span>
     <input type="text" id="ipt_n2"> <br>
 
-    <span>Insira o valor da sua terceira nota: </span>
+    <span>Digite o valor da sua terceira nota: </span>
     <input type="text" id="ipt_n3"> <br>
 
     <button onclick="calcularDesempenho()">Calcular Desempenho</button>
@@ -23,22 +25,22 @@
 
     </div>
 </body>
-    <script>
-        function calcularDesempenho(){
-            let n1 = Number(ipt_n1.value);
-            let n2 = Number(ipt_n2.value);
-            let n3 = Number(ipt_n3.value);
+<script>
+    function calcularDesempenho() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let n3 = Number(ipt_n3.value);
 
-            let media = ((n1 + n2 + n3) / 3).toFixed(2);
+        let media = ((n1 + n2 + n3) / 3).toFixed(1);
 
-            div_result.innerHTML = `Sua média foi de ${media} <br>`
+        div_result.innerHTML = `Sua média foi de ${media} <br>`
 
-            if(media > 9.4){
-                div_result.innerHTML += `Parabéns, você é fora de série`
-            }
-
+        if (media > 9.4) {
+            div_result.innerHTML += `Parabéns, você é fora de série`
         }
-    </script>
+
+    }
+</script>
 
 
 </html>
