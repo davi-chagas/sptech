@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <h1>Rola a pizza</h1>
+
+    <span>Insira o valor da pizza: </span>
+    <input type="text" id="ipt_valor"> <br>
+
+    <span>Insira a quantidade de amigos reunidos: </span>
+    <input type="text" id="ipt_qtd_amigos"> <br>
+
+    <button onclick="calcular()">Rola a pizza?</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular(){
+        let valor_pizza = Number(ipt_valor.value);
+        let qtd_amigos = Number(ipt_qtd_amigos.value);
+        let valor_dividido = (valor_pizza / qtd_amigos).toFixed(2);
+
+        div_result.innerHTML = `Cada amigo vai pagar R$${valor_dividido} pela pizza <br>`
+
+        if(valor_dividido > 20){
+            div_result.innerHTML += `<br> Deu ruim! Pizza muito cara` 
+        }
+    }
+</script>
+</html>

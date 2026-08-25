@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h1> Cheque especial </h1>
+
+    <span>Insira o saldo da conta: </span>
+    <input type="text" id="ipt_saldo"> <br>
+
+    <span>Insira o valor do débito: </span>
+    <input type="text" id="ipt_debito"> <br>
+
+    <button onclick="analisar()">Analisar Conta</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let saldo = Number(ipt_saldo.value);
+        let debito = Number(ipt_debito.value);
+        let novo_saldo = saldo - debito;
+
+        div_result.innerHTML = `O saldo da conta corrente é ${novo_saldo} <br>`
+
+        if (novo_saldo < 0) {
+            div_result.innerHTML += `ENTROU NO CHEQUE ESPECIAL <br> `
+        }
+
+    }
+</script>
+
+</html>
