@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 17</title>
+</head>
+<body>
+    <h1>Teste de divisibilidade</h1>
+
+    <label for="ipt_n1">Insira o primeiro número: </label>
+    <input type="text" id="ipt_n1"> <br>
+
+    <label for="ipt_n2">Insira o segundo número: </label>
+    <input type="text" id="ipt_n2"> <br>
+
+    <button onclick="analisar()">Testar</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    function analisar(){
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+
+        if(n1 % n2 == 0){
+            div_result.innerHTML = `<img src="https://imgs.search.brave.com/fbe3s1ydxX28g8MBVb6zGdhaX55sAK4ywHE__z_1BDA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/dGh1bWJfYmFjay9m/aDI2MC9iYWNrZ3Jv/dW5kLzIwMjIwODA4/L3BuZ3RyZWUtYS1j/aGVlcmZ1bC1tYW4t/dGFraW5nLWEtc2Vs/ZmllLWFuZC1naXZp/bmctYS10aHVtYnMt/dXAtdG8tdGhlLWNh/bWVyYS13aXRoLWFu/LW9wdGltaXN0aWMt/ZXhwcmVzc2lvbi1w/aG90by1pbWFnZV80/Nzk1MjUwMC5qcGc"></img>`
+        } else {
+            div_result.innerHTML = `<img src="https://imgs.search.brave.com/11XkCpTA5r1Sc2nftfXLJFpVnkC0QZtJt6D6ZFcfPmw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9kaXNs/aWtlLXBsYXlmdWwt/c2VuaW9yLXdvbWFu/LW1ha2luZy1nZXN0/dXJlLXN0YW5kLXN0/YW5kaW5nLWFnYWlu/c3QtZ3JleS1iYWNr/Z3JvdW5kLTEyODI0/MTQxOS5qcGc"></img>`
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 21</title>
+</head>
+
+<body>
+    <h1>Análise de temperatura </h1>
+    <label for="ipt_temperatura">Insira a temperatura: </label>
+    <input type="text" id="ipt_temperatura">
+
+    <button onclick="verificarClima()">Verificar clima</button>
+
+    <div id="div_result"></div>
+
+</body>
+
+<script>
+    function verificarClima() {
+        let temperatura = Number(ipt_temperatura.value);
+
+        if (temperatura < 10) {
+            div_result.innerHTML = `<img src="https://imgs.search.brave.com/OxsX3sE85TBAL3Uj1K-x2JwMWlgVOQA2y2gBX1zpsJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L3ByZW1pdW0tcGhv/dG8vcGVlbGVkLWJh/bmFuYS1pc29sYXRl/ZC13aGl0ZS1iYWNr/Z3JvdW5kLXdpdGgt/Y2xpcHBpbmctcGF0/aF84ODI4MS05Ny5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw/JnE9ODA"></img>`
+        } else {
+            div_result.innerHTML = `<img src="https://imgs.search.brave.com/YawlBEBsXY3oB7O0mK9crbEsrIClWKba85uiwqL7OJY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tYXJt/aXRleGRlc3VjZXNz/by5jb20uYnIvd3At/Y29udGVudC91cGxv/YWRzLzIwMjQvMTAv/Q29tby1zYWJlci1z/ZS1hLWJhbmFuYS1l/c3RhLWVzdHJhZ2Fk/YS5qcGc"></img>`
+        }
+    }
+</script>
+
+</html>

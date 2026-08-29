@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+    <h1>Análise da média de notas </h1>
+
+    <label for="ipt_n1">Insira a primeira nota: </label>
+    <input type="text" id="ipt_n1"> <br>
+
+    <label for="ipt_n2">Insira a segunda nota: </label>
+    <input type="text" id="ipt_n2"> <br>
+
+    <button onclick="calcularMedia()">Vericar situação</button>
+
+    <div id="div_result"></div>
+
+</body>
+<script>
+    function calcularMedia(){
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+
+        let media = (n1 + n2) / 2;
+
+        if(media >= 6){
+            div_result.innerHTML = 'Parabéns, aprovado!'
+        } else {
+            div_result.innerHTML = 'Tente outra vez...'
+        }
+    }
+</script>
+</html>

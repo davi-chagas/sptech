@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 10</title>
 </head>
+
 <body>
     <h1> Permissão para festa - 2</h1>
 
-    <span>Insira a sua idade: </span>
+    <label for="ipt_idade">Insira a sua idade: </label>
     <input type="text" id="ipt_idade"> <br>
 
     <button onclick="analisar()">Ir pra festa</button>
@@ -19,10 +21,10 @@
 </body>
 
 <script>
-    function analisar(){
+    function analisar() {
         let idade = Number(ipt_idade.value);
 
-        if(idade < 18){
+        if (idade < 18) {
             div_result.innerHTML = `Pedir permissão para responsável <br>`
         } else {
             div_result.innerHTML = `Levar documentos <br>`
@@ -30,4 +32,5 @@
         div_result.innerHTML += `#partiuFesta`
     }
 </script>
+
 </html>

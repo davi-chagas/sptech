@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 1 - Avaliativa 3 - Controle de Corridas</title>
+</head>
+
+<body>
+    <h1>Simulação de Corridas de Táxi</h1>
+
+    <label for="ipt_distancia_percorrida">Insira a distancia que será percorrida: </label>
+    <input type="text" id="ipt_distancia_percorrida"> <br>
+
+    <label for="ipt_velocidade_media">Insira a velocidade média: </label>
+    <input type="text" id="ipt_velocidade_media"> <br>
+
+    <button onclick="calcularCorrida()">Simular</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let combustivel_total_porcentagem = 100;
+    let combustivel_total_litros = 25;
+
+    function calcularCorrida() {
+        let combustivel = 25;
+        let distancia = Number(ipt_distancia_percorrida.value);
+        let velocidade_media = Number(ipt_velocidade_media.value);
+
+        let tempo_medio = distancia / velocidade_media;
+        let combustivel_utilizado = distancia * 0.1;
+        combustivel_total_litros -= combustivel_utilizado;
+        let porcentagem = (distancia * combustivel_utilizado) / combustivel;
+        combustivel_total_porcentagem -= porcentagem;
+
+        if (combustivel_total_porcentagem >= 30) {
+            div_result.innerHTML += `Ao percorrer ${distancia} km, em velocidade média de ${velocidade_media} km/h, a viagem durou ${tempo_medio} horas. Ao todo, foram gastos ${combustivel_utilizado} litros de combustível (${porcentagem}%). <b> Restam ${combustivel_total_litros} litros de combustível (${combustivel_total_porcentagem}%)</b>. <br>`
+            div_result.innerHTML += `<b>Continue a rodar!</b>`
+        } else {
+            div_result.innerHTML += `<br> <br> Ao percorrer ${distancia} km, em velocidade média de ${velocidade_media} km/h, a viagem durou ${tempo_medio} horas. Ao todo, foram gastos ${combustivel_utilizado} litros de combustível (${porcentagem}%). <b>Restam ${combustivel_total_litros} litros de combustível (${combustivel_total_porcentagem}%) </b>. <br>`
+            div_result.innerHTML += `<b>É melhor parar para reabastecer!</b>`
+        }
+
+
+
+    }
+</script>
+
+</html>

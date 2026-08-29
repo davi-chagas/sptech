@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+<body>
+    <h1>Análise de frequência do aluno</h1>
+
+    <label for="ipt_frequencia">Insira a frequência: </label>
+    <input type="text" id="ipt_frequencia"> 
+
+    <button onclick="calcularFrequencia()">Analisar frequência</button> 
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcularFrequencia(){
+        let frequencia = Number(ipt_frequencia.value);
+
+        if(frequencia < 50){
+            div_result.innerHTML = `<img src="https://jj-justjaredjr-media.s3.us-east-1.amazonaws.com/wp-content/uploads/2008/11/swift-paparazzi/taylor-swift-paparazzi-02.jpg"></img>`
+        } else {
+            div_result.innerHTML = `<img src="https://imgs.search.brave.com/Hwb9RFQyP8JlQCuNvh9JFNEOIJbajdp1PFhD1FIWiH8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2M0LzFm/L2E5L2M0MWZhOTM5/ZjY5YjY3ODRiOGFl/MjMzMjZiZDJhZjE3/LmpwZw"></img>`
+        }
+    }
+</script>
+</html>

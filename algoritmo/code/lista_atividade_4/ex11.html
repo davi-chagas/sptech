@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+
+    <h1>Análise CNH </h1>
+
+    <label for="ipt_nome" id="">Digite o nome:  </label>
+    <input type="text" id="ipt_nome"> <br>
+
+    <label for="ipt_idade">Digite a idade: </label>
+    <input type="text" id="ipt_idade"> <br>
+
+    <button onclick="avaliar()">Avaliar aluno</button>
+
+    <div id="div_result"></div>
+</body>
+    <script>
+        function avaliar(){
+            let nome = ipt_nome.value;
+            let idade = Number(ipt_idade.value);
+
+            if(idade  >= 18){
+                div_result.innerHTML = `${nome}, vamos tirar a CNH?`
+            } else {
+                div_result.innerHTML = `${nome}, vai jogar o PlayStation`
+            }
+        }
+    </script>
+
+</html>

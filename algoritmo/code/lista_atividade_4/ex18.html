@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 18</title>
+</head>
+
+<body>
+    <h1>Mercado BOM DOCE </h1>
+
+    <label for="ipt_qtd_doces">Insira a qtd. doces: </label>
+    <input type="text" id="ipt_qtd_doces"> <br>
+
+    <button onclick="calcular()">Compra</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let qtd_doces = Number(ipt_qtd_doces.value);
+        let valor = 0
+
+        if (qtd_doces > 12) {
+            valor = qtd_doces * 2.50
+        } else {
+            valor = qtd_doces * 3;
+        }
+
+        div_result.innerHTML = `O valor da sua compra foi de ${valor}`
+
+    }
+</script>
+
+</html>

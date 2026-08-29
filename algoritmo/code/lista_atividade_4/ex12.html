@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h1>Verificação das finanças </h1>
+
+    <label for="ipt_valor_saldo">Insira o valor do seu saldo: </label>
+    <input type="text" id="ipt_valor_saldo"> <br>
+
+    <button onclick="verificar()">Verificar Finanças</button>
+
+    <div id="div_result"></div>
+
+</body>
+<script>
+    function verificar() {
+        let valor_saldo = Number(ipt_valor_saldo.value)
+
+        if(valor_saldo == 0){
+            div_result.innerHTML = `Conta zerada`
+        }
+
+        if(valor_saldo < 0 ){
+            div_result.innerHTML = `Está devendo!`
+        }
+
+        if(valor_saldo > 0){
+            div_result.innerHTML = `Saldo positivo! sorriso`
+        }
+    }
+</script>
+
+</html>

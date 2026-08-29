@@ -10,13 +10,13 @@
 <body>
     <h1>Controle de notas </h1>
 
-    <span>Digite o valor da sua primeira nota: </span>
+    <label for="ipt_n1">Insira o valor da primeira nota: </label>
     <input type="text" id="ipt_n1"> <br>
 
-    <span>Digite o valor da sua segunda nota: </span>
+    <label for="ipt_n2">Insira o valor da segunda nota: </label>
     <input type="text" id="ipt_n2"> <br>
 
-    <span>Digite o valor da sua terceira nota: </span>
+    <label for="ipt_n3">Insira o valor da terceira nota: </label>
     <input type="text" id="ipt_n3"> <br>
 
     <button onclick="calcularDesempenho()">Calcular Desempenho</button>
@@ -31,9 +31,9 @@
         let n2 = Number(ipt_n2.value);
         let n3 = Number(ipt_n3.value);
 
-        let media = ((n1 + n2 + n3) / 3).toFixed(1);
+        let media = (n1 + n2 + n3) / 3;
 
-        div_result.innerHTML = `Sua média foi de ${media} <br>`
+        div_result.innerHTML = `Sua média foi de ${(media).toFixed(2)} <br>`
 
         if (media > 9.4) {
             div_result.innerHTML += `Parabéns, você é fora de série`

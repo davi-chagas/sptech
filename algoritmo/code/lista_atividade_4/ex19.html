@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19</title>
+</head>
+<body>
+    <h1>Análise de economia </h1>
+
+    <label for="ipt_meta">Insira a sua meta: </label>
+    <input type="text" id="ipt_meta"> <br>
+
+    <label for="ipt_guardado">Insira a quantia guardada: </label>
+    <input type="text" id="ipt_guardado"> <br>
+
+    <button onclick="analisar()">Analisar economia</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let meta = Number(ipt_meta.value);
+        let guardado = Number(ipt_guardado.value);
+
+        if(guardado >= meta){
+            div_result.innerHTML = `Parabéns, meta alcançada!`
+        } 
+
+        if(guardado > meta){
+            let diferenca = guardado - meta;
+            div_result.innerHTML = `Meta ultrapassada em ${diferenca}`;
+        }
+
+        if(guardado < meta){
+            let diferenca = meta - guardado;
+            div_result.innerHTML = `Força! Ainda em busca da meta! Falta ${diferenca}`
+        }
+    }
+</script>
+</html>

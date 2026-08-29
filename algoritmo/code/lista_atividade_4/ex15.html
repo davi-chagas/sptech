@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+
+<body>
+    <h1>Controle de peso no elevador - v2</h1>
+
+    <label for="ipt_qtd_homens">Insira a qtd. homens: </label>
+    <input type="text" id="ipt_qtd_homens"> <br>
+
+    <label for="ipt_qtd_mulheres">Insira a qtd. mulheres: </label>
+    <input type="text" id="ipt_qtd_mulheres"> <br>
+
+    <button onclick="calcularPeso()">Ligar elevador</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcularPeso() {
+        let homens = Number(ipt_qtd_homens.value);
+        let mulheres = Number(ipt_qtd_mulheres.value);
+
+        let peso = (homens * 90) + (mulheres * 70);
+
+        if (peso <= 500) {
+            div_result.innerHTML = `<p style="color: green;"> Elevador vai se mover, pois está com ${peso}kg </p>`
+        } else {
+            let peso_ideal = peso - 500;
+            div_result.innerHTML = `<p style="color: red;"> Alguém precisa descer. Precisa perder ${peso_ideal} para mover o elevador </p>`
+        }
+    }
+</script>
+
+</html>
