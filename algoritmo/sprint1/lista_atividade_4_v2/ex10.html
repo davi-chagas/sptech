@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericio 10</title>
+</head>
+
+<body>
+    <h1>Limite de Velocidade</h1>
+
+    <label for="ipt_velocidade">Insira a velocidade que estava dirigindo: </label>
+    <input type="text" id="ipt_velocidade"> <br>
+
+    <label for="ipt_velocidade_limite">Insira a velocidade limite da via: </label>
+    <input type="text" id="ipt_velocidade_limite"> <br>
+
+    <button onclick="verificar()">Verificar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    function verificar() {
+        let velocidade = Number(ipt_velocidade.value);
+        let velocidade_limite = Number(ipt_velocidade_limite.value);
+
+        // quantos % de velocidade de velocidade limite
+        let porcentagem = velocidade / velocidade_limite * 100;
+        let porcentagem_ideal = 100;
+        let porcentagem_razao = porcentagem - porcentagem_ideal;
+        console.log(porcentagem);
+
+        if (velocidade <= velocidade_limite) {
+            div_result.innerHTML = '<b>Velocidade dentro do limite. Boa direção!</b>'
+        } else if (porcentagem_razao <= 20) {
+            div_result.innerHTML = '<b>Atenção! Excedendo o limite permitido.</b>'
+        } else {
+            div_result.innerHTML = '<b>Multa grave! Velocidade muito acima do permitido.</b>'
+        }
+    }
+</script>
+
+</html>

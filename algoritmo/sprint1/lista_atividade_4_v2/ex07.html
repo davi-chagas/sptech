@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+<body>
+    <h1>Consumo de Calorias: Sua Dieta Está Saudável?</h1>
+
+    <label for="ipt_qtd_paes">Insira a qtd. de pães consumidos por dia: </label>
+    <input type="text" id="ipt_qtd_paes"> <br>
+
+    <label for="ipt_qtd_paes">Insira a qtd. de bolachas consumidas por dia: </label>
+    <input type="text" id="ipt_qtd_bolacha"> <br>
+
+    <label for="ipt_qtd_achocolatado">Insira a qtd. de achocolatos consumido por dia: </label>
+    <input type="text" id="ipt_qtd_achocolatado"> <br>
+
+    <button onclick="calcularCalorias()">Verificar Calorias</button>
+
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcularCalorias(){
+        let qtd_paes = Number(ipt_qtd_paes.value);
+        let qtd_bolachas = Number(ipt_qtd_bolacha.value);
+        let qtd_achocolatado = Number(ipt_qtd_achocolatado.value);
+
+        let calorias_total = (qtd_paes * 50) + (qtd_bolachas * 80) + (qtd_achocolatado * 70);
+
+        if(calorias_total < 200){
+            div_result.innerHTML = 'Parabéns, vai ficar em forma!'
+        } else if(calorias_total  <= 400) {
+            div_result.innerHTML = 'Cuidado, vai ficar menos saudável!'
+        } else {
+            div_result.innerHTML = 'Alerta crítico de saúde!!!'
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_num">Número: </label>
+    <input type="text" id="ipt_num">
+    <button onclick="verificar()">Verificar</button>
+
+    <div id="div_mensagem"></div>
+</body>
+<script>
+    function verificar() {
+        let num = Number(ipt_num.value);
+
+        if (num < 0) {
+            div_mensagem.innerHTML = `O número ${num} é negativo`
+        } else {
+            // aninhamento == encadear as tomadas de decições
+            if (num <= 100) {
+                div_result.innerHTML = `O número ${num} está entre 0 e 100`
+            } else { // num > 100
+                div_result.innerHTML = `O número ${num} é maior que 100`
+            }
+        }
+    }
+
+
+</script>
+
+</html>

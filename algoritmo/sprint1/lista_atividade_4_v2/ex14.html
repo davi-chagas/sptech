@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+    <h1> Representação do humor do usuário </h1>
+
+    <label for="select_result">Como você está se sentindo hoje: </label>
+    <select id="select_result">
+        <option value="feliz.png">Feliz</option>
+        <option value="triste.png">Triste</option>
+        <option value="bravo.png">bravo</option>
+        <option value="surpreso.png">Surpreso</option>
+        <option value="cansado.png">cansado</option>
+    </select>
+
+    <button onclick="analisarHumor()">Mostrar Humor</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisarHumor() {
+        let humor = select_result.value;
+
+        if (humor == 'feliz.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/lwWJaT71BLTQRC_XindL4LLr-KVwQrKz4QwYdKLX-J4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDkv/MTUzLzM0MC9zbWFs/bC9oYXBweS15ZWxs/b3ctZW1vamktd2l0/aC1hLWJpZy1zbWls/ZS1wbmcucG5n"></img>'
+        } else if (humor == 'triste.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/5mGmaTOAjFVnKmEXlfWKS6S5qpVBkBo0BQZeoGlnYpU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjAv/Njk3LzM2Ny9zbWFs/bC8zZC1yZW5kZXJl/ZC1zYWQteWVsbG93/LWVtb2ppLXdpdGgt/dGVhcnMtb24tdHJh/bnNwYXJlbnQtYmFj/a2dyb3VuZC1kaXNw/bGF5aW5nLWdyaWVm/LWFuZC1zb3Jyb3ct/cG5nLnBuZw"></img>'
+        } else if (humor == 'bravo.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/3AYItnr53JPs-FuQx9ebp6SKCFGgbnoKyi-_wM-5BxI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMy8w/Ny8xMS8wNS81MS9l/bW9qaS04MTE5NjQ5/XzEyODAucG5n"></img>'
+        } else if (humor == 'surpreso.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/PiZKRKDU_8X3cTw3d3cBamJeDqFbTOYYGzN27Jb2pGg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvcHJl/dmlld3MvMDY4LzQ3/NC8xMjQvbm9uXzJ4/L3N1cnByaXNlZC1l/bW9qaS13aXRoLXdp/ZGUtZXllcy1hbmQt/b3Blbi1tb3V0aC1v/bi10cmFuc3BhcmVu/dC1iYWNrZ3JvdW5k/LWZyZWUtcG5nLnBu/Zw"></img>'
+        } else {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/M61R5PAvy_EAT6bK4Kk8pEQzdQLqmp49W2c2csmNrQc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L3ZldG9yZXMtcHJl/bWl1bS9yb3N0by1j/YW5zYWRvLWdyYW5k/ZS10YW1hbmhvLWRl/LWVtb2ppLWFtYXJl/bG8tc29ycmlzby1j/b20tY2FiZWxvXzU5/OTA2Mi0xMTA4NS5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw/JnE9ODA"></img>'
+
+        }
+    }
+</script>
+
+</html>

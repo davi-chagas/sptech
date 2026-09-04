@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    <h1>Resto da Divisão por 5</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="analisar()">Multiplo de 5</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let num = Number(ipt_num.value);
+
+        if(num < 0){
+            alert('Digite um número maior que zero')
+        } else if (num % 5 == 0) {
+            div_result.innerHTML = 'Perfeito, esse número é multiplo de cinco'
+        } else if (num % 5 == 1 ) {
+            div_result.innerHTML = 'Vich, sobrou um'
+        } else if (num % 5 == 2 ){
+            div_result.innerHTML = 'Para esse número o resto é dois'
+        } else if (num % 5 == 3){
+            div_result.innerHTML = 'Com mais dois daria certo'
+        } else if (num % 5 == 4 ){
+            div_result.innerHTML = 'Só faltou 1 para ser múltiplo de 5'
+        }
+    }
+</script>
+</html>

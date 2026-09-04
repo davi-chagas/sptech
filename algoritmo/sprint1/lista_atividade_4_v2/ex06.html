@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+    <h1>Times Paulistas: O Canto da Sua Torcida!</h1>
+
+    <label for="select_result">Selecione o time que torce: </label>
+    <select id="select_result">
+        <option value="Corinthians">Corinthians</option>
+        <option value="Santos">Santos</option>
+        <option value="São Paulo">São Paulo</option>
+        <option value="Palmeiras">Palmeiras</option>
+    </select>
+
+    <button onclick="cantar()">Fale sobre esse time</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function cantar() {
+        let time = select_result.value;
+
+        if (time == 'Corinthians') {
+            div_result.innerHTML = '<p style="background-color: black; color: white;">Salve o corinthians</p>'
+        } else if (time == 'Santos') {
+            div_result.innerHTML = '<p style="color:black">Agora quem da a bola é o santos</p>'
+        } else if(time == 'São Paulo'){
+            div_result.innerHTML = '<p style="background-color: black; color: red;">Salve o Tricolor paulista</p>'
+        } else {
+            div_result.innerHTML = '<p style="background-color: green; color: white;">Salve o alviverde imponente</p>'
+        }
+
+    }
+</script>
+
+</html>

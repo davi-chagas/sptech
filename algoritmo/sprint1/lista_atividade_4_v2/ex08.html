@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericio 8</title>
+</head>
+
+<body>
+    <h1>Meta de Economia: Você Está no Caminho Certo?</h1>
+
+    <label for="ipt_meta">Insira a meta de economia: </label>
+    <input type="text" id="ipt_meta"> <br>
+
+    <label for="ipt_guardado">Insira a quantidade guardada: </label>
+    <input type="text" id="ipt_guardado"> <br>
+
+    <button onclick="analisarEconomia()">Analisar economia</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    function analisarEconomia() {
+        let meta = Number(ipt_meta.value);
+        let guardado = Number(ipt_guardado.value);
+        let diferenca = guardado - meta;
+
+        if (guardado == meta) {
+            div_result.innerHTML = 'Parabéns, meta alcançada!';
+        } else if (guardado > meta) {
+            div_result.innerHTML += `<br> Meta ultrapassada em ${diferenca}`
+        } else {
+            div_result.innerHTML = 'Força! Ainda em busca da meta!'
+        }
+    }
+</script>
+
+</html>

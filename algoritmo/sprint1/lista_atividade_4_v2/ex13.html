@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h1>Imagem do Pokémon selecionado </h1>
+
+    <label for="select_result">Opções: </label>
+    <select id="select_result">
+        <option selected disabled>Selecione uma opção</option>
+        <option value="bulbasaur.png">Bulbasaur</option>
+        <option value="chamander.png" />Charmander</option>
+        <option value="squirtle.png">Squirtle</option>
+    </select>
+
+    <button onclick="mostrarPokemon()">Enviar</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    function mostrarPokemon() {
+        let pokemon = select_result.value;
+
+        if (pokemon == 'bulbasaur.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/YTG_qw-1KjrCAj-SvkoOt5M5HVvL_Sm_6glk-GcEdyI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zMy56/ZXJvY2hhbi5uZXQv/MjQwLzA5LzMxLzMy/ODY1NTkuYXZpZg"></img>'
+        } else if (pokemon == 'chamander.png') {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/s0q5qox9KTcDSEZ3r2R_Oiyqmx3Dabokf-l66bglqyc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2QyLzc0/L2I5L2QyNzRiOTY2/OTkzYzMxZTlhYjBj/OTMxYzRmNDcxMDM0/LmpwZw"></img>'
+        } else {
+            div_result.innerHTML = '<img src="https://imgs.search.brave.com/JYyh4sZHD3CiPJS7eFbXKJJ-9N989XoeEyDWey5xV-4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2M2L2Rm/L2Q4L2M2ZGZkODFm/MGQyYWZjZWE0NjI5/ZjdkNzdhMmJhMDE2/LmpwZw"></img>'
+        }
+    } 
+</script>
+
+</html>
