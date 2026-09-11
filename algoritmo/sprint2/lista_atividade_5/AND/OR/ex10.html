@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h1>Simulador de Preço do Bilhete Único de São Paulo</h1>
+
+    <select id="select_tipo_passageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso/pne">Idoso/PNE</option>
+    </select>
+
+    <select id="select_tipo_passagem">
+        <option value="4.40">Passagem única</option>
+        <option value="5.90">Passagem integração</option>
+    </select>
+
+    <button onclick="simular()">Simular preço</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function simular() {
+        let tipo_passageiro = select_tipo_passageiro.value;
+        let tipo_passagem = select_tipo_passagem.value;
+
+        if ((tipo_passagem == '4.40' || tipo_passagem == '5.90') && (tipo_passageiro == 'estudante')) {
+            let valor_meia = tipo_passagem / 2;
+            div_result.innerHTML = `Valor da passagem escolhida: R$${valor_meia}`
+        } else if (tipo_passageiro == 'idoso/pne') {
+            tipo_passagem = 0;
+            div_result.innerHTML = `Valor da passagem escolhida: R$${tipo_passagem}`
+        }
+        else if (tipo_passageiro == 'comum') {
+            div_result.innerHTML = `Valor da passagem escolhida: R$${tipo_passagem}`
+        }
+    }
+</script>
+
+</html>

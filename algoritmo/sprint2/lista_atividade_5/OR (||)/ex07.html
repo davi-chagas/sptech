@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    <h1>Análise de Parcelamento de Compra</h1>
+
+    <select id="select_metodo">
+        <option value="dinheiro">Dinheiro</option>
+        <option value="credito">Cartão de Credito</option>
+        <option value="debito">Cartão de débito</option>
+        <option value="boleto">Boleto</option>
+    </select>
+    <button onclick="analisar()">Analisar compra</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let metodo_pagamento = select_metodo.value;
+
+        if(metodo_pagamento == 'dinheiro' || metodo_pagamento == 'debito'){
+            div_result.innerHTML = 'Você terá que pagar a vista'
+        } else {
+            div_result.innerHTML = 'Pagamento poderá ser parcelado'
+        }
+    }
+</script>
+</html>

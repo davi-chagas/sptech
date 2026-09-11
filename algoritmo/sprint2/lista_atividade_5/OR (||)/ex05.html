@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+<body>
+    <h1>Processo Seletivo Mentes Brilhantes</h1>
+
+    <label for="ipt_nota_enem">Insira a nota do ENEM: </label>
+    <input type="text" id="ipt_nota_enem"> <br>
+
+    <label for="ipt_nota_vestibular">Insira a nota do vestibular: </label>
+    <input type="text" id="ipt_nota_vestibular">
+
+    <button onclick="analisar()">Avaliação</button>
+</body>
+<script>
+    function analisar(){
+        let nota_enem = Number(ipt_nota_enem.value);
+        let nota_vestibular = Number(ipt_nota_vestibular.value);
+
+        if(nota_enem >= 800 || nota_vestibular >= 700){
+            alert('Parabéns! Aprovado')
+        } else {
+            alert('Tente semestre que vem!')
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+<body>
+    <h1>Simulador de Preferências de Compras: Será que Robervaldo Gostaria?</h1>
+
+    <label for="ipt_tamanho_tela">Insira o tamanho da tela: </label>
+    <input type="text" id="ipt_tamanho_tela"> <br>
+
+    <label for="select_cor">Selecione a cor: </label>
+    <select id="select_cor">
+        <option value="preto">Preto</option>
+        <option value="prata">Prata</option>
+        <option value="azul">Azul</option>
+        <option value="vermelho">Vermelho</option>
+    </select>
+
+    <button onclick="analisar()">Será que ele gosta?</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let tamanho_tela = Number(ipt_tamanho_tela.value);
+        let cor = select_cor.value;
+
+        if(tamanho_tela >= 6.5 && cor == 'preto' || cor == 'prata'){
+            div_result.innerHTML = '<img src ="https://imgs.search.brave.com/iGCp0HOaw5X3f3fTBFm4pYr9FjqDL8-QV4xeljeQeH0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vc2VncmVk/b3Nkb211bmRvLnI3/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8wMy8xMy1h/dGl0dWRlcy1xdWUt/ZGlmZXJlLWFzLXBl/c3NvYXMtZmVsaXpl/cy1kYXMtb3V0cmFz/LTEzLmpwZz9yZXNp/emU9NjQwLDMyMCZx/dWFsaXR5PTg5JnNz/bD0x"></img>'
+        } else {
+            div_result.innerHTML = '<img src ="https://imgs.search.brave.com/ziDzeF1pb5HimuaLAjhF-GBi0FW7KdFbAiTRSEUF0OU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/dGh1bWJfYmFjay9m/aDI2MC9iYWNrZ3Jv/dW5kLzIwMjMwNTI3/L3BuZ3RyZWUteW91/bmctd29tYW4td2l0/aC1hLXNhZC1mYWNl/LWltYWdlXzI2NzMy/MzUuanBn"></img>'
+        }
+    }
+</script>
+</html>

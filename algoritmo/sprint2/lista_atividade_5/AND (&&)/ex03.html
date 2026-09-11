@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <h1>Validação de Notas: Seu Resultado é Aceitável?</h1>
+
+    <label for="ipt_nota">Insira a nota do aluno: </label>
+    <input type="text" id="ipt_nota">
+
+    <button onclick="analisar()">Avaliar aluno</button>
+</body>
+<script>
+    function analisar() {
+        let nota = Number(ipt_nota.value);
+
+        if (nota >= 0 && nota <= 10) {
+            alert('Nota válida!')
+        } else {
+            alert("Onde já se viu nota menor que 0 e maior que 10?!")
+        }
+    }
+</script>
+
+</html>

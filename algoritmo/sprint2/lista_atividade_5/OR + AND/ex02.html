@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>Aprovação de Crédito Bancário</h1>
+
+    <label for="ipt_renda">Insira a renda: </label>
+    <input type="text" id="ipt_renda"> <br>
+
+    <label for="ipt_score">Insira o score: </label>
+    <input type="text" id="ipt_score"> <br>
+
+    <label for="ipt_anos_correntista">Insira a qtd. anos correntista: </label>
+    <input type="text" id="ipt_anos_correntista"> <br>
+
+    <label for="select_dividas">Possui dividas?</label>
+    <select id="select_dividas">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+
+    <button onclick="analisar()">Analisar Crédito</button>
+</body>
+<script>
+    function analisar(){
+        let renda = Number(ipt_renda.value);
+        let score = Number(ipt_score.value);
+        let anos_correntista = Number(ipt_anos_correntista.value);
+        let divida_aberto = select_dividas.value;
+
+        if(renda >= 3000 && score >= 600 || (anos_correntista > 5 && divida_aberto == 'nao')){
+            alert('Empréstimo aprovado')
+        } else {
+            alert('Empréstimo negado')
+        }
+    }
+</script>
+</html>

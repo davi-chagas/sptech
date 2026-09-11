@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <h1>Processo Seletivo: Vestibular ou ENEM?</h1>
+
+    <label for="ipt_nota_vestibular">Insira a nota de vestibular: </label>
+    <input type="text" id="ipt_nota_vestibular"> <br>
+
+    <label for="ipt_nota_enem">Insira a nota de ENEM:</label>
+    <input type="text" id="ipt_nota_enem"> <br>
+
+    <label for="ipt_nota_redacao">Insira a nota da redação: </label>
+    <input type="text" id="ipt_nota_redacao">
+
+    <button onclick="verificar()">Verificar Aprovação</button>
+
+    <div id="div_resul"></div>
+</body>
+<script>
+    function verificar() {
+        let nota_vestibular = Number(ipt_nota_vestibular.value);
+        let nota_enem = Number(ipt_nota_enem.value)
+        let nota_redacao = Number(ipt_nota_redacao.value);
+
+        if(nota_vestibular >= 700 || nota_enem >= 650 && nota_enem > 0){
+            alert('Aprovado')
+        } else {
+            alert("Não aprovado")
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericio 9</title>
+</head>
+
+<body>
+    <h1>Acesso à Academia 24 Horas</h1>
+
+    <label for="select_plano">Escolha um plano: </label>
+    <select id="select_plano">
+        <option value="1">premium</option>
+        <option value="2">basico</option>
+    </select> <br>
+
+    <label for="select_hora_atual">Escolha um plano: </label>
+    <select id="select_hora_atual">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+    </select> <br>
+
+    <label for="select_check_in"> Check-in biometrico valido?</label>
+    <select id="select_check_in">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <button onclick="liberar()">Liberar catraca</button>
+</body>
+<script>
+    function liberar(){
+        let plano = Number(select_plano.value);
+        let hora = Number(select_hora_atual.value);
+        let check_in = Number(select_check_in.value);
+
+        if(plano == 1 || plano == 2 && (hora >= 6 && hora <= 22) && check_in == 1) {
+            alert('Acesso liberado')
+        } else {
+            alert("Acesso negado")
+        }
+    }
+</script>
+</html>

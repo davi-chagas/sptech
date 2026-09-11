@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Promoção Relâmpago da Loja</h1>
+
+
+    <label for="ipt_qtd_itens">Insira a qtd. itens comprado: </label>
+    <input type="text" id="ipt_qtd_itens"> <br>
+
+    <label for="ipt_total_compra">Insira o valor total da compra: </label>
+    <input type="text" id="ipt_total_compra"> <br>
+
+    <label for="select_fidelidade">Cliente faz parte do programa fidelidade?</label>
+    <select id="">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <label for="ipt_cupom">Insira o cupom: </label>
+    <input type="text" id="ipt_cupom"> <br>
+
+    <button onclick="analisar()">Aplicar desconto</button>
+</body>
+<script>
+    function analisar(){
+        let qtd_itens = Number(ipt_qtd_itens.value);
+        let total_compra = Number(ipt_total_compra.value);
+        let fidelidade = Number(select_fidelidade.value);
+        let cupom = Number(ipt_cupom.value);
+
+        if(qtd_itens >= 3 && (fidelidade == 1 || cupom == 'PROMO10') && total_compra >= 50){
+            alert('Desconto aplicado!')
+        } else {
+            alert('Compra não elegível para desconto')
+        }
+    }
+</script>
+</html>

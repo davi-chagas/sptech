@@ -23,7 +23,7 @@ valor_total as 'valor total',
 CASE
 	WHEN status = 'finalizado' THEN  'Concluido'
 	WHEN status = 'em_andamento' THEN  'Em andamento'
-	WHEN status != 'finalizando' OR status != 'em_andamento' THEN 'Cancelado'
+	WHEN status != 'finalizado' AND status != 'em_andamento' THEN 'Cancelado'
     END AS situacao
 FROM aluguel ORDER BY nome;
 
@@ -151,7 +151,7 @@ WHERE data_cadastro > '2026-08-18';
 
 -- Listar os produtos que contenham a palavra "Camiseta" no nome.
 SELECT * FROM produto
-WHERE nome NOT LIKE '%Camiseta%';
+WHERE nome LIKE '%Camiseta%';
 
 -- Listar os produtos que não sejam do tamanho 'M'.
 SELECT * FROM produto
@@ -159,7 +159,8 @@ WHERE tamanho NOT LIKE '%m%';
 
 -- Listar os produtos disponíveis cuja categoria seja "Camiseta" ou "Blusa".
 SELECT * FROM produto
-WHERE categoria IN ('Camiseta', 'Blusa');
+WHERE disponivel = 1 
+AND categoria IN ('Camiseta', 'Blusa');
 
 -- Exibir o nome do produto concatenado com seu preço, usando o alias 'produto_preco'.
 SELECT 
@@ -192,7 +193,7 @@ WHERE id IN(1, 3, 5);
 
 -- Listar os produtos com tamanho diferente de 'P' e 'M'.
 SELECT * FROM produto
-WHERE tamanho != 'P' AND tamanho != 'm';
+WHERE tamanho NOT IN('P', 'M');
 
 -- Listar os produtos cadastrados antes de 18 de agosto de 2025.
 SELECT * FROM produto

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+<body>
+    <h1> Check-in de Voo</h1>
+
+    <label for="select_documento_valido">Documento válido?</label>
+    <select id="select_documento_valido">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br> 
+
+    <label for="select_check_in">Fez check-in online?</label>
+    <select id="select_check_in">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select><br>
+
+    <label for="ipt_horas">Quantas horas de antecedencia?</label>
+    <input type="text" id="ipt_horas"> <br>
+
+    <button onclick="verificar()">Verificar embarque</button>
+</body>
+
+<script>
+    function verificar(){
+        let documento_valido = Number(select_documento_valido.value);
+        let check_in = Number(select_check_in.value)
+        let horas_antecedencia = Number(ipt_horas.value);
+
+        if(documento_valido == 1 && (check_in == 1 || horas_antecedencia >= 2)){
+            alert('Embarque liberado')
+        } else {
+            alert('Embarque negado')
+        }
+    }
+</script>
+</html>

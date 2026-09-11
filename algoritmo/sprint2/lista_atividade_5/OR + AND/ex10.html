@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercio 10</title>
+</head>
+
+<body>
+    <h1>Matrícula em Curso Avançado</h1>
+
+    <label for="select_curso"> Concluiu curso basico?</label>
+    <select id="select_curso">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <label for="ipt_media">Insira a media: </label>
+    <input type="text" id="ipt_media"> <br>
+
+    <label for="ipt_nota">Insira a nota do nivelamento: </label>
+    <input type="text" id="ipt_nota"> <br>
+
+    <label for="select_documentacao">Documentação completa?</label>
+    <select id="select_documentacao">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <button onclick="verificar()">Verificar matricula</button>
+
+</body>
+<script>
+    function verificar() {
+        let curso = Number(select_curso.value);
+        let media = Number(ipt_media.value);
+        let nota_nivelamento = Number(ipt_nota.value);
+        let documentacao = Number(select_documentacao.value);
+
+        if (curso == 1 && media >= 7 || nota_nivelamento >= 8 && (documentacao == 1)) {
+            alert('Matrícula liberada para o curso avançado')
+        } else {
+            alert('Matrícula não liberada')
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    <h1>Avaliação do Clima: Está Agradável ou Desconfortável?</h1>
+
+    <label for="ipt_temperatura">Insira a temperatura: </label>
+    <input type="text" id="ipt_temperatura"> <br>
+
+    <label for="ipt_umidade">Insira a umidade: </label>
+    <input type="text" id="ipt_umidade"> <br>
+
+    <button onclick="avaliar()">Avaliar clima</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function avaliar(){
+        let temperatura = Number(ipt_temperatura.value);
+        let umidade = Number(ipt_umidade.value);
+
+        if(umidade < 0 || umidade > 100){
+            alert('Valor de umidade inválido')
+            div_result.innerHTML = ''
+        } else if (temperatura >= 22 && temperatura <= 23 && umidade < 60){
+            div_result.innerHTML = 'Clima agradável'
+        } else {
+            div_result.innerHTML = 'Clima desagrável'
+        }
+    }
+</script>
+</html>

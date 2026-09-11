@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <h1>Juliane Joada e Suas Frutas Preferidas</h1>
+
+    <label for="select_nome_fruta">Insira o nome da fruta: </label>
+    <select id="select_nome_fruta">
+        <option value="uva">Uva</option>
+        <option value="abacaxi">Abacaxi</option>
+        <option value="melancia">Melancia</option>
+    </select>
+    <button onclick="analisar()">Vai comer?</button>
+</body>
+<script>
+    function analisar(){
+        let nome_fruta = select_nome_fruta.value;
+
+        if(nome_fruta == 'uva' || nome_fruta == 'abacaxi'){
+            alert(`Sim, vai comer ${nome_fruta}`)
+        } else {
+            alert(`A fruta ${nome_fruta} ela não come`)
+        }
+
+    }
+</script>
+</html>
