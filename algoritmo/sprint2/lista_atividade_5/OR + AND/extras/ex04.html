@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 14</title>
+</head>
+
+<body>
+    <h1>Matrícula Universitária com Critérios Sociais</h1>
+
+    <label for="ipt_nota_enem">Insira a nota do ENEM: </label>
+    <input type="text" id="ipt_nota_enem"> <br>
+
+    <label for="ipt_nota_vestibular">Insira a nota do vestibular: </label>
+    <input type="text" id="ipt_nota_vestibular"> <br>
+
+    <label for="select_cotista">O usuário é cotista?</label>
+    <select id="select_cotista">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <label for="ipt_renda_per_capita">Insira a renda per capita: </label>
+    <input type="text" id="ipt_renda_per_capita"> <br>
+
+    <label for="select_documentacao">A documentação está completa? </label>
+    <select id="select_documentacao">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <label for="select_matricula">A taxa da matricula foi paga?</label>
+    <select id="select_matricula">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <button onclick="analisar()">Avaliar matricula</button>
+</body>
+<script>
+    function analisar() {
+        let nota_enem = Number(ipt_nota_enem.value);
+        let nota_vestibular = Number(ipt_nota_vestibular.value);
+        let cotista = Number(select_cotista.value);
+        let renda_per_capita = Number(ipt_renda_per_capita.value);
+        let documentacao = Number(select_documentacao.value);
+        let taxa_matricula = Number(select_matricula.value);
+
+        if (nota_enem < 0 || nota_enem > 1000 || nota_vestibular < 0 || nota_vestibular > 100) {
+            alert('Matrícula recusada: notas inválidas')
+        } else {
+
+            // cotista
+            if (cotista == 1 && renda_per_capita <= 1.5 && (nota_enem >= 600 || nota_enem >= 60)) {
+                if (documentacao == 2 || taxa_matricula == 2) {
+                    alert('Aprovado, porém matrícula pendente de documentação e/ou pagamento')
+                } else {
+                    alert('Matrícula efetivada com sucesso!')
+                }
+            } else if (nota_enem >= 750 || nota_vestibular >= 80) {
+                if (documentacao == 2 || taxa_matricula == 2) {
+                    alert('Aprovado, porém matrícula pendente de documentação e/ou pagamento')
+                } else {
+                    alert('Matrícula efetivada com sucesso!')
+                }
+            } else {
+                alert('Candidato não aprovado')
+            }
+        }
+    }
+</script>
+
+</html>

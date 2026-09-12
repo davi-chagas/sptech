@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h1>Aprovação e Limite de Cartão de Crédito</h1>
+
+    <label for="ipt_idade">Insira a idade: </label>
+    <input type="text" id="ipt_idade"> <br>
+
+    <label for="ipt_renda_mensal">Insira a renda mensal(R$): </label>
+    <input type="text" id="ipt_renda_mensal"> <br>
+
+    <label for="ipt_score">Insira o score de crédito: </label>
+    <input type="text" id="ipt_score"> <br>
+
+    <label for="ipt_meses_emprego">Insira o tempo (em meses) do emprego atual: </label>
+    <input type="text" id="ipt_meses_emprego"> <br>
+
+    <label for="select_vinculo">Selecione seu vinculo empregaticio: </label>
+    <select id="select_vinculo">
+        <option value="1">CLT</option>
+        <option value="2">Autonomo</option>
+        <option value="3">Servidor Público</option>
+    </select> <br>
+
+    <button onclick="analisar()">Solicitar cartão</button>
+
+    <div id="div_result"></div>
+
+</body>
+<script>
+    function analisar() {
+        let idade = Number(ipt_idade.value);
+        let renda_mensal = Number(ipt_renda_mensal.value);
+        let score = Number(ipt_score.value);
+        let tempo_emprego = Number(ipt_meses_emprego.value);
+        let vinculo = Number(select_vinculo.value);
+
+        if (idade < 18 || renda_mensal <= 0 || score < 0 || score > 1000) {
+            alert('Solicitação recusada: dados inválidos')
+        } else {
+
+            let limite_credito;
+            if ((score >= 700 || renda_mensal >= 5000 && tempo_emprego >= 24) || vinculo == 3 && score >= 500) {
+                if (score >= 800) {
+                    limite_credito = renda_mensal * 0.3;
+                } else if (score >= 500 && score <= 799) {
+                    limite_credito = renda_mensal * 0.2;
+                } else {
+                    limite_credito = renda_mensal * 0.1;
+                }
+
+                alert(`Cartão aprovado! Limite concedido: R$ ${limite_credito.toFixed(2)}`)
+
+            } else {
+                alert('Solicitação negada')
+            }
+
+        }
+    }
+</script>
+
+</html>

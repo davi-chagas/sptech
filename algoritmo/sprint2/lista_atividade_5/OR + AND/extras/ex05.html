@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+
+<body>
+    <h1>Emissão de Passagem Aérea com Bagagem e Milhas</h1>
+
+    <label for="ipt_idade_passageiro">Insira a idade do passageiro: </label>
+    <input type="text" id="ipt_idade_passageiro"> <br>
+
+    <label for="select_classe">Qual a classe de passagem?</label>
+    <select id="select_classe">
+        <option value="1">Econômica</option>
+        <option value="2">Executiva</option>
+        <option value="3">Primeira Classe</option>
+    </select> <br>
+
+    <label for="ipt_qtd_malas">Insira a qtd. malas: </label>
+    <input type="text" id="ipt_qtd_malas"> <br>
+
+    <label for="select_programa">Faz parte do programa milhas?</label>
+    <select id="select_programa">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select> <br>
+
+    <label for="ipt_distancia">Insira a distancia do voo (KM): </label>
+    <input type="text" id="ipt_distancia"> <br>
+
+    <button onclick="emitir()">Emitir passagem</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function emitir() {
+        let idade = Number(ipt_idade_passageiro.value);
+        let classe = Number(select_classe.value);
+        let qtd_malas = Number(ipt_qtd_malas.value)
+        let programa = Number(select_programa.value);
+        let distancia = Number(ipt_distancia.value);
+
+        if (idade < 0 || idade > 120 || qtd_malas < 0) {
+            alert('Emissão recusada: dados inválidos')
+        } else {
+            let franquia = 80;
+            let taxa = 80;
+            let preco_passagem = distancia * 0.35;
+
+            if (classe == 3) {
+                // duas maça
+                franquia * 2;
+                taxa -= qtd_malas * franquia;
+            } else if (classe == 2 || (classe == 1 || programa == 1)) {
+                // 1 mala
+                franquia * 1;
+                taxa -= qtd_malas * franquia;
+
+            } else {
+                // 0 malas
+                taxa *= qtd_malas;
+            }
+
+            if (classe == 2) {
+                preco_passagem *= 2
+            } else if (classe == 3) {
+                preco_passagem *= 4;
+            }
+
+
+            if ((programa == 1 && distancia >= 3000) || classe == 3) {
+                div_result.innerHTML = 'O passageiro tem direito a upgrade gratuito de classe <br>'
+            }
+
+            let valor_final = taxa + preco_passagem;
+
+            div_result.innerHTML += `Valor final da passagem: R$ ${valor_final.toFixed(2)}`
+        }
+    }
+</script>
+
+</html>

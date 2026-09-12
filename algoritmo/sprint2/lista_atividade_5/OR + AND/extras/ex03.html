@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h1>Cálculo de Frete com Restrições de Envio</h1>
+
+    <label for="ipt_peso_pacote">Insira o peso do pacote (KG): </label>
+    <input type="text" id="ipt_peso_pacote"> <br>
+
+    <label for="ipt_distancia">Insira a distancia(KM): </label>
+    <input type="text" id="ipt_distancia"> <br>
+
+    <label for="select_tipo_produto">Selecione o tipo produto: </label>
+    <select id="select_tipo_produto">
+        <option value="1">Normal</option>
+        <option value="2">Frágil</option>
+        <option value="3">Perigoso</option>
+    </select> <br>
+
+    <label for="ipt_valor_compra">Insira o valor da compra: </label>
+    <input type="text" id="ipt_valor_compra"> <br>
+
+    <button onclick="calcular()">Calcular frete</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let peso_pacote = Number(ipt_peso_pacote.value);
+        let distancia = Number(ipt_distancia.value);
+        let tipo_produto = Number(select_tipo_produto.value);
+        let valor_compra = Number(ipt_valor_compra.value);
+
+        if (peso_pacote < 0 || peso_pacote > 1000 || distancia <= 0) {
+            alert('Envio inválido: verifique peso e distância')
+        } else if (tipo_produto == 3 && distancia >= 500) {
+            alert('Envio não permitido para este tipo de produto na distância informada')
+        } else {
+            let frete = 2 * distancia;
+
+            if (tipo_produto == 2 || peso_pacote > 50) {
+                let taxa = 50;
+                frete += taxa;
+            }
+
+            if ((peso_pacote <= 5 && distancia <= 50) || valor_compra >= 300) {
+                frete = 0;
+            }
+
+            div_result.innerHTML = `Valor do frete: R$${frete.toFixed(2)}`
+        }
+    }
+</script>
+
+</html>
