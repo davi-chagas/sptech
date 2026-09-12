@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <h1>Precificação de Seguro Automotivo</h1>
+
+    <label for="ipt_idade_motorista">Insira a idade do motorista: </label>
+    <input type="text" id="ipt_idade_motorista"> <br>
+
+    <label for="ipt_anos_experiencia">Insira os anos de experiencia: </label>
+    <input type="text" id="ipt_anos_experiencia"> <br>
+
+    <label for="ipt_valor_veiculo">Insira o valor do veiculo: </label>
+    <input type="text" id="ipt_valor_veiculo"> <br>
+
+    <label for="ipt_qtd_acidentes">Insira a qtd. acidentes: </label>
+    <input type="text" id="ipt_qtd_acidentes"> <br>
+
+    <label for="select_regiao">Qual a região do motorista?</label>
+    <select id="select_regiao">
+        <option value="1">Baixo Risco</option>
+        <option value="2">Alto Risco</option>
+    </select> <br>
+
+    <button onclick="calcular()">Calcular seguro</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let idade_motorista = Number(ipt_idade_motorista.value);
+        let anos_experiencia = Number(ipt_anos_experiencia.value);
+        let valor_veiculo = Number(ipt_valor_veiculo.value);
+        let qtd_acidentes = Number(ipt_qtd_acidentes.value);
+        let regiao = Number(select_regiao.value);
+
+        let premio_seguro = valor_veiculo * 0.05;
+
+        if (regiao == 2) {
+            // acrescimo de 10%
+            premio_seguro += premio_seguro * 0.1;
+
+        }
+
+
+        if (idade_motorista < 18 || idade_motorista > 76) {
+            alert('Contratação recusada: idade fora do intervalo permitido')
+        } else if ((idade_motorista >= 25 && idade_motorista <= 65 && anos_experiencia >= 5) || (qtd_acidentes == 0 && anos_experiencia >= 2)) {
+            // desconto 15%
+            let desconto = premio_seguro * 0.15;
+            premio_seguro -= desconto;
+            div_result.innerHTML = `Valor do seguro: R$${premio_seguro}`
+        } else if ((qtd_acidentes >= 2) || (idade_motorista < 21 && anos_experiencia < 2)) {
+            // acrescimo de 30%
+            let acrescimo = premio_seguro * 0.3;
+            premio_seguro += acrescimo;
+            div_result.innerHTML = `Valor do seguro: R$${premio_seguro}`
+        }
+    }
+</script>
+
+</html>
