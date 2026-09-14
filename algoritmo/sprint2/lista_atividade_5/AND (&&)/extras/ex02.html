@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1> Desempenho Escolar: Como Está Sua Nota? Crie um programa o qual</h1>
+
+    <label for="ipt_nota">Insira a nota: </label>
+    <input type="text" id="ipt_nota">
+
+    <button onclick="avaliar()">Avaliar aluno</button>
+</body>
+<script>
+    function avaliar() {
+        let nota = Number(ipt_nota.value);
+
+        if (nota < 6) {
+            alert('Aluno não aprovado')
+        } else if (nota < 8.5) {
+            alert('Aluno comum e aprovado')
+        } else if (nota >= 8.5 && nota <= 10) {
+            alert('Aluno exemplar')
+        } else {
+            alert('Nota inválida')
+        }
+    }
+</script>
+
+</html>

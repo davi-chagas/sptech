@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <h1>Seleção de Pilotos: Você Tem a Altura Ideal?</h1>
+
+    <label for="ipt_altura_inicial">Insira a altura inicial: </label>
+    <input type="text" id="ipt_altura_inicial"> <br>
+
+    <label for="ipt_altura_final">Insira a altura final: </label>
+    <input type="text" id="ipt_altura_final"> <br>
+
+    <label for="ipt_nome">Insira o nome: </label>
+    <input type="text" id="ipt_nome"> <br>
+
+    <label for="ipt_altura_piloto">Insira a altura do piloto: </label>
+    <input type="text" id="ipt_altura_piloto"> <br>
+
+    <button onclick="analisar()">Verificar candidato</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let nome = ipt_nome.value;
+        let altura_piloto = Number(ipt_altura_piloto.value);
+        let altura_inicial = Number(ipt_altura_inicial.value);
+        let altura_final = Number(ipt_altura_final.value);
+
+        if (altura_inicial < 1 && altura_final > altura_inicial) {
+            alert('Intervalo da altura de seleção é inválida!')
+        } else {
+            if (altura_piloto > altura_final && altura_final < altura_final) {
+                div_result.innerHTML = `O candidato ${nome} com altura de ${altura_piloto} metros, participará do processo de seleção de piloto`
+            } else {
+                div_result.innerHTML = `Infelizmente, o candidato ${none}, com altura de ${altura_piloto} metros, não atende os requisitos da seleção`
+            }
+        }
+    }
+</script>
+
+</html>

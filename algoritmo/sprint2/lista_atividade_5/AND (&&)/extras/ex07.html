@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <h1>Agostinho é um taxista do Rio de Janeiro que deseja automatizar sua frota de táxis (Carrara Drivers)</h1>
+
+    <label for="ipt_nome_passageiro">Insira o nome do passageiro: </label>
+    <input type="text" id="ipt_nome_passageiro"> <br>
+
+    <!-- Tenha um campo para a distância (em km) do local atual para o destino do passageiro  -->
+    <label for="ipt_distancia">Insira a distancia: </label>
+    <input type="text" id="ipt_distancia"> <br>
+
+    <label for="ipt_bandeira_corrida">Insira o número da bandeira da corrida: </label>
+    <input type="number" id="ipt_bandeira_corrida"> <br>
+
+    <!-- ) Tenha um campo que recebe o horário da corrida (sistema de 24 horas e somente horas inteiras)  -->
+    <label for="select_horario">Selecione o horário: </label>
+    <select id="select_horario">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+    </select> <br>
+
+    <button onclick="calcular()">Calcular corrida</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let nome_passageiro = ipt_nome_passageiro.value;
+        let distancia = Number(ipt_distancia.value);
+        let bandeira = Number(ipt_bandeira_corrida.value);
+        let horario = Number(select_horario.value);
+        let valor_corrida = 1.25;
+        let valor_final;
+
+        if (bandeira == 1 && horario <= 6) {
+            valor_final = distancia * (valor_corrida * 1.05)
+        } else if (bandeira == 1 && horario <= 12) {
+            valor_final = distancia * (valor_corrida * 1.10);
+        } else if (bandeira == 1 && horario <= 23) {
+            valor_final = distancia * (valor_corrida * 1.15);
+        }
+
+        else if (bandeira == 2 && horario <= 6) {
+            valor_final = distancia * (valor_corrida * 1.10);
+        } else if (bandeira == 2 && horario <= 12) {
+            valor_final = distancia * (valor_corrida * 1.20);
+        } else if (bandeira == 2 && horario <= 23) {
+            valor_final = distancia * (valor_corrida * 1.30);
+        }
+
+        else if (bandeira == 3 && horario <= 6) {
+            valor_final = distancia * (valor_corrida * 1.15);
+        } else if (bandeira == 3 && horario <= 12) {
+            valor_final = distancia * (valor_corrida * 1.30);
+
+        } else if (bandeira == 3 && horario <= 23) {
+            valor_final = distancia * (valor_corrida * 1.45);
+        }
+
+
+
+        div_result.innerHTML = `Olá ${nome_passageiro} Sua corrida, será na bandeira ${bandeira}, percorrerá ${distancia} km e o total da corrida será de ${valor_final}"`
+    }
+</script>
+
+</html>

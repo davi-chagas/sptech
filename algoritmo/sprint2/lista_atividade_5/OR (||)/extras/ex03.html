@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h1>Calculadora de Cansaço SPTech - Aprimorada</h1>
+
+    <label for="select_meio_transporte">Insira o meio de transporte: </label>
+    <select id="select_meio_transporte">
+        <option value="1">Onibus</option>
+        <option value="2">Metro</option>
+        <option value="3">Carro</option>
+        <option value="4">Bicleta</option>
+        <option value="5">Uber</option>
+    </select> <br>
+
+    <label for="ipt_distancia">Insira a distancia da sua casa até a faculdade: </label>
+    <input type="text" id="ipt_distancia"> <br>
+
+    <button onclick="calcular()">Calcular Cansaço</button>
+</body>
+<script>
+    function calcular() {
+        let meio_transporte = Number(select_meio_transporte.value);
+        let distancia = Number(ipt_distancia.value);
+
+        if(distancia <= 10){
+            if(meio_transporte == 3 || meio_transporte == 2 || meio_transporte == 1){
+                alert('Tá tranks...')
+            } else {
+                alert('É um pouco cansado...')
+            }
+
+        } else {
+            if(meio_transporte == 3){
+                alert('É... um pouco cansado')
+            } else if (meio_transporte == 2 || meio_transporte == 1){
+                alert('Bem cansado...')
+            } else {
+                alert('Vish... tá so o pó...')
+            }
+        }
+    }
+</script>
+
+</html>

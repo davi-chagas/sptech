@@ -51,34 +51,43 @@
             let taxa = 80;
             let preco_passagem = distancia * 0.35;
 
+            if ((programa == 1 && distancia >= 3000) || classe == 3) {
+                if (classe != 3) {
+                    classe++;
+                }
+
+                div_result.innerHTML = 'O passageiro tem direito a upgrade gratuito de classe <br>'
+            }
+
+            // primeira classe
             if (classe == 3) {
-                // duas maça
-                franquia * 2;
-                taxa -= qtd_malas * franquia;
-            } else if (classe == 2 || (classe == 1 || programa == 1)) {
-                // 1 mala
-                franquia * 1;
-                taxa -= qtd_malas * franquia;
+                // duas mala de grça
+                if (qtd_malas > 2) {
+                    taxa = taxa * qtd_malas - 160;
+                } else {
+                    taxa = 0
+                }
+            } else if (classe == 2 || (classe == 1 && programa == 1)) {
+                if (qtd_malas > 2) {
+                    taxa = taxa * qtd_malas - 80;
+                } else {
+                    taxa = 0
+                }
 
             } else {
-                // 0 malas
                 taxa *= qtd_malas;
             }
 
+            // preço passagem para os restantes das classes
             if (classe == 2) {
                 preco_passagem *= 2
             } else if (classe == 3) {
                 preco_passagem *= 4;
             }
 
-
-            if ((programa == 1 && distancia >= 3000) || classe == 3) {
-                div_result.innerHTML = 'O passageiro tem direito a upgrade gratuito de classe <br>'
-            }
-
             let valor_final = taxa + preco_passagem;
 
-            div_result.innerHTML += `Valor final da passagem: R$ ${valor_final.toFixed(2)}`
+            div_result.innerHTML += `Valor final da passagem: R$ ${valor_final.toFixed(2)} <br>`
         }
     }
 </script>

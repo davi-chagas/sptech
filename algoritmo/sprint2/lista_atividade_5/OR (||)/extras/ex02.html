@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Calculadora de Cansaço do Aluno SPTech</h1>
+    <div id="div_meio_transporte">Meio de transporte</div> 
+    <label for="select_meio_transporte">Insira o meio de transporte: </label>
+    <select id="select_meio_transporte">
+        <option value="1">Onibus</option>
+        <option value="2">Metro</option>
+        <option value="3">Carro</option>
+        <option value="4">Bicleta</option>
+        <option value="5">Uber</option>
+    </select> <br>
+
+    <button onclick="calcular()">Calcular descanso</button>
+</body>
+<script>
+    function calcular(){
+        let meio_transporte = Number(select_meio_transporte.value);
+
+        if(meio_transporte == 3 || meio_transporte == 5){
+            alert('Tá tranquilo...')
+        } else if (meio_transporte == 1 || meio_transporte == 2){
+            alert('Um pouco cansado')
+        } else {
+            alert('Vish... vive cansado.')
+        }
+    }
+</script>
+</html>

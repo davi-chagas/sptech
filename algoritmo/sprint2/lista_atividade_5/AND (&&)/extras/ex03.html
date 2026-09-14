@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Aprovação Escolar: Notas e Frequência Fazem a Diferença!</h1>
+
+    <label for="ipt_nota">Insira a nota: </label>
+    <input type="text" id="ipt_nota"> <br>
+
+    <label for="ipt_frequencia">Insira a frequencia: </label>
+    <input type="text" id="ipt_frequencia"> <br>
+
+    <button onclick="avaliar()">Avaliar aluno</button>
+</body>
+<script>
+    function avaliar(){
+        let nota = Number(ipt_nota.value);
+        let frequencia = Number(ipt_frequencia.value);
+
+        if(nota >= 6 && frequencia >= 75){
+            alert('Parábens! Aprovado!')
+        } else {
+            alert('Infelizmente, não foi dessa vez')
+        }
+    }
+</script>
+</html>

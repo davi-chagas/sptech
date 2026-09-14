@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <h1>Analisador de Compra: Escolhendo a Melhor TV Dentro do Orçamento</h1>
+
+    <label for="select_marca">Selecione a marca da TV: </label>
+    <select id="select_marca">
+        <option value="1">Samsung</option>
+        <option value="2">LG</option>
+        <option value="3">Mondial</option>
+        <option value="4">Britania</option>
+    </select> <br>
+
+    <label for="ipt_valor_tv">Insira o valor da TV: </label>
+    <input type="text" id="ipt_valor_tv"> <br>
+
+    <button onclick="analisar()">Analisar compra</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let marca = Number(select_marca.value);
+        let valor = Number(ipt_valor_tv.value);
+
+        if (valor < 800 || valor > 2000) {
+            div_result.innerHTML += 'TV fora da faixa de preço <br> ';
+        } else if (marca == 3 || marca == 4) {
+            div_result.innerHTML = 'Na faixa do preço, porém marca não confiável'
+        } else {
+            div_result.innerHTML = 'Essa TV pode entrar na sua lista!';
+        }
+
+        if (valor < 800) {
+            div_result.innerHTML += 'Preço baixo demais <br>'
+        } else if (valor > 2000) {
+            div_result.innerHTML += 'TV cara demais, infelizmente <br>'
+        }
+    }
+</script>
+
+</html>

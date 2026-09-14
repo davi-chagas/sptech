@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h1>Recarga Fidelidade Metrô: Economize com Descontos Especiais!</h1>
+
+    <label for="ipt_qtd_passagens">Insira a qtd. de passagens: </label>
+    <input type="text" id="ipt_qtd_passagens">
+
+    <button onclick="comprar()">Comprar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function comprar() {
+        let qtd_passagens = Number(ipt_qtd_passagens.value);
+
+        if (qtd_passagens < 8 || qtd_passagens > 50) {
+            alert('Quantidade inválida para o Fidelidade!')
+        } else {
+            let passagem = 4.40;
+            let valor;
+
+            if (qtd_passagens >= 8 && qtd_passagens <= 19) {
+                valor = qtd_passagens * (passagem * 0.97)
+            } else if (qtd_passagens >= 20 && qtd_passagens <= 49) {
+                valor = qtd_passagens * (passagem * 0.95)
+            } else if (qtd_passagens == 50) {
+                valor = qtd_passagens * (passagem * 0.93)
+            }
+
+            div_result.innerHTML = `Total a pagar: R$${valor.toFixed(2)}`
+
+        }
+
+    }
+</script>
+
+</html>

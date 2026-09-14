@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    <h1>Critérios de Preferência de Augusto Bivio</h1>
+
+    <label for="ipt_nome_empresa">Insira o nome da empresa: </label>
+    <input type="text" id="ipt_nome_empresa"> <br>
+
+    <label for="ipt_valor_bolsa">Insira o valor da bolsa: </label>
+    <input type="text" id="ipt_valor_bolsa"> <br>
+
+    <label for="ipt_vr">Insira o valor do VR: </label>
+    <input type="text" id="ipt_valor_vr"> <br>
+
+    <label for="ipt_deslocamento">Insira o tempo de deslocamento: </label>
+    <input type="text" id="ipt_deslocamento"> <br>
+
+    <button onclick="analisar()">É preferida?</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let nome_empresa = ipt_nome_empresa.value;
+        let valor_bolsa = Number(ipt_valor_bolsa.value);
+        let valor_vr = Number(ipt_valor_vr.value);
+        let tempo_deslocamento = Number(ipt_deslocamento.value);
+
+        if(valor_bolsa >= 1800 || valor_vr >= 20 || tempo_deslocamento <= 30){
+            div_result.innerHTML = `A empresa ${nome_empresa} é uma de suas preferências`
+        } else {
+            div_result.innerHTML = `A empresa ${nome_empresa} está fora da sua lista`
+        }
+    }
+</script>
+</html>

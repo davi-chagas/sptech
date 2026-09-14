@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <h1>Sistema de Recompensas e Descontos</h1>
+
+    <label for="ipt_quantidade_produtos">Insira a qtd. produtos: </label>
+    <input type="text" id="ipt_quantidade_produtos"> <br>
+
+    <label for="ipt_valor_total">Insira o valor total: </label>
+    <input type="text" id="ipt_valor_total"> <br>
+
+    <label for="select_cliente_vip">Selecione se é VIP: </label>
+    <select id="select_cliente_vip">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select>
+
+    <button onclick="calcular()">Calcular Recompensa e desconto</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let qtd_produtos = Number(ipt_quantidade_produtos.value);
+        let valor_total = Number(ipt_valor_total.value);
+        let cliente_vip = Number(select_cliente_vip.value);
+        let desconto = 0;
+        let recompensa = 0;
+
+        if (qtd_produtos > 10 && valor_total > 1000 && cliente_vip == 1) {
+            desconto += 15;
+        } else if (qtd_produtos > 10 && (valor_total > 500 || cliente_vip == 1)) {
+            desconto = 10
+        } else if (qtd_produtos >= 6 && qtd_produtos <= 10 && (valor_total > 200 || cliente_vip == 1)) {
+            desconto = 5
+        } else {
+            desconto = 0
+        }
+
+        if (qtd_produtos > 5 && (valor_total > 200 || cliente_vip == 1)) {
+            recompensa = 50;
+        } else if (valor_total > 500 && qtd_produtos > 10) {
+            recompensa = 100;
+        } else {
+            recompensa = 0;
+        }
+
+        console.log(qtd_produtos);
+        console.log(valor_total);
+        console.log(cliente_vip);
+        console.log(desconto);
+
+        div_result.innerHTML = `<p>Valor desconto:  ${desconto}%</p>
+        <p>Pontos de recompensa: ${recompensa}</p>
+        `
+    }
+</script>
+
+</html>
