@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <h1>Senha Forte ou Fraca</h1>
+
+    <label for="ipt_senha">Insira uma senha: </label>
+    <input type="text" id="ipt_senha" onkeyup="analisar()"> <br>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let senha = ipt_senha.value;
+
+        if (senha.length < 8) {
+            div_result.innerHTML = 'A senha deve conter 8 caracteres <br>'
+        } else if (senha.toUpperCase() == senha) {
+            div_result.innerHTML = 'A senha deve conter 1 maiúscula <br>'
+        } else if (senha.toLowerCase() == senha) {
+            div_result.innerHTML = 'As senha deve conter 1 minuscula <br>'
+        }
+
+        if (senha.length > 7 && senha.toLowerCase() != senha && senha.toUpperCase() != senha) {
+            div_result.innerHTML = 'Forte'
+        } else if ((senha.toLowerCase() != senha && senha.toUpperCase() != senha) || senha.length > 7 && senha.toUpperCase() != senha || (senha.length > 7 && senha.toLowerCase() != senha)) {
+            div_result.innerHTML = 'Média'
+        } else if (senha.length > 7 || senha.toLowerCase() != senha || senha.toUpperCase() != senha) {
+            div_result.innerHTML = 'Fraca'
+        } else {
+            div_result.innerHTML = 'Insegura'
+        }
+    }
+</script>
+
+</html>

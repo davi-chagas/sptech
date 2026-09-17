@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+    <h1>Jogo da Palavra Secreta</h1>
+
+    <label for="ipt_letra">Insira uma letra</label>
+    <input type="text" id="ipt_letra_1">
+
+    <label for="ipt_letra">Insira uma letra</label>
+    <input type="text" id="ipt_letra_2">
+
+    <label for="ipt_letra">Insira uma letra</label>
+    <input type="text" id="ipt_letra_3">
+
+
+    <button onclick="verificar()">Verificar letras</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function verificar() {
+        let codigo = 'naruto';
+        let letra = ipt_letra_1.value;
+        let letra_2 = ipt_letra_2.value;
+        let letra_3 = ipt_letra_3.value;
+
+        if (codigo.includes(letra)) {
+            div_result.innerHTML += `A letra ${letra} aparece na palavra secreta <br>`
+        } else {
+            div_result.innerHTML += `A letra ${letra_1} não aparece na palavra secreta! <br>`
+        }
+
+        if (codigo.includes(letra_2)) {
+            div_result.innerHTML += `A letra ${letra_2} aparece na palavra secreta <br>`
+        } else {
+            div_result.innerHTML += `A letra ${letra_2} não aparece na palavra secreta! <br>`
+        }
+
+        if (codigo.includes(letra_3)) {
+            div_result.innerHTML += `A letra ${letra_3} aparece na palavra secreta <br>`
+        } else {
+            div_result.innerHTML += `A letra ${letra_3} não aparece na palavra secreta! <br>`
+        }
+    }
+</script>
+
+</html>

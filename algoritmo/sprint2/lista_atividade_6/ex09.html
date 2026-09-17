@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <h1>Super Jogo da Palavra Secreta</h1>
+
+    <label for="ipt_letra">Insira uma letra: </label>
+    <input type="text" id="ipt_letra" autofocus> <br>
+
+    <button onclick="analisar()">Verificar letra</button>
+
+    <div id="div_secret_result"></div>
+    <div id="div_result"></div>
+    <div id="div_encontradas"><br> Letras encontradas: </div>
+    <div id="div_forca"><br> Letras erradas: </div>
+</body>
+<script>
+    let secret = 'naruto'
+    let caracte_restante = secret.length;
+    let contador_a = 1;
+    let contador_n = 1;
+    let contador_r = 1;
+    let contador_u = 1;
+    let contador_t = 1;
+    let contador_o = 1;
+    div_secret_result.innerHTML = `<br> <h4>Palavra secreta definida! Descubra todos os ${secret.length} caracteres!</h4>`
+    function analisar() {
+        let letra = ipt_letra.value;
+
+        if (secret.includes(letra)) {
+            if (letra == 'n' && contador_n > 0) {
+                contador_n--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            } else if (letra == 'a') {
+                contador_a--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            } else if (letra == 'r') {
+                contador_r--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            } else if (letra == 'u') {
+                contador_u--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            } else if (letra == 't') {
+                contador_t--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            } else if (letra == 'o') {
+                contador_o--;
+                caracte_restante -= 1;
+                div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
+                div_encontradas.innerHTML += `<b>${letra}, </b>`
+            }
+        } else {
+            div_forca.innerHTML += `<s style="color:red;">${letra}, </s>`
+            div_result.innerHTML += `O caractere <b style="color:red;">${letra}</b> NÃO aparece na palavra secreta! Faltam ${caracte_restante} caracteres <br>`
+        }
+
+        if (caracte_restante == 0) {
+            div_result.innerHTML = `<h4>Parabéns, você descobriu todas as letras da palavra secreta ${secret}!`
+        }
+
+    }
+</script>
+
+</html>

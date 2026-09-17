@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Substituidor de Caracteres</h1>
+
+    <label for="ipt_senha">Insira a sua senha: </label>
+    <input type="text" id="ipt_senha" onkeyup="analisar()"> <br>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let senha = ipt_senha.value;
+        let criptografia = senha.replaceAll('a', '@').replaceAll('A', '@').replaceAll('e', 3).replaceAll('E', 3);
+
+        div_result.innerHTML = `${criptografia}`
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <h1>Comparador de Palavras</h1>
+
+    <label for="ipt_palavra_1">Insira a primeira palavra: </label>
+    <input type="text" id="ipt_palavra_1"> <br>
+
+
+    <label for="ipt_palavra_2">Insira a segunda palavra: </label>
+    <input type="text" id="ipt_palavra_2"> <br>
+
+    <button onclick="analisarPalavras()">Analisar Palavras</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisarPalavras(){
+        let palavra_1 = ipt_palavra_1.value;
+        let palavra_2 = ipt_palavra_2.value;
+
+        if(palavra_1 == palavra_2){
+            div_result.innerHTML = `As palavras ${palavra_1} e ${palavra_2} são exatamente iguais!`
+        } else if (palavra_1.toLowerCase() == palavra_2.toLowerCase()){
+            div_result.innerHTML = `As palavras ${palavra_1} e ${palavra_2} possuem o mesmo conteúdo, mas a digitação é diferente (maiúsculas e minúsculas)`
+        } else {
+            div_result.innerHTML = `As palavras ${palavra_1} e ${palavra_2} são completamente diferentes!`
+        }
+
+        
+    }
+</script>
+</html>

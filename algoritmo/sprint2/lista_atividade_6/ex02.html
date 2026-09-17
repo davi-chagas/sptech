@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h1>Detector de Palavras</h1>
+
+    <label for="ipt_frase">Insira uma frase: </label>
+    <input type="text" id="ipt_frase">
+
+    <button onclick="analisar()">Analisar frase</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let frase = ipt_frase.value.toLowerCase();
+
+        if (frase.includes('teste') || frase.includes('abc') || frase.includes('spam')) {
+            div_result.innerHTML = '<p style="color:red;">Frase inválida!</p>'
+        } else {
+            div_result.innerHTML = '<p style="color:green;">Frase válida!</p>'
+
+        }
+    }
+</script>
+
+</html>
