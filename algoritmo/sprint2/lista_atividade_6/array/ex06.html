@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Lista Viva de Filmes Favoritos</h1>
+
+
+    <label for="ipt_movie">Insira o filme: </label>
+    <input type="text" id="ipt_movie"> 
+
+    <button onclick="addMovie()">Cadastrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let movies = [];
+    function addMovie(){
+        let movie = ipt_movie.value;
+        movies.push(movie);
+
+        div_result.innerHTML = `${movies}`.replaceAll(',', '<br>')
+    }
+</script>
+</html>

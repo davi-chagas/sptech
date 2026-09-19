@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h1>Relembrando Moradias: Onde Você Já Viveu?</h1>
+
+    <label for="ipt_bairros">Insira os bairros que ja morou: </label>
+    <input type="text" id="ipt_bairro">
+    <button onclick="cadastrar()">Cadastrar bairro</button> <br>
+
+    <label for="ipt_local_num">Indique o local que morou: </label>
+    <input type="text" id="ipt_local_num">
+
+    <button onclick="relembrarMoradia()">Relembrar moradia</button>
+
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let list = [];
+    function cadastrar() {
+        let bairro = ipt_bairro.value;
+        list.push(bairro);
+    }
+
+    function relembrarMoradia() {
+        let num_local = ipt_local_num.value;
+
+        if(num_local > list.length){
+            div_result.innerHTML = `Você ainda não morou num ${num_local}º bairro!`
+        } else {
+            div_result.innerHTML = `${list[num_local]}`;
+        }
+    }
+</script>
+
+</html>

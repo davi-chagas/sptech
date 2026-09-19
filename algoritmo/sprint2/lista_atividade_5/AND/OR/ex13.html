@@ -25,21 +25,25 @@
         let nota = Number(ipt_nota.value);
         let frequencia = Number(ipt_frequencia.value);
 
-        if (nota < 0 || nota > 10) {
+
+        if (frequencia < 0 || frequencia > 10) {
+            error
+        } else if (nota < 0 || nota > 10) {
             alert('Onde já se viu nota <0 ou >10?!');
             div_result.innerHTML = '';
         } else if (frequencia < 0 || frequencia > 100) {
             alert('Onde já se viu frequência <0 ou >100?!')
             div_result.innerHTML = '';
-        } else if (nota >= 0 && nota < 6){
+        } else if (nota >= 0 && nota < 6) {
             div_result.innerHTML = 'Aluno ficou abaixo da média <br>'
-        } else if (nota >= 6 && nota <=8){
+        } else if (nota >= 6 && nota <= 8) {
             div_result.innerHTML = 'Aluno ficou na média <br>'
-        } else if (nota >8 && nota <= 10){
+        } else if (nota > 8 && nota <= 10) {
             div_result.innerHTML = 'Aluno acima da média <br>'
-        } 
-        
-        if (frequencia >= 75){
+        }
+
+
+        if (frequencia >= 75) {
             div_result.innerHTML += 'Aluno aprovado por frequência <br>'
         } else {
             div_result.innerHTML += 'Aluno reprovado por frequência <br>'

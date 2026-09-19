@@ -11,7 +11,7 @@
     <h1>Super Jogo da Palavra Secreta</h1>
 
     <label for="ipt_letra">Insira uma letra: </label>
-    <input type="text" id="ipt_letra" autofocus> <br>
+    <input type="text" id="ipt_letra"> <br>
 
     <button onclick="analisar()">Verificar letra</button>
 
@@ -31,14 +31,20 @@
     let contador_o = 1;
     div_secret_result.innerHTML = `<br> <h4>Palavra secreta definida! Descubra todos os ${secret.length} caracteres!</h4>`
     function analisar() {
-        let letra = ipt_letra.value;
+        let letra = ipt_letra.value.toLowerCase();
+
+        ipt_letra.value = '';
+        ipt_letra.focus()
 
         if (secret.includes(letra)) {
             if (letra == 'n' && contador_n > 0) {
                 contador_n--;
                 caracte_restante -= 1;
+                if(contador > 0){
+                    div_
+                }
                 div_result.innerHTML += `O caractere <b style="color:green;">${letra}</b> aparece na palavra secreta! Faltam ${caracte_restante} <br>`
-                div_encontradas.innerHTML += `<b>${letra}, </b>`
+                div_enconwtradas.innerHTML += `<b>${letra}, </b>`
             } else if (letra == 'a') {
                 contador_a--;
                 caracte_restante -= 1;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h1>Top Filmes Favoritos: Do Mais Amado ao Menos</h1>
+
+    <label for="ipt_movie">Insira um filme: </label>
+    <input type="text" id="ipt_movie">
+
+    <button onclick="addMovie()">Cadastrar filme</button>
+    <button onclick="getFavorites()">Ver favoritos</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let movies = []
+    function addMovie(){
+        let movie = ipt_movie.value;
+        movies.push(movie);
+    }
+
+    function getFavorites(){
+        let size = movies.length;
+        let favorite = movies.at(0);
+        let secondFavorite = movies.at(movies.length - 1);
+
+        div_result.innerHTML = `Total: ${size}<br>
+        O filme que mais gosta é ${favorite} <br>
+        E desses, o que menos gosta é ${secondFavorite}`
+    }
+
+</script>
+</html>

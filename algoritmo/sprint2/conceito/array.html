@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Listas em JS (array)</h3>
+
+    Produto:
+    <input type="text" id="ipt_produto">
+    <button onclick="addProduct()">Adicionar</button>
+    <button onclick="removeLast()">Remover</button>
+    <button onclick="analise()">Analisar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    // at, includes,  indexOf, length, pop, push, shift, unshift
+    let lista = ['pencil', 'pencil', 'eraser'];
+
+    function addProduct() {
+        let produto = ipt_produto.value;
+        lista.push(produto)
+        print();
+    }
+
+    function removeLast() {
+        lista.pop();
+        print();
+    }
+
+    function analisar(){
+        let length= lista.length;
+        let first = lista.at(0)
+        let second  = lista.at(2)
+        let third  = lista[length - 1];
+
+        div_result.innerHTML += 
+        `${length}`
+        `${first}`
+        `${second}`
+        `${third}`
+    }
+
+    function print() {
+        div_result.innerHTML = `${lista}`.replaceAll(',', '<br>')
+    }
+</script>
+
+</html>

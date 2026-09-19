@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h1>Painel de Favoritos: Seus Filmes em Destaque</h1>
+
+    <label for="ipt_movie">Insira um filme: </label>
+    <input type="text" id="ipt_movie">
+
+    <button onclick="addMovie()">Cadastrar filme</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let movies = [];
+
+    function addMovie() {
+        let movie = ipt_movie.value;
+        movies.push(movie);
+        let size = movies.length;
+        let favorite = movies.at(0);
+        let third = movies.at(2);
+
+        if (third == undefined) {
+        div_result.innerHTML = `
+        Seu filme favorito: ${favorite} <br>
+        Seu 3º filme favorito: Ainda não existe <br>
+        Total de filmes cadastrados ${size} <br>`
+        } else {
+            div_result.innerHTML = `
+            Seu filme favorito: ${favorite} <br>
+            Seu 3º filme favorito: ${third} <br>
+            Total de filmes cadastrados ${size} <br>`
+        }
+    }
+
+    function print() {
+    }
+</script>
+
+</html>

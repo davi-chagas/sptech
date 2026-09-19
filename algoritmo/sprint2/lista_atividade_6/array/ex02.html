@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>Diário de Viagens: Do Primeiro ao Último Destino</h1>
+
+    <label for="ipt_viagem">Insira o destino da viagem: </label>
+    <input type="text" id="ipt_viagem"> 
+    <button onclick="adicionar()">Adicionar viagem</button> <br>
+
+    <button onclick="primeiraViagem()">Primeira viagem</button>
+    <button onclick="terceiraViagem()">Terceira viagem</button>
+    <button onclick="ultimaViagem()">Ultima viagem</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    let list = [];
+    function adicionar(){
+        let viagem = ipt_viagem.value;
+        list.push(viagem)
+    }
+
+    function primeiraViagem(){
+        let first = list.at(0)
+        div_result.innerHTML = `${first}`
+    }
+
+    function terceiraViagem(){
+        let third = list.at(3)
+        div_result.innerHTML = `${third}`
+    }
+
+    function ultimaViagem(){
+        let last = list.at(list.length - 1);
+        div_result.innerHTML = `${last}`
+    }
+    
+</script>
+</html>

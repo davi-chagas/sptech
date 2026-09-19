@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>Caça às Frutas: Descubra se está na Lista</h1>
+
+    <label for="ipt_search">Insira o nome de uma fruta: </label>
+    <input type="text" id="ipt_search">
+
+    <button onclick="search()">Pesquisar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    let list = ['JP', 'Braian', 'Brandão']
+    function search(){
+        let fruit = ipt_search.value;
+
+        if(list.includes(fruit)){
+            div_result.innerHTML = `A fruta ${fruit} existe na lista`
+        } else {
+            div_result.innerHTML = `Não existe a ${fruit} na lista.`
+        }
+    }
+</script>
+</html>
