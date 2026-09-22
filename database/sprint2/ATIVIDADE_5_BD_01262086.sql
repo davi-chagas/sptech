@@ -836,24 +836,23 @@ SELECT personagem.nome, item.nome FROM personagem
 JOIN item ON item.id = item.fk_personagem;
 
 -- Refazer o JOIN usando alias de tabela: item AS i e personagem AS p para simplificar a escrita.
-SELECT p.nome, i.nome FROM personagem AS p
-JOIN item AS i ON i.id = i.fk_personagem;
+SELECT p.nome, i.nome
+FROM personagem AS p
+INNER JOIN item AS i ON i.fk_personagem = p.id;
 
 -- Usar o JOIN com filtro para exibir apenas os itens do tipo = 'Arma' e o nome do personagem que os carrega.
-SELECT p.nome, i.tipo FROM personagem AS p
-JOIN item AS i ON i.id = i.fk_personagem;
+SELECT p.nome, i.nome AS arma 
+FROM personagem AS p
+JOIN item AS i ON i.fk_personagem = p.id
+WHERE i.tipo = 'Arma';
 
 -- Usar CONCAT com INNER JOIN para exibir uma coluna chamada 'inventario' no formato "Item — Tipo — Personagem".
 SELECT
-CONCAT('Item ', i.nome, ' - Tipo ', i.tipo, ' - Personagem ', p.nome) AS inventario
+	CONCAT('Item ', i.nome, ' - Tipo ', i.tipo, ' - Personagem ', p.nome) AS inventario
 FROM personagem AS p
-INNER JOIN item AS i ON i.id = i.fk_personagem;
+INNER JOIN item AS i ON i.fk_personagem = p.id;
 
 -- Fazer um LEFT JOIN de personagem com item para exibir todos os personagens, inclusive os que não possuem nenhum item, usando IFNULL(i.nome, 'SEM ITEM') para substituir NULL.
 SELECT p.nome, IFNULL(i.nome, 'SEM ITEM') AS item
 FROM personagem AS p
 LEFT JOIN item AS i ON i.id = i.fk_personagem;
-
-
-SELECT * FROM personagem;
-SELECT * FROM item;
