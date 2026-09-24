@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+
+<body>
+    <h1>Papagaio Repetitivo</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num"> <br>
+
+    <label for="ipt_frase">Insira uma frase: </label>
+    <input type="text" id="ipt_frase"> <br>
+
+    <button onclick="analisar()">papagaio</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar(){
+        let num = Number(ipt_num.value);
+        let frase = ipt_frase.value;
+        let count = 1;
+        let dicionario = []
+
+        while(count <= num){
+            dicionario.push(frase)
+            div_result.innerHTML += `${count} - ${dicionario} <br>`
+            count++
+        }
+    }
+</script>
+</html>

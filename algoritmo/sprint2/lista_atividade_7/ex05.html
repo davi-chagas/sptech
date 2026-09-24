@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+<body>
+    <h1>Corrida de Voltas</h1>
+
+    <label for="ipt_qtd_voltas">Insira a qtd. de voltas que o carro dá na corrida:</label>
+    <input type="text" id="ipt_qtd_voltas">
+
+    <button onclick="iniciar()">Iniciar corrida</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function iniciar(){
+        let voltas = Number(ipt_qtd_voltas.value);
+        let count = 1;
+        let msg = '';
+
+        while(count <= voltas){
+            msg += `Carro dando a ${count} volta <br>`;
+            count++;
+        }
+
+        div_result.innerHTML = `${msg}`;
+    }
+</script>
+</html>

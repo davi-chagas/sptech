@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h1>Pares no Intervalo </h1>
+
+    <label for="ipt_num_1">Insira o primeiro intervalo: </label>
+    <input type="text" id="ipt_num_1"> <br>
+
+    <label for="ipt_num_2">Insira o segundo intervalo: </label>
+    <input type="text" id="ipt_num_2"> <br>
+
+    <button onclick="analisar()">Analisar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let num_1 = Number(ipt_num_1.value);
+        let num_2 = Number(ipt_num_2.value);
+
+        if (num_1 > num_2) {
+            div_result.innerHTML = 'O intervalo deve ser crescente'
+        } else {
+            div_result.innerHTML = '';
+            let count = num_1;
+            
+            while (count <= num_2) {
+                if (count % 2 == 0) {
+                    div_result.innerHTML += `${count} <br>`
+                }
+                count++
+            }
+        }
+
+    }
+</script>
+
+</html>

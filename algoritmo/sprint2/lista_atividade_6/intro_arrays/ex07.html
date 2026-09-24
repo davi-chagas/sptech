@@ -21,7 +21,6 @@
     function addMovie() {
         let movie = ipt_movie.value;
         movies.push(movie);
-
         if (movies.length % 2 == 0) {
             div_result.innerHTML += `<br><span style="color:red">${movie}</span>`;
         } else {

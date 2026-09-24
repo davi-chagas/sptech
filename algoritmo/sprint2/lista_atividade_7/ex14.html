@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+    <h1>Divisibilidade</h1>
+
+    <label for="ipt_intervalo_1">Insira o intervalo: </label>
+    <input type="text" id="ipt_intervalo"> <br>
+
+    <label for="ipt_num_teste">Insira um número de teste: </label>
+    <input type="text" id="ipt_num_teste"> <br>
+
+    <button onclick="analisar()">Divisivel</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let intervalo = Number(ipt_intervalo.value);
+        let num_teste = Number(ipt_num_teste.value);
+        let dicionario = []
+
+        if (num_teste < 3 || num_teste > 13) {
+            div_result.innerHTML = 'O número precisa estar entre 3 e 13'
+        } else {
+            let count = 0;
+            div_result.innerHTML = '';
+            while (count <= intervalo) {
+                count++;
+                let resultado = num_teste / count;
+                if (num_teste % count != 0) {
+                    div_result.innerHTML += `${num_teste} / ${count} = ${resultado} <br>`
+                }
+            }
+        }
+    }
+</script>
+
+</html>

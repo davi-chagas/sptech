@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <h1>S2 Pares</h1>
+
+    <button onclick="pares()">S2 pares</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function pares() {
+        let count = 0;
+        let msg = '';
+        while (count <= 100) {
+            count++;
+            if (count % 2 == 0) {
+                msg += `${count} <br>`
+            }
+            div_result.innerHTML = msg
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+    <h1>Múltiplos de 5</h1>
+
+    <label for="ipt_num">Insira um número entre 20 e 100: </label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="analisar()">Adoro múltiplos de 5</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let num = Number(ipt_num.value);
+        if (num < 20 || num > 100) {
+            div_result.innerHTML = 'Número precisa estrar entre 20 e 100'
+        } else {
+            let count = 5;
+            while (count <= num) {
+                div_result.innerHTML += `${count} <br>`
+                count+=5;
+            }
+        }
+    }
+</script>
+</html>
