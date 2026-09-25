@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <h1>É tri/penta!</h1>
+
+    <label for="ipt_intervalo_1">Insira o primeiro intervalo: </label>
+    <input type="text" id="ipt_intervalo_1"> <br>
+
+    <label for="ipt_intervalo_2">Insira o segundo intervalo: </label>
+    <input type="text" id="ipt_intervalo_2"> <br>
+
+    <button onclick="analisar()">Curto 3 e 5</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function analisar() {
+        let intervalo_1 = Number(ipt_intervalo_1.value);
+        let intervalo_2 = Number(ipt_intervalo_2.value);
+
+        if (intervalo_1 > intervalo_2) {
+            div_result.innerHTML = 'O intervalo deve estar em ordem crescente'
+        } else {
+            while (intervalo_1 <= intervalo_2) {
+                if (intervalo_1 % 3 == 0 && intervalo_1 % 5 == 0) {
+                    div_result.innerHTML += `É TRI!É PENTA! <br>`
+                } else if (intervalo_1 % 3 == 0) {
+                    div_result.innerHTML += `É TRI!<br>`
+                } else if (intervalo_1 % 5 == 0) {
+                    div_result.innerHTML += `É PENTA!<br>`
+                } else {
+                    div_result.innerHTML += `${intervalo_1} <br>`
+                }
+                
+                intervalo_1++;
+            }
+        }
+    }
+</script>
+
+</html>

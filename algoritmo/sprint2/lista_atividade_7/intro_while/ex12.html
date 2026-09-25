@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 12</title>
 </head>
+
 <body>
     <h1>Papagaio Falante</h1>
 
@@ -17,14 +19,26 @@
     <button onclick="analisar()">papagaio</button>
 </body>
 <script>
-    function analisar(){
+    function analisar() {
         let num = Number(ipt_num.value);
         let frase = ipt_frase.value;
-        let count = 1
-        while(count <= num){
-            alert(frase)
+        let dicionario = [];
+
+        let count = 1;
+        while (count <= num) {
+            dicionario.push(frase)
+            alert(dicionario)
             count++
+        }
+
+        alert('');
+
+        count = 0
+        while(count < num){
+            alert(dicionario);
+            count++;
         }
     }
 </script>
+
 </html>

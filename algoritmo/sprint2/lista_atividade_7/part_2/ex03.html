@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h1>Um elefante, incomoda muita gente...</h1>
+
+    <label for="ipt_qtd_elefantes">Insira a qtd. elefantes</label>
+    <input type="text" id="ipt_qtd_elefantes">
+
+    <button onclick="mostrar()">Atazanar a médium</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function mostrar() {
+        let qtd_elefantes = Number(ipt_qtd_elefantes.value);
+        let dicionario = []
+        div_result.innerHTML = '';
+
+        let count = 2
+        while (count <= qtd_elefantes) {
+            dicionario.push('incomodam')
+            div_result.innerHTML += `1 elefante incomoda muita gente <br>
+            ${count} elefantes, <b>${dicionario}</b>, muito mais! <br> <br>`
+            count++;
+        }
+    }
+</script>
+
+</html>

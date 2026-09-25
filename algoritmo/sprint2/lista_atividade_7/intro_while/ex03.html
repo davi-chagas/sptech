@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 2</title>
+    <title>Exercicio 03</title>
 </head>
+
 <body>
-    <h1>Frase Repetitiva</h1>
+    <h1>Frase Numerada</h1>
 
     <button onclick="mostrar()">Diga algo sobre a matéria de algoritmo</button>
     <div id="div_result"></div>
 </body>
 <script>
-    function mostrar(){
-        let frase = 'O caminho da repetição é o while'
-        let count = 0;
+    function mostrar() {
+        let frase = 'o caminho da repetição é o while'
+        let count = 1;
 
-        while(count <= 7){
-            div_result.innerHTML += `${frase} <br>`
+        while (count <= 7) {
+            div_result.innerHTML += `${count}. Boa tarde, ${frase} <br>`
             count++;
         }
     }
 </script>
+
 </html>

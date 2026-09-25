@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h1>Treino de Musculação</h1>
+
+    <label for="ipt_qtd_dias">Insira a qtd. dias que faz musculação: </label>
+    <input type="text" id="ipt_qtd_dias">
+
+    <button onclick="exibir()">Exibir rotina mensal</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function exibir() {
+        let qtd_dias = Number(ipt_qtd_dias.value);
+        div_result.innerHTML = '';
+
+        let count = 1;
+        while (count <= 30) {
+            if (count % qtd_dias == 1 && count != 30) {
+                div_result.innerHTML += `Dia ${count} - Musculação <br>`
+                count++
+            } 
+            div_result.innerHTML += `Dia ${count} - Comer, dormir etc <br>`
+            count++;
+        }
+    }
+</script>
+
+</html>
