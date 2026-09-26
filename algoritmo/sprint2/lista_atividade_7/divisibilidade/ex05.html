@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 22</title>
+</head>
+
+<body>
+    <h1>Contagem Simples</h1>
+
+    <label for="ipt_limite_inferior">Insira o limite inferior: </label>
+    <input type="text" id="ipt_limite_inferior"> <br>
+
+    <label for="ipt_limite_superior">Insira o limite superior: </label>
+    <input type="text" id="ipt_limite_superior"> <br>
+
+    <label for="ipt_divisibilidade">Insira um número de divisibilidade: </label>
+    <input type="text" id="ipt_divisibilidade"> <br>
+
+    <button onclick="contar()">Contar</button>
+
+    <div id="div_result"></div>
+    <div id="div_success"></div>
+</body>
+<script>
+    function contar() {
+        let limite_inferior = Number(ipt_limite_inferior.value);
+        let limite_superior = Number(ipt_limite_superior.value);
+        let divisibilidade = Number(ipt_divisibilidade.value);
+
+        if (limite_inferior < 1) {
+            div_result.innerHTML = 'Esse número precisa ser maior que 1'
+        } else if (limite_superior < 100 && limite_inferior > limite_inferior) {
+            div_result.innerHTML = 'Esse número precisa ser maior que limite inferior e menor que 100'
+        } else if (divisibilidade < 3 && divisibilidade > 10) {
+            div_result.innerHTML = 'Esse número precisa estar entre 3 e 10'
+        } else {
+            div_result.innerHTML = '';
+            let listNumbers = []
+            let soma = 0;
+            let maior = 0;
+            let menor = 100;
+            while (limite_inferior <= limite_superior) {
+                if (limite_inferior % divisibilidade == 0) {
+                    listNumbers.push(limite_inferior)
+                    soma += limite_inferior;
+
+                    if(limite_inferior > maior){
+                        maior = limite_inferior;
+                    }
+
+                    if(limite_inferior < menor){
+                        menor = limite_inferior;
+                    }
+                }
+                limite_inferior++;
+            }
+            div_result.innerHTML += `${listNumbers} <br>`
+            console.log(listNumbers)
+
+            let quantity_of_numbers = listNumbers.length;
+            let media = soma / quantity_of_numbers;
+            div_success.innerHTML = 
+            `QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${quantity_of_numbers} <br>
+            SOMATORIO DOS NÚMEROS EXIBIDOS: ${soma} <br>
+            MÉDIA DOS NÚMEROS EXIBIDOS: ${media} <br>
+            MAIOR NÚMERO EXIBIDO: ${maior} <br>
+            MENOR NÚMERO EXIBIDO: ${menor}`
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19</title>
+</head>
+
+<body>
+    <h1>Números Primos</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="mostrar()">Exibir</button>
+
+    <div id="div_msg"></div>
+    <div id="div_result"></div>
+</body>
+<script>
+    function mostrar() {
+        let num = Number(ipt_num.value);
+        let count = 1;
+        div_result.innerHTML = ''
+        let index = []
+
+        while (count <= num) {
+            if (num % 1 == 0 && num % count == 0 && num % num != 1) {
+                div_msg.innerHTML = `Divisores do Número ${num}`
+                div_result.innerHTML += `
+                ${count} <br>`
+                index.push(count);
+            }
+            count++;
+        }
+
+        if (index.length == 2) {
+            div_result.innerHTML += `O número ${num} é um número primo`
+        } else {
+            div_result.innerHTML += `O número ${num} não é um número primo`
+        }
+    }
+</script>
+
+</html>
