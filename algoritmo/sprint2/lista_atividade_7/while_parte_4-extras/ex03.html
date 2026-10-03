@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericio 03</title>
+</head>
+
+<body>
+    <h1>Alugueis pagos com pedras de ouro.</h1>
+
+    <label for="ipt_dinheiro_banco">Insira a qtd. dinheiro do banco:</label>
+    <input type="text" id="ipt_dinheiro_banco"> <br>
+
+    <label for="ipt_qtd_pedras">Insira a qtd. pedras</label>
+    <input type="text" id="ipt_qtd_pedras"> <br>
+
+    <label for="ipt_valor_aluguel">Insira o valor do aluguel: </label>
+    <input type="text" id="ipt_valor_aluguel"> <br>
+
+    <label for="ipt_qtd_meses_aluguel">Insira a qtd. meses: </label>
+    <input type="text" id="ipt_qtd_meses_aluguel"> <br>
+
+    <label for="ipt_qtd_anos_expectativa">Insira a qtd. de anos que pretende viver: </label>
+    <input type="text" id="ipt_qtd_anos_expectativa"> <br>
+
+    <button onclick="calcular()">Calcular</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let dinheiro_banco = Number(ipt_dinheiro_banco.value);
+        let qtd_pedras = Number(ipt_qtd_pedras.value);
+        let valor_aluguel = Number(ipt_valor_aluguel.value);
+        let qtd_meses_aluguel = Number(ipt_qtd_meses_aluguel.value);
+        let qtd_anos_expectativa = Number(ipt_qtd_anos_expectativa.value);
+        let count_ano = 1;
+        let count_meses = 1;
+        let count_meses_falso = 1;
+
+        let preco_pedra = qtd_pedras * 10.000;
+
+        while (count_meses <= qtd_meses_aluguel) {
+            if (count_meses % 12 == 1 && count_meses != 12) {
+                div_result.innerHTML += `Ano ${count_ano} <br>`
+                count_ano++
+            }
+            div_result.innerHTML += `Mes ${count_meses_falso}  <br>`
+            if (count_meses_falso == 12) {
+                count_meses_falso = 0;
+            }
+            count_meses_falso++;
+            count_meses++;
+        }
+    }
+</script>
+
+</html>

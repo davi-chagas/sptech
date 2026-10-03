@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Invasão de Impel Down</title>
+</head>
+
+<body>
+    <h1>Desafio: Invasão de Impel Down</h1>
+
+    <label for="ipt_qtd_batalhas">Insira a qtd. batalhas: </label>
+    <input type="text" id="ipt_qtd_batalhas"> <br>
+
+    <label for="ipt_marinheiro">Insira a qtd. marinheiro em cada batalha: </label>
+    <input type="text" id="ipt_qtd_marinheiro"> <br>
+
+    <label for="ipt_qtd_carne">Insira a qtd. carne disponivel: </label>
+    <input type="text" id="ipt_qtd_carne">
+
+    <button onclick="batalhar()">Simule</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    function batalhar() {
+
+        let pontos_energia = 100;
+        let qtd_batalhas = parseInt(ipt_qtd_batalhas.value);
+        let qtd_marinheiro = parseInt(ipt_qtd_marinheiro.value);
+        let qtd_carne = Number(ipt_qtd_carne.value);
+
+        let count_batalha = 1;
+        let count_marinheiro_derrotado = 0;
+        let qtd_marinheiro_derrotado = 0;
+
+        while (count_batalha <= qtd_batalhas && (pontos_energia > 0 || qtd_carne > 0)) {
+            pontos_energia -= 10;
+            count_marinheiro_derrotado = 0;
+
+            while (count_marinheiro_derrotado < qtd_marinheiro && (pontos_energia > 0 || qtd_carne > 0)) {
+                if (pontos_energia <= 0 && qtd_carne > 0) {
+                    pontos_energia = 100;
+                    qtd_carne -= 1;
+                }
+
+                if (pontos_energia > 0) {
+                    count_marinheiro_derrotado++;
+                    qtd_marinheiro_derrotado++;
+                    pontos_energia -= 5;
+                }
+            }
+
+            count_batalha++;
+        }
+
+        let total_marinheiros = qtd_marinheiro * qtd_batalhas;
+        let marinheiro_restante = total_marinheiros - qtd_marinheiro_derrotado;
+
+        if (qtd_marinheiro_derrotado == total_marinheiros) {
+            div_result.innerHTML = `
+                Resultado: Luffy saiu vitorioso! <br>
+                Quantidade de carnes restantes: ${qtd_carne} <br>
+                Quantidade de marinheiros derrotados: ${qtd_marinheiro_derrotado} <br>
+                Energia restante ao final das batalhas: ${pontos_energia}`;
+        } else {
+            div_result.innerHTML = `
+                Resultado: Luffy foi derrotado! Sobraram - ${marinheiro_restante} <br>
+                Quantidade de carnes restantes: ${qtd_carne} <br>
+                Quantidade de marinheiros derrotados: ${qtd_marinheiro_derrotado} <br>
+                Energia restante ao final das batalhas: ${pontos_energia}`;
+        }
+    }
+</script>
+
+</html>

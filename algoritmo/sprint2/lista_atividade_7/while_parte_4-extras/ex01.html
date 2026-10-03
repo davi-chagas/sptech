@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>1 - Divisão por subtrações sucessivas.</h1>
+
+    <label for="ipt_num_1">Insira o primeiro número: </label>
+    <input id="ipt_num_1"></input> <br>
+
+    <label for="ipt_num_2">Insira o segundo número: </label>
+    <input type="text" id="ipt_num_2"> <br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular(){
+        let num_1 = Number(ipt_num_1.value);
+        let num_2 = Number(ipt_num_2.value);
+
+        let count = 1;
+        let  resultado_quociente = num_1 / num_2;
+        div_result.innerHTML = '';
+        while(count <= num_2){
+            num_1 -= resultado_quociente;
+            div_result.innerHTML += `${num_1} <br>`
+            count++;
+        }
+    }
+</script>
+</html>

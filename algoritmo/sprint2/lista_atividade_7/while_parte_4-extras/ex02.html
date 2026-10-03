@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poupança</title>
+</head>
+
+<body>
+    <h2>Poupança</h2>
+    Entre com o valor mensal de depósito: <input id="ipt_deposito" type="number"> <br>
+    Entre com a quantidade de meses: <input id="ipt_meses" type="number"> <br>
+    Entre com o percentual de juros: <input id="ipt_juros" type="number"> <br> <br>
+    Qual é o seu sonho: <input id="ipt_sonho"> <br>
+    Qual o valor do seu sonho: <input id="ipt_valorSonho" type="number">
+    <button onclick="projetar()">Projetar</button><br> <br>
+
+    <div id="div_msg"></div>
+</body>
+<script>
+    function projetar() {
+        let deposito = Number(ipt_deposito.value);
+        let meses = parseInt(ipt_meses.value);
+        let juros = Number(ipt_juros.value);
+        let sonho = ipt_sonho.value;
+        let valor_sonho = Number(ipt_valorSonho.value);
+
+        if (deposito < 0) {
+            div_msg.innerHTML = 'Valor de deposito deve ser maior que 0'
+        } else if (meses < 0) {
+            div_msg.innerHTML = 'Quantidade meses deve ser maior que 0'
+        } else if (juros < 1 || juros > 9) {
+            div_msg.innerHTML = 'Juros deve ser estar entre 1 e 9'
+        } else if (sonho.length < 3) {
+            div_msg.innerHTML = 'Sonho deve conter no minimo 3 caracteres'
+        } else if (valor_sonho < 0 || valor_sonho < deposito) {
+            div_msg.innerHTML = 'Valor do sonho precisa ser positivo e valor que deposito'
+        } else {
+            let count = 1
+            let valor = 0;
+            let valor_inicial = 0;
+            let valor_final = deposito;
+            let taxa = 0;
+
+            while (count <= meses) {
+                div_msg.innerHTML += `Mês = ${count} - Valor Inicial = R$${valor_inicial.toFixed(2)}, - Juros - ${taxa.toFixed(2)} - Deposito = ${deposito} - Valor final = R$ ${valor_final.toFixed(2)} <br>`
+
+                valor_inicial = valor_final;
+                taxa = valor_inicial * juros / 100;
+                valor_final = valor_inicial + taxa + deposito;
+                count++
+            }
+
+            let resto = 0;
+            if (valor_final > valor_sonho) {
+                resto = valor_final - valor_sonho;
+                div_msg.innerHTML += `Parabéns você é um POUPADOR, além do seu sonho de ${valor_sonho} ainda sobrou R$ ${resto.toFixed(2)} para outras aquisições`
+            } else if (valor_sonho > valor_final) {
+                resto = valor_sonho - valor_final;
+                div_msg.innerHTML += `Você precisa poupar um pouco mais. Para o sonho de ${valor_sonho} ainda falta R$ ${resto.toFixed(2)}`
+            }
+        }
+    }
+</script>
+
+</html>

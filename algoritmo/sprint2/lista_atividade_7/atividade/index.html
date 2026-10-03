@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação</title>
+</head>
+
+<body>
+    <h1>AV - Coelho e a Tartaruga</h1>
+
+    <label for="ipt_tamanho_pista">Insira o tamanho da pista (em metros): </label>
+    <input type="text" id="ipt_tamanho_pista"> <br>
+
+    <label for="ipt_qtd_metros_tartaruga">Insira quantos metros a tartaruga anda por rodada: </label>
+    <input type="text" id="ipt_qtd_metros_tartatuga"> <br>
+
+    <label for="ipt_qtd_metros_coelho">Insira quantos metros a coelho anda por rodada: </label>
+    <input type="text" id="ipt_qtd_metros_coelho"> <br>
+
+    <label for="ipt_qtd_dorme_coelho">Insira a cada quantas rodadas o coelho dorme: </label>
+    <input type="text" id="ipt_qtd_dorme_coelho"> <br>
+
+    <button onclick="simularCorrida()">Dar a Largada</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function simularCorrida() {
+        let tamanho_pista = Number(ipt_tamanho_pista.value);
+        let qtd_metros_tartatura = Number(ipt_qtd_metros_tartatuga.value);
+        let qtd_metros_coelho = Number(ipt_qtd_metros_coelho.value);
+        let intervalo_soneca = Number(ipt_qtd_dorme_coelho.value);
+
+        if (tamanho_pista <= 0 || qtd_metros_tartatura <= 0 || qtd_metros_coelho <= 0 || intervalo_soneca <= 0) {
+            div_result.innerHTML = 'O valor precisa ser maior que 0'
+        } else if (qtd_metros_tartatura >= qtd_metros_coelho) {
+            div_result.innerHTML = 'a tartaruga deve ser a mais lenta'
+        } else if (intervalo_soneca < 2) {
+            div_result.innerHTML = 'O coelho não pode dormir todas as rodadas'
+        } else {
+            let acm_tartatuga = 0;
+            let acm_coelho = 0;
+            let contador_rodadas = 1;
+            let vencedor = ''
+            let perdedor = ''
+            let perc_perdedor = 0;
+            let contador_soneca = 0;
+
+            while (acm_tartatuga <= tamanho_pista && acm_coelho <= tamanho_pista) {
+                if (contador_rodadas % intervalo_soneca == 0) {
+                    acm_tartatuga += qtd_metros_tartatura;
+                    div_result.innerHTML += `Rodada ${contador_rodadas}: Tartarugo ${acm_tartatuga} m | Coelhildo ${acm_coelho} m - Coelho dormindo (zzz...)<br>`
+                    contador_soneca++;
+                    contador_rodadas++
+                }
+
+                acm_tartatuga += qtd_metros_tartatura;
+                acm_coelho += qtd_metros_coelho;
+                div_result.innerHTML += `Rodada ${contador_rodadas}: Tartarugo ${acm_tartatuga} m | Coelhildo ${acm_coelho} m <br>`
+                if (acm_tartatuga <= tamanho_pista && acm_coelho <= tamanho_pista) {
+                    contador_rodadas++;
+                }
+            }
+
+            let porcentual_soneca = contador_soneca / contador_rodadas * 100;
+
+            if (acm_tartatuga > acm_coelho) {
+                vencedor = 'Tartarugo devagarinho'
+                perdedor = 'Coelhildo soneca'
+                perc_perdedor = acm_coelho * 100 / tamanho_pista;
+            } else if (acm_coelho > acm_tartatuga) {
+                vencedor = 'Coelhildo soneca'
+                perdedor = 'Tartarugo devagarinho'
+                perc_perdedor = acm_tartatuga * 100 / tamanho_pista;
+            }
+
+            if (acm_tartatuga >= tamanho_pista && acm_coelho >= tamanho_pista) {
+                div_result.innerHTML = `Empate na ${contador_rodadas}! <br>
+                O coelho tirou ${contador_soneca} sonecas, o que representa ${porcentual_soneca.toFixed(2)}% das rodadas`
+            } else {
+                div_result.innerHTML = `${vencedor} venceu na rodada ${contador_rodadas}! <br>
+                ${perdedor} completou ${perc_perdedor.toFixed(2)}% da pista. <br>
+                O coelho tirou ${contador_soneca} sonecas, o que representa ${porcentual_soneca.toFixed(2)}% das rodadas.`
+            }
+        }
+    }
+</script>
+
+</html>
