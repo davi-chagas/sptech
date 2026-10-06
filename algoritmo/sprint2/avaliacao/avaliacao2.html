@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 2</title>
+</head>
+
+<body>
+    <h1>Atividade Avaliativa 2 - Doceria Gourmet</h1>
+
+    <label for="ipt_qtd_venda_macarons">Insira a qtde venda de macarons: </label>
+    <input type="text" id="ipt_qtd_venda_macarons"> <br>
+
+    <label for="ipt_qtd_venda_brigadeiros">Insira a qtde venda de brigadeiros: </label>
+    <input type="text" id="ipt_qtd_venda_brigadeiros"> <br>
+
+    <label for="ipt_qtd_venda_cupcakes">Insira a qtde venda de cupcakes: </label>
+    <input type="text" id="ipt_qtd_venda_cupcakes"> <br>
+
+    <label for="ipt_qtd_venda_cheesecake">Insira a qtde venda de cheesecakes: </label>
+    <input type="text" id="ipt_qtd_venda_cheesecake"> <br>
+
+    <label for="ipt_valor_unidade_macarons">Insira o valor unitário do macarons: </label>
+    <input type="text" id="ipt_valor_unidade_macarons"> <br>
+
+    <label for="ipt_valor_unidade_brigadeiros">Insira o valor unitário do brigadeiro: </label>
+    <input type="text" id="ipt_valor_unidade_brigadeiros"> <br>
+
+
+    <label for="ipt_valor_unidade_cupcakes">Insira o valor unitário do cupcake: </label>
+    <input type="text" id="ipt_valor_unidade_cupcakes"> <br>
+
+    <label for="ipt_valor_unidade_cheesecakes">Insira o valor unitário do cheesecake: </label>
+    <input type="text" id="ipt_valor_unidade_cheesecakes"> <br>
+
+    <button onclick="calcular()">Verificar Vendas</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        // vendas
+        let qtd_venda_macarons = Number(ipt_qtd_venda_macarons.value);
+        let qtd_venda_brigadeiros = Number(ipt_qtd_venda_brigadeiros.value);
+        let qtd_venda_cupcake = Number(ipt_qtd_venda_cupcakes.value);
+        let qtd_venda_cheesecake = Number(ipt_qtd_venda_cheesecake.value);
+
+        // unidades  
+        let valor_unidade_macaron = Number(ipt_valor_unidade_macarons.value);
+        let valor_unidade_brigadeiro = Number(ipt_valor_unidade_brigadeiros.value);
+        let valor_unidade_cupcake = Number(ipt_valor_unidade_cupcakes.value);
+        let valor_unidade_cheesecake = Number(ipt_valor_unidade_cheesecakes.value);
+
+        if (qtd_venda_macarons < 0 || qtd_venda_brigadeiros < 0 || qtd_venda_cupcake < 0 || qtd_venda_cheesecake < 0 || valor_unidade_macaron < 0 || valor_unidade_brigadeiro < 0 || valor_unidade_cupcake < 0 || valor_unidade_cheesecake < 0) {
+            div_result.innerHTML = 'Os valores não podem ser negativos'
+        } else {
+
+            let contagem_limite = qtd_venda_macarons + qtd_venda_brigadeiros + qtd_venda_cheesecake + qtd_venda_cupcake;
+
+            let contador_venda = 1;
+            let contador_macarons = 0;
+            let contador_brigadeiro = 0;
+            let contador_cupcake = 0;
+            let contador_cheesecake = 0;
+
+
+
+            let valor_total = 0;
+            while (contador_venda <= contagem_limite) {
+                while (contador_macarons < qtd_venda_macarons) {
+                    div_result.innerHTML += `Venda ${contador_venda} - <img src="https://t3.ftcdn.net/jpg/19/84/98/68/360_F_1984986825_9tUvlIFnr1dtABtMG25V0D013c6w1h9U.jpg" width="100px"></img> - R$${valor_unidade_macaron} <br>`
+                    contador_venda++;
+                    contador_macarons++;
+                }
+
+                while (contador_brigadeiro < qtd_venda_brigadeiros) {
+                    div_result.innerHTML += `Venda ${contador_venda} - <img src="https://t3.ftcdn.net/jpg/03/01/55/56/360_F_301555615_PuTf9kLR9GqVKDMs8kVdwyUB4yjOjNIz.jpg" width="100px"></img> - R$${valor_unidade_brigadeiro} <br>`
+                    contador_venda++;
+                    contador_brigadeiro++
+                }
+
+                while (contador_cupcake < qtd_venda_cupcake) {
+                    div_result.innerHTML += `Venda ${contador_venda} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGZtGFL48CZIKboT-VWKhGRmqGXSilRsWhl-8Z4kn9eg&s=10" width="100px"></img>  - R$${valor_unidade_cupcake} <br>`
+                    contador_venda++;
+                    contador_cupcake++
+                }
+
+                while (contador_cheesecake < qtd_venda_cheesecake) {
+                    div_result.innerHTML += `Venda ${contador_venda} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHcWULNWpZY_sSO2wHm41KY5Wem6UShteDCf2sOEtcxg&s=10" width="100px"></img> - R$${valor_unidade_cheesecake} <br>`
+                    contador_venda++;
+                    contador_cheesecake++
+                }
+
+                valor_total += (valor_unidade_macaron * contador_macarons) + (valor_unidade_brigadeiro * contador_brigadeiro) + (valor_unidade_cupcake * contador_cupcake) + (valor_unidade_cheesecake * contador_cheesecake);
+
+                let porcentual_macarons = (valor_unidade_macaron * contador_brigadeiro) * 100 / valor_total;
+                let porcentual_brigadeiro = (valor_unidade_brigadeiro * contador_brigadeiro) * 100 / valor_total;
+                let porcentual_cupcake = (valor_unidade_cupcake * contador_cupcake) * 100 / valor_total;
+                let porcentual_cheesecake = (valor_unidade_cheesecake * contador_cheesecake) * 100 / valor_total;
+
+                div_result.innerHTML += `Com a quantidade de ${contador_macarons} Macarons representou ${porcentual_macarons.toFixed(2)}% da compra, ${contador_brigadeiro} Brigadeiros representou ${porcentual_brigadeiro.toFixed(2)}% da compra, ${contador_cupcake} Cupcakes representou ${porcentual_cupcake.toFixed(2)}% da compra, ${contador_cheesecake} Cheesecakes representou ${porcentual_cheesecake.toFixed(2)}% da compra, a venda totalizará R$${valor_total.toFixed(2)}`
+            }
+
+        }
+    }
+</script>
+
+</html>
