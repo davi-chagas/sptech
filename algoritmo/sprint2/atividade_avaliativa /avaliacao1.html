@@ -77,10 +77,10 @@
             }
 
             if (acm_tartatuga >= tamanho_pista && acm_coelho >= tamanho_pista) {
-                div_result.innerHTML = `Empate na ${contador_rodadas}! <br>
+                div_result.innerHTML += `Empate na ${contador_rodadas}! <br>
                 O coelho tirou ${contador_soneca} sonecas, o que representa ${porcentual_soneca.toFixed(2)}% das rodadas`
             } else {
-                div_result.innerHTML = `${vencedor} venceu na rodada ${contador_rodadas}! <br>
+                div_result.innerHTML += `${vencedor} venceu na rodada ${contador_rodadas}! <br>
                 ${perdedor} completou ${perc_perdedor.toFixed(2)}% da pista. <br>
                 O coelho tirou ${contador_soneca} sonecas, o que representa ${porcentual_soneca.toFixed(2)}% das rodadas.`
             }

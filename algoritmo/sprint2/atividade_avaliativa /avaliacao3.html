@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 3</title>
+</head>
+
+<body>
+    <h1>AV - Acessoria de Corrida</h1>
+
+    <label for="ipt_distancia_inicial">Insira a distância inicial (km): </label>
+    <input type="text" id="ipt_distancia_inicial"> <br>
+
+    <label for="ipt_ipt_percentual_aumento">Insira o percentual de aumento semanal: </label>
+    <input type="text" id="ipt_percentual_aumento"> <br>
+
+    <label for="ipt_meta">Insira a meta de distância semanal: </label>
+    <input type="text" id="ipt_meta"> <br>
+
+    <label for="ipt_maximo_semanas">Insira o máximo de semanas: </label>
+    <input type="text" id="ipt_maximo_semanas"> <br>
+
+    <button onclick="calcular()">Gerar Planilha</button>
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let distancia_inicial = Number(ipt_distancia_inicial.value);
+        let percentual_aumento = Number(ipt_percentual_aumento.value);
+        let meta = Number(ipt_meta.value);
+        let maximo_semanas = Number(ipt_maximo_semanas.value);
+
+        if (distancia_inicial <= 0) {
+            div_result.innerHTML = 'O valor deve ser positivo'
+        } else if (percentual_aumento < 1 || percentual_aumento > 10) {
+            div_result.innerHTML = 'O valor deve ser entre 1 e 10'
+        } else if (meta <= distancia_inicial) {
+            div_result.innerHTML = 'Meta inválida! Deve ser maior do que distancia inicial'
+        } else if (maximo_semanas < 1 || maximo_semanas > 24) {
+            div_result.innerHTML = 'Número de semanas deve ser entre 1 e 23'
+        } else {
+            div_result.innerHTML = '';
+            let contador_semana = 1;
+            let acm_distancia = distancia_inicial;
+            let acm_distancia_descanso = acm_distancia;
+            let aumento = 0;
+            let distancia_semana_descanso = 0;
+            let meta_atingida = acm_distancia * 100 / meta;
+            let meta_descanso_atingida = 0;
+            let mensagem = '';
+            let acm_total = acm_distancia;
+            let contador_leve = 0;
+            let contador_moderado = 0;
+            let contador_intenso = 0;
+            let contador_descanso = 0;
+
+            while (acm_distancia <= meta) {
+                if (contador_semana % 4 == 0) {
+
+                    acm_distancia_descanso = (acm_distancia) * 0.7;
+                    acm_total += acm_distancia_descanso;
+                    meta_descanso_atingida = acm_distancia_descanso * 100 / meta;
+                    if (meta_descanso_atingida > 0) {
+                        mensagem = 'Treino de recuperação'
+                        contador_descanso++;
+                    }
+                    div_result.innerHTML += `Semana ${contador_semana} -  ${mensagem} - ${acm_distancia_descanso.toFixed(2)} km (${meta_descanso_atingida.toFixed(2)}% da meta) <br>`
+
+                } else {
+
+
+                    if (contador_semana == 1) {
+                        if (acm_distancia * 100 / meta < 50) {
+                            mensagem = 'Leve'
+                            contador_leve++;
+                        } else if (acm_distancia * 100 / meta < 80) {
+                            mensagem = 'Moderado'
+                            contador_moderado++;
+                        } else if (acm_distancia * 100 / meta > 79) {
+                            mensagem = 'Intenso'
+                            contador_intenso++;
+                        }
+
+                        div_result.innerHTML += `Semana ${contador_semana}- ${mensagem} - ${acm_distancia.toFixed(2)}km (${Number(acm_distancia * 100 / meta).toFixed(2)}% da meta)<br>`
+                    } else {
+                        aumento = acm_distancia * percentual_aumento / 100;
+                        acm_distancia += aumento;
+                        acm_total += acm_distancia;
+                        if (acm_distancia * 100 / meta < 50) {
+                            mensagem = 'Leve'
+                            contador_leve++;
+                        } else if (acm_distancia * 100 / meta < 80) {
+                            mensagem = 'Moderado'
+                            contador_moderado++;
+                        } else if (acm_distancia * 100 / meta > 79) {
+                            mensagem = 'Intenso'
+                            contador_intenso++;
+                        }
+
+                        div_result.innerHTML += `Semana ${contador_semana}- ${mensagem} - ${acm_distancia.toFixed(2)}km (${Number(acm_distancia * 100 / meta).toFixed(2)}% da meta)<br>`
+                    }
+                }
+                contador_semana++;
+            }
+
+            contador_semana--;
+            div_result.innerHTML += `<br>Meta de ${meta} km atingida na semana ${contador_semana}! Total acumulado no plano: ${acm_total.toFixed(2)} km`
+            div_result.innerHTML += `<br> Proporção dos Treinos: Leve ${Number(contador_leve * 100 / contador_semana).toFixed(2)}% | Moderado: ${Number(contador_moderado * 100 / contador_semana).toFixed(2)}% | Intenso ${Number(contador_intenso * 100 / contador_semana).toFixed(2)}% | Descanso ${Number(contador_descanso * 100 / contador_semana).toFixed(2)}%`
+        }
+    }
+</script>
+
+</html>

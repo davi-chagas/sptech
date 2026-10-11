@@ -491,7 +491,3 @@ SELECT * FROM setor;
 
 
 
-
-
-
-

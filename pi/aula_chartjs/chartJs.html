@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="chartLine"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="chartBar"></canvas>
+        </div>
+    </div>
+
+</body>
+<script>
+    // definição das constantes dos gráficos
+    const chartLine = document.getElementById('chartLine');
+    const chartBar = document.getElementById('chartBar');
+
+    // config gráfico tipo line
+    new Chart(chartLine, {
+        type: 'line',
+        data: {
+            labels: ['12:00',
+                '13:00',
+                '14:00',
+                '15:00',
+                '16:00',
+                '17:00'],
+            datasets: [{
+                label: 'Temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                backgroundColor: 'rgb(255,44,44)',
+                borderColor: 'rgb(255,44,44)',
+                borderWidth: 1
+            }, {
+                label: 'Umidade',
+                data: [80, 82, 80, 85, 80, 83],
+                backgroundColor: 'rgb(15,82,186)',
+                borderColor: 'rgb(15,82,186)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // ------
+    // config gráfico tipo bar 
+
+    new Chart(chartBar, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro',
+                'Fevereiro',
+                'Março',
+                'Abril',
+                'Maio',
+                'Junho'],
+            datasets: [{
+                label: 'Temperatura Média',
+                data: [22, 24, 27, 23, 20, 18],
+                backgroundColor: 'rgb(255,44,44)',
+                borderColor: 'rgb(255,44,44)',
+                borderWidth: 1
+            }, {
+                label: 'Umidade Média',
+                data: [90, 89, 93, 87, 88, 82],
+                backgroundColor: 'rgb(15,82,186)',
+                borderColor: 'rgb(15,82,186)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+</script>
+
+</html>
