@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h1>3. Exibição de Pares no Intervalo </h1>
+
+    <label for="ipt_num_1">Insira o primeiro número (1 a 10): </label>
+    <input type="text" id="ipt_num_1"> <br>
+
+    <label for="ipt_num_2">Insira o segundo número (30 a 100): </label>
+    <input type="text" id="ipt_num_2"> <br>
+
+    <button onclick="verificar()">Verificar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function verificar() {
+        let num_1 = Number(ipt_num_1.value);
+        let num_2 = Number(ipt_num_2.value);
+
+        if (num_1 < 1 || num_1 > 10) {
+            div_result.innerHTML = 'O primeiro número deve estar entre 1 e 10 '
+        } else if (num_2 < 30 || num_2 > 100) {
+            div_result.innerHTML = 'O segundo número deve estar entre 30 e 100'
+        } else {
+            div_result.innerHTML = '';
+            
+            div_result.innerHTML += 'Intervalo 1 <br>';
+            for (let i = 1; i <= num_1; i++) {
+                if (i % 2 == 0) {
+                    div_result.innerHTML += `${i} <br>`
+                }
+            }
+            
+            div_result.innerHTML += 'Intervalo 2 <br>';
+            for (let i = 1; i <= num_2; i++) {
+                if (i % 2 == 0) {
+                    div_result.innerHTML += `${i} <br>`
+                }
+            }
+        }
+    }
+</script>
+
+</html>
