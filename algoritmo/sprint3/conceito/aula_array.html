@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito de Array PT II</title>
+</head>
+
+<body>
+
+    <h1>Interação com array</h1>
+    <span>Enter a fruit: </span>
+    <input type="text" id="ipt_fruit"> <br>
+    <button onclick="insert()">Incluir</button>
+    <button onclick="search()">Pesquisar</button>
+    <button onclick="update()">Alterar</button>
+    <button onclick="remove()">Remover</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    let fruit_list = [];
+    let div_msg = '';
+
+    function insert() {
+        fruit_list.push(ipt_fruit.value);
+        div_msg = `<br>NOSSO ARRAY ESTÁ ASSIM: <br> <br> Quantidade de ocorrencias =  ${fruit_list.length} <br>
+        A primeira ocorrencia ${fruit_list[0]} <br>
+        A terceira ocorrencia ${fruit_list[2]} <br>
+        A ultima ocorrencia ${fruit_list[fruit_list.length - 1]} <br> <br>
+        
+        <span><b>Lista de fruta</b></span> <br>
+        `
+        for (let i = 0; i < fruit_list.length; i++) {
+            div_msg += `A fruta que está na ocorrência ${i + 1} é a: ${fruit_list[i]} <br>`
+        }
+
+        div_result.innerHTML = div_msg;
+    }
+
+    function search() {
+        fruit_list[ipt_frutas.value];
+    }
+</script>
+
+</html>

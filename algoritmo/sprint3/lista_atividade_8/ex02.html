@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>2. Capacidade Flexível </h1>
+
+    <label for="ipt_qtd_pessoas">Insira a qtd. pessoas: </label>
+    <input type="text" id="ipt_qtd_pessoas"> <br>
+
+    <label for="ipt_capacidade">Insira a capacidade: </label>
+    <input type="text" id="ipt_capacidade"> <br>
+
+    <button onclick="carona()">#Partiu Carona</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function carona(){
+        let qtd_pessoas = Number(ipt_qtd_pessoas.value);
+        let capacidade = Number(ipt_capacidade.value);
+
+        for(let i = 1; i <= qtd_pessoas;i++){
+            if(i == 1){
+                div_result.innerHTML += 'Entrou o 1° passageiro(que é o motorista) <br>'
+
+            } else if (i > capacidade) {
+                div_result.innerHTML += `O ${i}° passageiro tera que esperar! <br>`
+            } else {
+                div_result.innerHTML += `Entrou o ${i}° passageiro <br>`
+                
+            }
+        }
+    }
+</script>
+</html>
