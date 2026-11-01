@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <h1>Sistema de Cadastro de Produtos com Relatório de Preço de Venda</h1>
+
+    <label for="product_name">Insira um produto: </label>
+    <input type="text" id="ipt_product_name"> <br>
+
+    <label for="ipt_price">Insira um preço: </label>
+    <input type="text" id="ipt_price"> <br>
+
+    <button onclick="insert()">Cadastrar</button>
+    <button onclick="report()">Relatorio do estoque</button>
+
+    <div id="div_result"></div>
+</body>
+
+<script>
+    let product_list = [];
+    let price_list = [];
+
+    function insert() {
+        product_list.push(ipt_product_name.value);
+        price_list.push(ipt_price.value);
+    }
+
+    function report() {
+        div_result.innerHTML = `Total de produtos: ${product_list.length} <br> <br>`
+
+        for (let i = 0; i < product_list.length; i++) {
+            div_result.innerHTML += `Produto ${i + 1}: ${product_list[i]} <br> <br>
+            Preço da compra: R${price_list[i]}. Vender por R$${price_list[i] * 1.25} <br> <br>`
+        }
+    }
+
+</script>
+
+</html>

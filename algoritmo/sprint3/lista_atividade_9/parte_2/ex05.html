@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+
+<body>
+    <h1>Registro de Linhas de Ônibus com Pesquisa de Histórico</h1>
+
+    <label for="ipt_bus_line">Insira a linha de onibus: </label>
+    <input type="text" id="ipt_bus_line">
+
+    <button onclick="insert()">Gravar busão</button>
+    <button onclick="search()">Pesquisar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let bus_line_list = [];
+
+    function insert() {
+        bus_line_list.push(ipt_bus_line.value);
+
+        div_result.innerHTML = '';
+
+        for (let i = bus_line_list.length - 1; i >= 0; i--) {
+            div_result.innerHTML += `${bus_line_list[i]} <br>`
+        }
+
+    }
+
+    function search() {
+        let bus_line_search = ipt_bus_line.value;
+        let count = 0;
+        let index = [];
+
+        for (let i = 0; i < bus_line_list.length; i++) {
+            if (bus_line_list[i] == bus_line_search) {
+                count++
+                index.push(i);
+                div_result.innerHTML = `Você já pegou essa linha ${count} vezes, nessa ordem: ${index}`
+            } else {
+                div_result.innerHTML = 'Você nunca pegou essa linha (caso não tenha cadastrado a linha em questão)'
+            }
+        }
+    }
+</script>
+
+</html>

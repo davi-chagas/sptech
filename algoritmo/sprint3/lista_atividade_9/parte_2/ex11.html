@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    <h1>Sistema Avançado de Estoque com Análise de Produtos e Estatísticas</h1>
+
+    <label for="product_name">Insira um produto: </label>
+    <input type="text" id="ipt_product_name"> <br>
+
+    <label for="ipt_price">Insira um preço: </label>
+    <input type="text" id="ipt_price"> <br>
+
+    <button onclick="insert()">Cadastrar</button>
+    <button onclick="report()">Relatorio do estoque</button>
+
+    <div id="div_result"></div>
+    <div id="div_result2"></div>
+</body>
+<script>
+    let product_list = [];
+    let price_list = [];
+
+    function insert() {
+        product_list.push(ipt_product_name.value);
+        price_list.push(Number(ipt_price.value));
+    }
+
+    function report() {
+
+        let less_price = 10000000000000;
+        let sum_products = 0;
+        let avg = 0;
+
+        div_result.innerHTML = `Total de produtos: ${product_list.length} <br> <br>`
+
+        for (let i = 0; i < product_list.length; i++) {
+            if(price_list[i] < less_price){
+                less_price = price_list[i];
+            }
+            
+            sum_products += price_list[i];
+            avg = sum_products / price_list.length;
+
+            div_result.innerHTML += `Produto ${i + 1}: ${product_list[i]} <br> <br>
+            Preço da compra: R${price_list[i]}. Vender por R$${price_list[i] * 1.25} <br> <br>`
+
+            div_result2.innerHTML = `O nome do produto mais barato: R$${less_price} <br>
+            A soma dos preços: R$${sum_products} <br>
+            A média de preço de venda dos produtos: R$${avg.toFixed(2)}
+            `
+        }
+    }
+
+</script>
+
+</html>

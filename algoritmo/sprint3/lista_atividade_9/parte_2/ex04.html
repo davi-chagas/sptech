@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+
+<body>
+    <h1> Cadastro de Projetos e Classificação de Experiência Profissional</h1>
+
+    <label for="ipt_project_name">Insira o nome do projeto: </label>
+    <input type="text" id="ipt_project_name">
+
+    <button onclick="insert()">Registrar Projeto</button>
+    <button onclick="getProjects()">Mostrar Projetos</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    project_list = [];
+
+    function insert() {
+        project_list.push(ipt_project_name.value);
+        let level = '';
+
+        if(project_list.length < 5){
+            level = 'Júnior'
+        } else if(project_list.length <= 12){
+            level = 'Pleno'
+        } else {
+            level = 'Sênior'
+        }
+
+        div_result.innerHTML = `Você já fez ${project_list.length}. Por isso você é um ${level}`
+    }
+
+    function getProjects(){
+        div_result.innerHTML = '';
+        for(let i = project_list.length - 1; i >= 0; i--){
+            div_result.innerHTML += `${project_list[i]} <br>`
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <h1> Registro de Números com Histórico, Maior e Menor Valor</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="review()">Analisar Historico</button>
+
+    <div id="div_result"></div>
+    <div id="div_result2"></div>
+</body>
+<script>
+
+    let numbers_list = [];
+
+    function review() {
+        numbers_list.push(Number(ipt_num.value));
+
+        let bigger_number = 0;
+        let small_number = 100000000;
+
+        div_result.innerHTML = ''
+
+        for (let i = 0; i < numbers_list.length; i++) {
+            if (numbers_list[i] > bigger_number) {
+                bigger_number = numbers_list[i];
+            }
+
+            if (numbers_list[i] < small_number) {
+                small_number = numbers_list[i];
+            }
+            div_result.innerHTML += `${i + 1}ª Número: ${numbers_list[i]} <br>`
+
+            div_result2.innerHTML = ` Maior: ${bigger_number} <br>
+            Menor: ${small_number}`
+        }
+    }
+</script>
+
+</html>

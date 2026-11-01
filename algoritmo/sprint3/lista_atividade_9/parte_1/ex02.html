@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <h1>Filmes em Cores: Azul e Vermelho Alternados</h1>
+
+    <label for="ipt_movie">Insira um filme: </label>
+    <input type="text" id="ipt_movie">
+    <button onclick="insert()">Cadastrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let movie_list = [];
+
+    function insert() {
+        let movie = ipt_movie.value;
+
+        movie_list.push(movie);
+
+        div_result.innerHTML = '';
+        for (let i = 0; i < movie_list.length; i++) {
+            if(i % 2 == 0){
+                div_result.innerHTML += `<span style="color: red;">${movie_list[i]}</span> <br>`;
+            } else {
+                div_result.innerHTML += `<span style="color: blue;">${movie_list[i]}</span> <br>`;
+            }
+        }
+    }
+</script>
+
+</html>

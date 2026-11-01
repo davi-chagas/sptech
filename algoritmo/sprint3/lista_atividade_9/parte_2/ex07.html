@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+
+<body>
+    <h1>Cadastro de Filhos sem Repetição e Estimativa de Custo Escolar</h1>
+
+    <label for="ipt_name_child">Insira o nome do filho: </label>
+    <input type="text" id="ipt_name_child">
+
+    <button onclick="insert()">Cadastrar</button>
+    <button onclick="getFamily()">Atualizar Familia</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let family = [];
+
+    function insert() {
+        let exists = false;
+
+        for (let i = 0; i < family.length; i++) {
+            if (family[i] == ipt_name_child.value) {
+                exists = true;
+            }
+        }
+
+        if (exists) {
+            alert('Filho já cadastrado');
+        } else {
+            family.push(ipt_name_child.value);
+        }
+    }
+
+    function getFamily() {
+        div_result.innerHTML = '';
+
+        let private_budget = family.length * 3000;
+        let public_budget = family.length * 1500;
+
+        div_result.innerHTML = `Você tem ${family.length} filhos! <br>
+        Seu custo mensal será de aproximadamente R$${private_budget} se colocá-los em escola particular ou R$${public_budget} se eles estudarem em escola pública <br>`
+    }
+</script>
+
+</html>

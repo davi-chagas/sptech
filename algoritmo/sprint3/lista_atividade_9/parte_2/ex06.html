@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+<body>
+    <h1>Controle de Estoque de Produtos com Cálculo de Valor Total</h1>
+
+    <label for="ipt_product_price">Insira o preço de um produto: </label>
+    <input type="text" id="ipt_product_price">
+
+    <button onclick="insert()">Cadastrar</button>
+    <button onclick="update()">Atualizar Estoque</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let product_list = [];
+
+    function insert(){
+        product_list.push(Number(ipt_product_price.value));
+    }
+
+    function update(){
+        let sum = 0;
+        for(let i = 0; i< product_list.length; i++){
+            sum+= product_list[i];
+        }
+
+        div_result.innerHTML = `Você tem ${product_list.length} cadastrados no estoque <br>
+        Seu estoque vale R$${sum}`;
+    }
+</script>
+</html>

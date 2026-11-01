@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <h1>Controle de Campanha de Time de Futebol com Análise de Aproveitamento</h1>
+
+    <label for="ipt_team">Insira um time: </label>
+    <input type="text" id="ipt_team"> <br>
+
+    <label for="ipt_game">Indique um jogo que deseja saber o resultado: </label>
+    <input type="text" id="ipt_game"> <br>
+
+    <select id="select_result">
+        <option value="1">Vitoria</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select>
+
+    <button onclick="insert()">Registrar Jogo</button>
+    <button onclick="getGame()">Mostrar Jogo</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    let team_results = [];
+
+    function insert() {
+        let team = ipt_team.value;
+        team_results.push(select_result.value);
+
+        div_result.innerHTML = '';
+        let count_victory = 0;
+        let count_defeat = 0;
+        let count_draw = 0;
+
+        for (let i = 0; i < team_results.length; i++) {
+            if(team_results[i] == '1'){
+                count_victory++;
+            } else if (team_results[i] == 2){
+                count_draw++;
+            } else {
+                count_defeat++;
+            }
+        }
+
+        let pontuation = (count_victory * 3) + (count_draw);
+
+        let pontuation_possivel = team_results.length * 3;
+        let utilization = pontuation / pontuation_possivel * 100
+
+        div_result.innerHTML = `O ${team} teve: ${count_victory} vitórias, ${count_draw} empates, ${count_defeat} derrotas <br> <br>
+
+        Pontuação total: ${pontuation} <br> <br>
+
+        Aproveitamento: ${utilization.toFixed(2)}%
+        `
+    }
+
+    function getGame(){
+        let getGame = Number(ipt_game.value);
+
+        for(let i = 0; i < team_results.length; i++){
+            if(team_results[i] == getGame){
+                div_result.innerHTML = `No ${team_results[getGame]} o time:`
+            } else {
+                div_result.innerHTML = `Não foi cadastrado um ${getGame}ª jogo`
+            }
+        }
+    }
+</script>
+
+</html>
