@@ -34,14 +34,51 @@
         <span><b>Lista de fruta</b></span> <br>
         `
         for (let i = 0; i < fruit_list.length; i++) {
-            div_msg += `A fruta que está na ocorrência ${i + 1} é a: ${fruit_list[i]} <br>`
+            div_msg += `A fruta que está na ocorrência ${i + 1}ª é a: ${fruit_list[i]} <br>`
+        }
+
+        div_msg += '<br> <span><b>Lista de fruta Invertida</b></span> <br>'
+
+        for (let i = fruit_list.length - 1; i >= 0; i--) {
+            div_msg += `A fruta que está na ocorrência ${i + 1}ª é a: ${fruit_list[i]} <br>`
         }
 
         div_result.innerHTML = div_msg;
     }
 
     function search() {
-        fruit_list[ipt_frutas.value];
+        div_msg = '';
+        let ax_count = 0;
+        for (let i = 0; i < fruit_list.length; i++) {
+            if (fruit_list[i] == ipt_fruit.value) {
+                ax_count++;
+                div_msg += `A fruta ${fruit_list[i]} foi encontrada na ${i + 1} posição <br>`;
+            }
+        }
+
+        // valida se existe uma fruta encontrada pelo contado decladado acima
+        if (ax_count == 0 && ipt_fruit.value != '') {
+            div_msg = `A fruta ${ipt_fruit.value} não foi encontrada na lista!`;
+        }
+        div_result.innerHTML = div_msg;
+    }
+
+    function update() {
+        let fruit_new_name = prompt('Entre com o novo nome da fruta: ')
+        let ax_count = 0;
+        for (let i = 0; i < fruit_list.length; i++) {
+            if (fruit_list[i] == ipt_fruit.value) {
+                ax_count++;
+                ax_frutas[i] = fruit_new_name;
+                div_msg += `A fruta ${ipt_fruit.value} foi encontrada na ${i + 1} posição  e foi alterada para ${fruit_new_name} <br> `;
+            }   
+        }
+
+        // valida se existe uma fruta encontrada pelo contado decladado acima
+        if (ax_count == 0) {
+            div_msg = `A fruta ${ipt_fruit.value} não foi encontrada na lista!`;
+        }
+        div_result.innerHTML = div_msg;
     }
 </script>
 
