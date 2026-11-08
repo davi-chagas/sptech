@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+    <h1>Valores Dinâmicos </h1>
+
+    <label for="ipt_nm">Insira números: </label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="insert()">Cadastrar</button>
+    <button onclick="reportEven()">Ver Pares</button>
+    <button onclick="reportIndex()">Ver Indices</button>
+    <button onclick="report()">Ver Todos</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let numbers_list = [];
+    let even_numbers_list = [];
+
+    function insert() {
+        if (ipt_num.value % 2 == 0) {
+            even_numbers_list.push(ipt_num.value);
+        }
+
+        numbers_list.push(ipt_num.value);
+    }
+
+    function report() {
+        div_result.innerHTML = ``
+        for (let i = 0; i < numbers_list.length; i++) {
+            div_result.innerHTML += `${numbers_list[i]} <br>`
+        }
+    }
+
+    function reportEven() {
+        div_result.innerHTML = ``
+        for (let i = 0; i < even_numbers_list.length; i++) {
+            div_result.innerHTML += `${even_numbers_list[i]} <br>`
+        }
+    }
+
+    function reportIndex() {
+        div_result.innerHTML = ``
+        for (let i = 0; i < numbers_list.length; i++) {
+            if(numbers_list[i] % 2 == 0){
+                div_result.innerHTML += `Indice: ${i + 1} <br>`
+            }
+        }
+    }
+</script>
+
+</html>

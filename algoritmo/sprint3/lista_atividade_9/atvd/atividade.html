@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade XXXX</title>
+</head>
+
+<body>
+    <h1>Professora Alice – parte 1</h1>
+
+    <label for="ipt_grade">Insira a nota: </label>
+    <input type="text" id="ipt_grade"> <br>
+
+    <label for="ipt_search">Pesquise a sequencia de uma nota: </label>
+    <input type="text" id="ipt_search">
+
+    <button onclick="insert()">Registrar</button>
+    <button onclick="get()">Listar</button>
+    <button onclick="report()">Encerrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let grade_list = [];
+
+    function insert() {
+        let grade = Number(ipt_grade.value);
+
+        div_result.innerHTML = '';
+
+        if (grade < 1 || grade > 10) {
+            div_result.innerHTML = `Nota Inválida! Precisa estar entre 1 e 10!.`
+        } else {
+            grade_list.push(grade);
+        }
+    }
+
+    function get() {
+        let search = Number(ipt_search.value);
+        div_result.innerHTML = ''
+        let msg = '';
+
+        if (grade_list[search - 1] > 8) {
+            console.log(grade_list[search - 1])
+            msg = 'nota maior que 8'
+        } else if (grade_list[search - 1] >= 6 && grade_list[search - 1] <= 8) {
+            msg = 'nota entre 6 e 8'
+        } else {
+            msg = 'nota menor que 6'
+        }
+
+        for (let i = 0; i < grade_list.length; i++) {
+            if (i + 1 == search) {
+                div_result.innerHTML = `${i + 1}ª nota é ${grade_list[i]} sendo que essa nota é ${msg} <br>
+                onde ${i + 1}ª nota é a sequencia da nota ${grade_list[i - 1]}`
+            }
+
+        }
+    }
+
+    function report() {
+        div_result.innerHTML = '';
+        let count_bigger_8 = 0;
+        let count_between_6_and_9 = 0;
+        let count_small_6 = 0;
+        let sum = 0;
+        let bigger_grade = 0;
+
+        for (let i = 0; i < grade_list.length; i++) {
+
+            if (grade_list[i] > bigger_grade) {
+                bigger_grade = grade_list[i];
+            }
+
+            if (grade_list[i] > 8) {
+                count_bigger_8++;
+            } else if (grade_list[i] >= 6 && grade_list[i] <= 8) {
+                count_between_6_and_9++;
+            } else {
+                count_small_6++;
+            }
+            sum += grade_list[i];
+        }
+
+        let avg = sum / grade_list.length;
+        div_result.innerHTML = `<br>
+        Total de notas registradas = ${grade_list.length} <br> <br>
+        
+        Total de notas maior que 8 = ${count_bigger_8} <br> <br>
+
+        Total de notas entre 6 e 8 = ${count_between_6_and_9} <br> <br>
+
+        Total de notas menor que 6 = ${count_small_6} <br> <br>
+
+        Média das notas registradas = ${avg.toFixed(2)}; <br> <br>
+
+        Maior nota registrada = ${bigger_grade}
+        `
+    }
+</script>
+
+</html>

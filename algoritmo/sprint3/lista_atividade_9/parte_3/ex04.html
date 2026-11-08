@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <h1>16. Eleição de Representante de Turma</h1>
+
+    <select id="select_candidate">
+        <option value="1">Mariana</option>
+        <option value="2">Cléber</option>
+        <option value="3">Adalberto</option>
+    </select>
+
+    <button onclick="vote()">Votos</button>
+    <button onclick="report()">Apurar Votos</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let votes = [];
+    let count_votes = [];
+    let count_candidate_a = 0;
+    let count_candidate_b = 0;
+    let count_candidate_c = 0;
+
+    function vote() {
+        div_result.innerHTML = '';
+        votes.push(select_candidate.value);
+
+        if (select_candidate.value == 1) {
+            count_candidate_a++
+        } else if (select_candidate.value == 2) {
+            count_candidate_b++
+        } else {
+            count_candidate_c++;
+        }
+
+        div_result.innerHTML = `Voto registrado obrigado por participar`;
+    }
+
+    function report() {
+
+        div_result.innerHTML += `<br> <br> Total de votos: ${votes.length} <br> <br>
+        Mariana: ${count_candidate_a} <br> <br>
+        Cléber: ${count_candidate_b} <br> <br>
+        Adalberto: ${count_candidate_c} <br> <br>
+        `
+
+        if (count_candidate_a > count_candidate_b && count_candidate_a > count_candidate_c) {
+            div_result.innerHTML += `O vencedor é Mariana!`
+        } else if (count_candidate_b > count_candidate_a && count_candidate_b > count_candidate_c) {
+            div_result.innerHTML += `O vencedor é cleber!`
+        } else if (count_candidate_a == count_candidate_b || count_candidate_b == count_candidate_c || count_candidate_c == count_candidate_a) {
+            div_result.innerHTML += `Houve empate`
+        } else {
+            div_result.innerHTML += `O vencedor é adalberto!`
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <h1>13. Lista de Compras</h1>
+
+    <label for="ipt_product">Insira um produto: </label>
+    <input type="text" id="ipt_product"> <br>
+
+    <label for="ipt_price">Insira o preço: </label>
+    <input type="text" id="ipt_price"> <br>
+
+    <button onclick="insert()">Adicionar</button>
+    <button onclick="showCart()">Ver carrinho</button>
+
+    <div id="div_result"></div>
+
+</body>
+<script>
+
+    let product_list = [];
+    let price_list = [];
+
+    function insert() {
+        let product = ipt_product.value;
+        let price = Number(ipt_price.value);
+
+        div_result.innerHTML = '';
+
+        if (product == '') {
+            div_result.innerHTML = 'Produto indefinido'
+        } else if (price == '') {
+            div_result.innerHTML = 'Preço indefinido'
+        } else if (price <= 0) {
+            div_result.innerHTML = 'Preço necessita ser maior que 0!'
+        } else if (product_list.includes(product)) {
+            div_result.innerHTML = 'Produto já cadastrado'
+        } else {
+            product_list.push(product);
+            price_list.push(price);
+        }
+    }
+
+    function showCart() {
+        div_result.innerHTML = '';
+
+        let msg = '';
+        let sum = 0;
+        let largest_product = '';
+        let bigger_coast = 0;
+        msg = `Você tem ${product_list.length} produtos no carrinho <br> <br>`
+        for (let i = 0; i < product_list.length; i++) {
+            msg = `Produto ${i} - ${product_list[i]} - R$${price_list}`
+            sum += price_list[i];
+            if (bigger_coast < price_list[i]){
+                bigger_coast = price_list[i];
+                largest_product = product_list[i];
+            }
+        }
+
+        msg = `Você tem ${product_list.length} produtos no carrinho <br> <br> 
+        Total de compra: R$${sum} <br> <br>
+        Produto mais caro: ${largest_product} (R$${bigger_coast})
+        `
+
+        div_result.innerHTML = msg;
+    }
+
+
+</script>
+
+</html>

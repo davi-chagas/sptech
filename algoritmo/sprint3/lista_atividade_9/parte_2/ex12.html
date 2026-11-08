@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h1>12. Catálogo de Serviços da CSP</h1>
+
+    <label for="ipt_service">Insira um serviço: </label>
+    <input type="text" id="ipt_service"> <br>
+
+    <label for="ipt_price">Insira o preço: </label>
+    <input type="text" id="ipt_price"> <br>
+
+    <label for="ipt_to_set">Insira o reajuste: </label>
+    <input type="text" id="ipt_to_set"> <br>
+
+    <button onclick="insert()">Inserir</button>
+    <button onclick="toSet()">Reajuste</button>
+    <button onclick="report()">Encerrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let service_list = [];
+    let price_list = [];
+
+    function insert() {
+        div_result.innerHTML = ''
+        if (ipt_service.value.length < 5) {
+            div_result.innerHTML = 'Serviço precisa conter 5 caracteres.';
+        }
+        else if (ipt_price.value < 1 || ipt_price.value >= 40) {
+            div_result.innerHTML = 'Preço deve estar entre R$1,00 e R$39,99'
+        } else {
+            let exists = false;
+            for (let i = 0; i < service_list.length; i++) {
+                if (service_list[i] == ipt_service.value) {
+                    exists = true;
+                }
+            }
+
+            if (exists) {
+                alert('Serviço já cadastrado')
+            } else {
+                service_list.push(ipt_service.value);
+                price_list.push(Number(ipt_price.value));
+
+                for (let i = service_list.length - 1; i >= 0; i--) {
+                    div_result.innerHTML += `${service_list[i]} <br>`
+                }
+            }
+        }
+    }
+
+    function toSet() {
+        if (ipt_to_set.value < 1 || ipt_to_set.value > 20) {
+            alert('O valor do reajuste precisa estar entre 1 e 20')
+        } else {
+            for (let i = 0; i < price_list.length; i++) {
+                price_list[i] += (price_list[i] * ipt_to_set.value / 100);
+
+                div_result.innerHTML += `Serviço: ${service_list[i]}, preço: R$${price_list[i]} <br>`
+            }
+        }
+    }
+
+    function report() {
+        let bigger = 0;
+        let small = 1000000000000;
+        let service_bigger_coast = '';
+        let service_less_coast = '';
+        let sum = 0;
+        for (let i = 0; i < price_list.length; i++) {
+            if (price_list[i] > bigger) {
+                bigger = price_list[i];
+                service_bigger_coast = service_list[i];
+            }
+
+            if (small > price_list[i]) {
+                small = price_list[i];
+                service_less_coast = service_list[i];
+            }
+            sum += price_list[i];
+
+        }
+
+        let avg = sum / service_list.length;
+
+
+        div_result.innerHTML =
+            `Quantidade de serviços cadastrados: ${service_list.length} <br> <br>
+            Serviço e o valor do serviço mais caro: ${service_bigger_coast}, R$${bigger}<br> <br>
+            Serviço e o valor do serviço mais barato: ${service_less_coast}, R$${small}<br> <br>
+            Média do valor dos serviços: ${avg.toFixed(2)}
+            `
+    }
+
+
+</script>
+
+</html>

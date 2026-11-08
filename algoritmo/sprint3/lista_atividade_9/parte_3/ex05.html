@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1>17. Playlist de Músicas</h1>
+
+    <label for="ipt_music">Insira uma música: </label>
+    <input type="text" id="ipt_music"> <br>
+
+    <label for="ipt_duration">Insira a duração: </label>
+    <input type="text" id="ipt_duration"> <br>
+
+    <label for="ipt_search_music">Pesquise uma musica: </label>
+    <input type="text" id="ipt_search_music"> <br>
+
+    <button onclick="add()">Adicionar à playlist</button>
+    <button onclick="report()">Ver playlist</button>
+    <button onclick="search()">Pesquisar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let playlist = [];
+    let duration = [];
+
+    function add() {
+        if (ipt_music.value == '' || ipt_duration.value <= 0) {
+            alert('Musica ou duração invalida')
+        } else {
+            playlist.push(ipt_music.value);
+            duration.push(Number(ipt_duration.value));
+        }
+
+    }
+
+    function report() {
+        div_result.innerHTML = '';
+        let duration_total = 0;
+        let largest_song = duration[0];
+        let name_largest_song = playlist[0];
+        
+        for (let i = 0; i < duration.length; i++) {
+            if (largest_song < duration[i]) {
+                largest_song = duration[i];
+                name_largest_song = playlist[i];
+            }
+            duration_total += duration[i];
+        }
+        div_result.innerHTML = `Total de músicas: ${playlist.length} <br> <br>
+        Duração total:${duration_total} minutos <br> <br>
+        Música mais longa: ${name_largest_song}
+        `
+    }
+
+    function search() {
+        let count = 0;
+        let index = [];
+        for (let i = 0; i < playlist.length; i++) {
+            if (playlist[i] == ipt_search_music.value) {
+                count++;
+                index.push(i + 1)
+            }
+        }
+
+        div_result.innerHTML = `A música ${ipt_search_music.value} aparece ${count} vezes na playlist, nos índices: ${index}`
+    }
+</script>
+
+</html>

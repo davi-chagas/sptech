@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <h1>14. Registro de Temperaturas</h1>
+
+    <label for="ipt_temp">Insira a temperatura: </label>
+    <input type="text" id="ipt_temp"> <br>
+
+    <button onclick="insert()">Registrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let temp_list = [];
+    function insert() {
+        let temp = Number(ipt_temp.value);
+        div_result.innerHTML = ''
+
+        if (temp < -20 || temp > 50) {
+            alert('Temperatua inválida')
+        } else {
+            temp_list.push(temp);
+            div_result.innerHTML = `Temperatura do dia ${temp_list.length} anotada! <br>`
+
+            // status
+
+            let classification = '';
+            let largest_temp = temp_list[0];
+            let small_temp = temp_list[0];
+            let count_heat = 0;
+
+            if (temp < 15) {
+                classification = 'Frio'
+            } else if (temp < 25) {
+                classification = 'Agradável'
+            } else {
+                'Calor'
+            }
+
+            for (let i = temp_list.length - 1; i >= 0; i--) {
+                div_result.innerHTML += `Dia ${i + 1}: 33°C - ${classification} <br> <br> `
+
+                if (largest_temp < temp_list[i]) {
+                    largest_temp = temp_list[i]
+                }
+
+                if (small_temp > temp_list[i]) {
+                    small_temp = temp_list[i]
+                }
+
+                if(temp_list[i] > 24){
+                    count_heat++;
+                }
+            }
+
+            div_result.innerHTML += `Maior temperatura: ${largest_temp} <br> <br>
+            Menor temperatura: ${small_temp} <br> <br> 
+            Dias de calor: ${count_heat}`
+
+        }
+
+
+    }
+</script>
+
+</html>

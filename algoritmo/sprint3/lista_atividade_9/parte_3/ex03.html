@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <h1>15. Estacionamento</h1>
+
+    <label for="ipt_plate">Insira a placa do veiculo</label>
+    <input type="text" id="ipt_plate"> <br>
+
+    <label for="ipt_search_plate">Buscar placa</label>
+    <input type="text" id="ipt_search_plate"> <br>
+
+    <button onclick="park()">Estacionar</button>
+    <button onclick="search()">Buscar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    let park_list = [];
+
+    function park() {
+        let plate = ipt_plate.value;
+        div_result.innerHTML = '';
+
+        if (plate == '') {
+            alert('Preencha a placa do veiculo')
+        } else if (park_list.includes(plate)) {
+            alert('Esse veiculo já esta no estacionamento')
+        } else if (park_list.length >= 5) {
+            alert('Estacionamento lotado')
+        } else {
+            park_list.push(plate)
+
+            div_result.innerHTML = `Veículo ${plate} estacionado! Restam ${5 - park_list.length}.`;
+        }
+    }
+
+    function search() {
+        div_result.innerHTML = ''
+        for (let i = 0; i < park_list.length; i++) {
+            if (park_list[i].includes(ipt_search_plate.value)) {
+                div_result.innerHTML = `O veiculo ${park_list[i]} está na vaga ${i + 1}.`
+            }
+
+        }
+    }
+</script>
+
+</html>
