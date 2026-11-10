@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+    <h1>Papagaio Repetitivo</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num"> <br>
+
+    <label for="ipt_phrase">Insira uma frase: </label>
+    <input id="ipt_phrase"></input> <br>
+
+    <button onclick="parrot()">Papagaio</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+
+    function parrot(){
+        let phrase = ipt_phrase.value;
+        let num = Number(ipt_num.value);
+        let array_prase = [phrase];
+
+        for(let i = 0; i < num; i++){
+            div_result.innerHTML += `${i + 1} - ${array_prase} <br>`
+            array_prase.push(phrase);
+        }
+    }
+</script>
+</html>

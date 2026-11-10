@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <h1>Expressar amor</h1>
+
+    <label for="ipt_lover">Insira o nome da pessoa que mais ama: </label>
+    <input type="text" id="ipt_lover"> <br>
+
+    <label for="ipt_how_much">O quanto a ama: </label>
+    <input type="text" id="ipt_how_much"> <br>
+
+    <button onclick="express()">Expressar amor</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function express(){
+        let lover = ipt_lover.value;
+        let how_much = Number(ipt_how_much.value);
+        let msg = ''
+
+        for(let i = 0; i < how_much; i++){
+            msg += `${i + 1} ${lover} eu te amo! Sempre lembre disso! <br>`
+        }
+
+        div_result.innerHTML = msg;
+    }
+</script>
+</html>

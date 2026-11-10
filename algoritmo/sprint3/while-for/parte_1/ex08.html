@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+<body>
+    <h1>Multiplos de 5</h1>
+
+    <label for="ipt_num">Insira um número</label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="multiple()">Adoro multiplos de 5</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function multiple(){
+        let num = Number(ipt_num.value);
+
+        if(num < 20 || num > 100){
+            alert('Invalid number')
+        } else {
+            for(let i = 0; i <= num; i+= 5){
+                div_result.innerHTML += `${i} <br>`
+            }
+        }
+    }
+</script>
+</html>

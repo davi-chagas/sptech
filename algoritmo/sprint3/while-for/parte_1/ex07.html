@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+<body>
+    <h1>S2 Pares</h1>
+
+    <button onclick="even()">S2 Pares</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function even(){
+        for(let i = 0; i <= 100; i++){
+            if(i % 2 == 0){
+                div_result.innerHTML += `${i} <br>`
+            }
+        }
+    }
+</script>
+</html>

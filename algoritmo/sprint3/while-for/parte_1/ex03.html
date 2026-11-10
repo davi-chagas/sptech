@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>Frase Numerada</h1>
+
+    <label for="ipt_sentence">Insira uma frase: </label>
+    <input type="text" id="ipt_sentence"> <br>
+
+    <button onclick="toShow()">Mostrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function toShow(){
+        for(let i = 1; i <= 7; i++){
+            div_result.innerHTML += `${i}. ${ipt_sentence.value} <br>`;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+    <h1>Divisibilidade</h1>
+
+    <label for="ipt_num">Insira um intervalo</label>
+    <input type="text" id="ipt_num"> <br>
+
+    <label for="ipt_divisibilidade">Insira um numero para divisibilidade: </label>
+    <input type="text" id="ipt_divisibilidade"> <br>
+
+    <button onclick="calc()">Divisivel</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calc(){
+        let num = Number(ipt_num.value);
+        let divisibilidade = Number(ipt_divisibilidade.value);
+
+        for(let i = 0; i <= num; i++){
+            if(i % divisibilidade == 1){
+                div_result.innerHTML += `${i} <br>`
+            }
+        }
+    }
+</script>
+</html>

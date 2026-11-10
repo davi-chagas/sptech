@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <h1>Viva o 7!</h1>
+
+    <label for="ipt_num"></label>
+    <input type="text" id="ipt_num">
+
+    <button onclick="multiple()">Viva o 7!</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function multiple() {
+        let num = Number(ipt_num.value);
+        div_result.innerHTML = '';
+
+        if (num >= 20 && num <= 100) {
+            for (let i = 0; i <= num; i += 7){
+                div_result.innerHTML += `${i} <br>`
+            }
+        } else {
+            alert('Invalid number')
+        }
+    }
+</script>
+
+</html>

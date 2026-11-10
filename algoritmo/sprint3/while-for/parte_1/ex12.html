@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+
+<body>
+    <h1>Papagaio falante</h1>
+
+    <label for="ipt_num">Insira um número: </label>
+    <input type="text" id="ipt_num"> <br>
+
+    <label for="ipt_phrase">Insira uma frase: </label>
+    <input id="ipt_phrase"></input> <br>
+
+    <button onclick="parrot()">Papagaio</button>
+</body>
+<script>
+    function parrot() {
+        let num = Number(ipt_num.value);
+        let phrase = ipt_phrase.value;
+        let array_prase = [];
+
+        for (let i = 0; i < num; i++) {
+            array_prase.push(phrase)
+        }
+        for (let i = 0; i < num; i++) {
+            alert(array_prase)
+        }
+
+    }
+</script>
+
+</html>

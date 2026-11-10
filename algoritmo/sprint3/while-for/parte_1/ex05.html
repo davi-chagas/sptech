@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05</title>
+</head>
+<body>
+    <h1>Corrida de voltas</h1>
+
+    <label for="ipt_laps">Insira as voltas do carro: </label>
+    <input type="text" id="ipt_laps"> 
+
+    <button onclick="start()">Iniciar corrida</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function start(){
+        let laps = Number(ipt_laps.value);
+        for(let i = 1; i <= laps; i++){
+            div_result.innerHTML += `Carro dando a ${i}ª volta <br>`
+        }
+    }
+</script>
+</html>
