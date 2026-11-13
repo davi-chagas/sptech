@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+<body>
+    <h1>6. Cadastro de Carros com Remoção de Atributos</h1>
+
+    <label for="ipt_marca">Insira a marca: </label>
+    <input type="text" id="ipt_marca"> <br>
+
+    <label for="ipt_marca">Insira o modelo: </label>
+    <input type="text" id="ipt_modelo"> <br>
+
+    <label for="ipt_ano">Insira o ano: </label>
+    <input type="text" id="ipt_ano"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Carro</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function cadastrar(){
+        let marca = ipt_marca.value;
+        let modelo = ipt_modelo.value;
+        let ano = Number(ipt_ano.value);
+
+        let carro = {
+            marca,
+            modelo,
+            ano
+        }
+
+        carro.idade = 2026 - ano;
+        delete carro.ano;
+
+        div_result.innerHTML = `
+        Marca: ${carro.marca} <br>
+        Modelo: ${carro.modelo} <br>
+        Idade do carro: ${carro.idade}`
+    }
+</script>
+</html>

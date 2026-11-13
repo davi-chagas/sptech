@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+</head>
+<body>
+    <h1>7. Cadastro de Jogos com Conversão de Texto</h1>
+
+    <label for="ipt_nome">Insira o nome do jogo</label>
+    <input type="text" id="ipt_nome"> <br>
+
+    <label for="ipt_empresa">Insira a empresa: </label>
+    <input type="text" id="ipt_empresa"> <br>
+
+    <label for="ipt_plataforma">Insira a plataforma</label>
+    <input type="text" id="ipt_plataforma"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Jogo</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function cadastrar(){
+        let nome = ipt_nome.value.toUpperCase();
+        let empresa = ipt_empresa.value.toLowerCase();
+        let plataforma = ipt_plataforma.value;
+
+        let jogo = {
+            nome,
+            empresa,
+            plataforma
+        }
+
+        div_result.innerHTML = `Jogo: ${jogo.nome} <br>
+        Empresa: ${jogo.empresa} <br>
+        Plataforma: ${jogo.plataforma} `
+    }
+</script>
+</html>

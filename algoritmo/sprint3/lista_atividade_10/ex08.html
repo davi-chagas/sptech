@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08</title>
+</head>
+
+<body>
+    <h1>8. Cadastro de Comprador e Produto</h1>
+
+    <label for="ipt_comprador">Insira o comprador: </label>
+    <input type="text" id="ipt_comprador"> <br>
+
+    <label for="ipt_email">Insira o email do comprador: </label>
+    <input type="text" id="ipt_email"> <br>
+
+    <label for="ipt_nome_produto">Insira o nome do produto: </label>
+    <input type="text" id="ipt_nome_produto"> <br>
+
+    <label for="ipt_valor">Insira o valor: </label>
+    <input type="text" id="ipt_valor"> <br>
+
+    <button onclick="registrar()">Finalizar Compra</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function registrar() {
+        let nome = ipt_comprador.value;
+        let email = ipt_email.value;
+
+        let nome_produto = ipt_nome_produto.value;
+        let valor = Number(ipt_valor.value);
+
+        let comprador = {
+            nome,
+            email
+        }
+
+        let produto = {
+            nome: nome_produto,
+            valor
+        }
+
+        div_result.innerHTML = `Comprador: ${comprador.nome} | ${comprador.email} <br>
+        Produto: ${produto.nome} <br>
+        Valor R$${produto.valor}`
+
+        console.log(comprador)
+        console.log(produto)
+    }
+</script>
+
+</html>

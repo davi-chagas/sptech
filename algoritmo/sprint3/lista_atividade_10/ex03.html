@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>3. Cadastro de Produtos com Atualização de Estoque</h1>
+
+    <label for="ipt_produto">Insira o nome do produto: </label>
+    <input type="text" id="ipt_produto"> <br>
+
+    <label for="ipt_produto">Insira a quantidade em estoque: </label>
+    <input type="text" id="ipt_qtd"> <br>
+
+    <label for="ipt_preco">Insira o preço: </label>
+    <input type="text" id="ipt_preco"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+
+    <div id="div_result"></div>
+
+</body>
+<script>
+    function cadastrar(){
+        let nome_produto = ipt_produto.value;
+        let qtd = Number(ipt_qtd.value);
+        let preco = Number(ipt_preco.value);
+
+        let produto = {
+            nome: nome_produto,
+            qtd,
+            preco
+        }
+
+        produto.qtd += 10;
+        produto.valorTotal = produto.qtd * produto.preco;
+
+        div_result.innerHTML = `Produto: ${produto.nome} <br>
+        Quantidade Atualizada: ${produto.qtd} <br>
+        Preço Unitário:  R$${produto.preco} <br>
+        Valor total:    R$${produto.valorTotal}`
+    }
+</script>
+</html>

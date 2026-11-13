@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <h1>2. Cadastro de Funcionários com Alteração de Dados</h1>
+
+      Nome
+    <input type="text" id="ipt_nome"> <br>
+
+    Cargo
+    <input type="text" id="ipt_cargo"> <br>
+
+    salário
+    <input type="text" id="ipt_salario"> <br>
+
+    <button onclick="registrar()">registrar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function registrar(){
+        let nome = ipt_nome.value.toUpperCase();
+        let cargo = ipt_cargo.value;
+        let salario = Number(ipt_salario.value);
+
+        let funcionario = {
+            nome,
+            cargo,
+            salario
+        }
+
+        funcionario.bonus = salario * 0.1;
+
+        div_result.innerHTML = `
+        Funcionário: ${funcionario.nome} <br>
+        Cargo: ${funcionario.cargo} <br>
+        Salário: R$${funcionario.salario} <br>
+        Bonus: R$${funcionario.bonus.toFixed(2)}`
+    }
+</script>
+</html>

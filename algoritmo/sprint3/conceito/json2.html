@@ -9,10 +9,17 @@
 
 <body>
     Nome:
-    <input type="text" id="ipt_nome">
+    <input type="text" id="ipt_nome"> <br>
 
     Telefone
-    <input type="text" id="ipt_telefone">
+    <input type="text" id="ipt_telefone"> <br>
+
+    Rua
+    <input type="text" id="ipt_rua"> <br>
+
+    Cep
+    <input type="text" id="ipt_cep"> <br>
+
 
     <button onclick="registrar()">Registrar Contato</button>
     <button onclick="exibir()">Exibir</button>
@@ -25,22 +32,32 @@
     function registrar() {
         let nome = ipt_nome.value;
         let telefone = ipt_telefone.value;
+        let rua = ipt_rua.value;
+        let cep = ipt_cep.value;
 
         let contato = {
             nome,
-            telefone: telefone
+            telefone: telefone,
+            endereco: {
+                rua,
+                cep: cep
+            }
         }
 
         console.log(contato)
         contatos.push(contato)
     }
 
-    function exibir(){
+    function exibir() {
         let msg = '';
-        
-        for(let i = 0; i < contatos.length; i++){
+
+        for (let i = 0; i < contatos.length; i++) {
             let contato_atual = contatos[i];
-            msg += `Nome: ${contato_atual.nome} | Telefone: ${contato_atual.telefone} <br>`
+            msg += `
+            COntato ${i + 1} <br>
+            Nome: ${contato_atual.nome} <br>
+            Telefone: ${contato_atual.telefone}<br>
+            Endereço: Rua: ${contato_atual.endereco.rua} | Cep: ${contato_atual.endereco.cep}`
         }
 
         div_result.innerHTML = msg;

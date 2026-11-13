@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativ. Avaliativa 1 - Sprint-3.</title>
+</head>
+
+<body>
+    <h1>Os Celtas – Catálogo de Armas</h1>
+
+
+    <div>
+        <h1>Parte 1</h1>
+        <label for="ipt_nome_arm">Insira o nome da arma: </label>
+        <input type="text" id="ipt_nome_arma"> <br>
+
+        <label for="ipt_tipo_arma">Insira o tipo da arma: </label>
+        <input type="text" id="ipt_tipo_arma"> <br>
+
+        <label for="ipt_qtd_pontos">Insira a qtd. pontos: </label>
+        <input type="text" id="ipt_qtd_pontos"> <br>
+
+        <button onclick="cadastrar()">Cadastrar Arma</button>
+    </div>
+
+    <div>
+        <h1>Parte 2</h1>
+        <label for="ipt_qtd_pontos">Insira o nome da arma que deseja alterar a quantidade de pontos: </label>
+        <input type="text" id="ipt_alterar_arma"> <br>
+
+        <button onclick="atualizarArmaPorNome()">Atualizar pontos</button>
+
+    </div>
+
+
+
+    <label for="ipt_alterar_tipo_arma">Insira o tipo de arma que deseja adicionar o percentual quantidade de pontos:
+    </label>
+    <input type="text" id="ipt_alterar_tipo_arma"> <br>
+
+    <label for="ipt_listar_arma">Insira o tipo de arma que deseja listar: </label>
+    <input type="text" id="ipt_listar_arma"> <br>
+
+
+
+    <button onclick="alterarArmaPorTipoArma()">Adicionar Percentual acréscimo de pontos</button>
+    <button onclick="listarArmasPorTipo()">Listar tipo arma</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let listaArmas = [];
+
+    function cadastrar() {
+        let nome_arma = ipt_nome_arma.value.toLowerCase();
+        let tipo_arma = ipt_tipo_arma.value.toLowerCase();
+        let qtd_pontos = Number(ipt_qtd_pontos.value);
+
+        div_result.innerHTML = '';
+
+        if (tipo_arma != 'corte' && tipo_arma != 'blindagem' && tipo_arma != 'projéteis' && tipo_arma != 'cerco') {
+            alert('Tipo de arma inválido. Ele deve ser entre (Corte, Blindagem, Projéteis e Cerco)')
+        } else if (arma_list.includes(nome_arma)) {
+            alert('Arma já cadastrada no jogo')
+        } else if (nome_arma == '' || tipo_arma == '' || qtd_pontos == '') {
+            alert('Todos os campos precisam ser preenchidos')
+        } else {
+            arma_list.push(nome_arma);
+            tipo_list.push(tipo_arma);
+            pontos_list.push(qtd_pontos)
+
+            div_result.innerHTML = `<span style='color: green;'> Arma cadastrada com sucesso!</span>`
+        }
+    }
+
+    function atualizarArmaPorNome() {
+        let altera_arma = ipt_alterar_arma.value.toLowerCase();
+        let nova_qtd_pontos = Number(prompt('Insira a nova quantidade de pontos: '));
+
+        if (nova_qtd_pontos == '') {
+            alert('Nova quantidade de ponto precisa ser preenchida')
+        } else if (altera_arma == '') {
+            alert('Nome da arma precisa ser preenchida')
+        } else {
+            div_result.innerHTML = '';
+
+            for (let i = 0; i < arma_list.length; i++) {
+                if (arma_list[i].includes(altera_arma)) {
+                    pontos_list[i] = nova_qtd_pontos;
+                }
+            }
+
+            div_result.innerHTML = `<span style='color: green;'> Nova quantidade de pontos definida com sucesso!</span>`
+        }
+    }
+
+    function alterarArmaPorTipoArma() {
+        let tipo_arma = ipt_alterar_tipo_arma.value.toLowerCase();
+        let nova_qtd_pontos = Number(prompt('Insira o percentual de acréscimo da quantidade de pontos'));
+
+        if (nova_qtd_pontos == '') {
+            alert('Percentual de acréscimo deve ser preenchido')
+        } else if (tipo_arma == '') {
+            alert('Tipo de arma deve ser preenchido')
+        } else {
+            div_result.innerHTML = '';
+
+            for (let i = 0; i < tipo_list.length; i++) {
+                if (tipo_list[i] == tipo_arma) {
+                    pontos_list[i] += pontos_list[i] * nova_qtd_pontos / 100;
+                }
+            }
+
+            div_result.innerHTML = `<span style='color: green;'> Percentual de acréscimo definido com sucesso!</span>`
+        }
+    }
+
+    function listarArmasPorTipo() {
+        let listar = ipt_listar_arma.value.toLowerCase();
+
+        if (listar == '') {
+            alert('É necessário preencher o campo.')
+        } else if (listar != 'corte' && listar != 'blindagem' && listar != 'projéteis' && listar != 'cerco') {
+            alert('Tipo de arma inválido. Ele deve ser entre (Corte, Blindagem, Projéteis e Cerco)')
+        } else {
+            let count_tipo_arma = 0;
+            let maior_ponto = pontos_list[0]
+            let menor_ponto = pontos_list[0]
+
+            div_result.innerHTML = '';
+            let msg = '';
+
+            for (let i = 0; i < tipo_list.length; i++) {
+                if (tipo_list[i] == listar) {
+                    msg += `${i + 1}. ${arma_list[i]}, Tipo: ${tipo_list[i]}, Pontos: ${pontos_list[i]} <br> <br>`
+
+                    count_tipo_arma++;
+
+                    if (maior_ponto < pontos_list[i]) {
+                        maior_ponto = pontos_list[i]
+                    }
+
+                    if (menor_ponto > pontos_list[i]) {
+                        menor_ponto = pontos_list[i]
+                    }
+                }
+            }
+
+            msg += `Maior quantidade de pontos : ${maior_ponto} <br>
+                Menor quantidade de pontos: ${menor_ponto} <br>
+                Quantidade de armas cadastradas: ${count_tipo_arma}`
+            div_result.innerHTML = msg;
+        }
+    }
+</script>
+
+</html>

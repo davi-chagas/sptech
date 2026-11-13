@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+<body>
+    <h1>11. Cadastro de Usuários com Nível de Acesso</h1>
+
+    <label for="ipt_nome">Insira o nome: </label>
+    <input type="text" id="ipt_nome"> <br>
+
+    <label for="ipt_idade">Insira a idade: </label>
+    <input type="text" id="ipt_idade"> <br>
+
+    <label for="ipt_cargo">Insira o cargo: </label>
+    <input type="text" id="ipt_cargo"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Usuário</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function cadastrar(){
+        let nome = ipt_nome.value;
+        let idade = ipt_idade.value;
+        let cargo = ipt_cargo.value.toLowerCase();
+
+        let usuario = {
+            nome,
+            idade,
+            cargo
+        }
+
+        if(cargo == 'administrador'){
+            usuario.acesso = 'Total'
+        } else {
+            usuario.acesso = 'Limitado'
+        }
+
+        div_result.innerHTML = `Usuário: ${usuario.nome} <br>
+        Cargo: ${usuario.cargo} <br>
+        Nivel de acesso: ${usuario.acesso}`
+    }
+</script>
+</html>

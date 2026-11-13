@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>1. Cadastro de Pets com Informações Agrupadas</h1>
+
+    Nome
+    <input type="text" id="ipt_nome"> <br>
+
+    Tipo do Animal
+    <input type="text" id="ipt_tipo"> <br>
+
+    Idade
+    <input type="text" id="ipt_idade"> <br>
+
+    <button onclick="registrar()">registrar</button>
+
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function registrar(){
+
+        let nome = ipt_nome.value;
+        let tipo = ipt_tipo.value;
+        let idade = Number(ipt_idade.value);
+
+        let pet = {
+            nome,
+            tipo,
+            idade
+        }
+
+        div_result.innerHTML = `Pet: ${pet.nome} <br>
+        Tipo: ${pet.tipo} <br>
+        Idade: ${pet.idade} anos`
+
+        console.log(JSON.stringify(pet))
+
+    }
+</script>
+</html>

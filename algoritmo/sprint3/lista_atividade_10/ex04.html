@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <h1>4. Cadastro de Filmes com Classificação</h1>
+
+    <label for="ipt_filme">Insira o nome do filme: </label>
+    <input type="text" id="ipt_filme"> <br>
+
+    <label for="ipt_genero">Insira o genero: </label>
+    <input type="text" id="ipt_genero"> <br>
+
+    <label for="ipt_nota">Insira a nota: </label>
+    <input type="text" id="ipt_nota"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Filme</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function cadastrar(){
+
+        let nome = ipt_filme.value;
+        let genero = ipt_genero.value
+        let nota = Number(ipt_nota.value);
+
+        let filme = {
+            nome,
+            genero,
+            nota
+        }
+
+        if(nota >= 8){
+            filme.classificacao = 'Filme Excelente'
+        } else {
+            filme.classificacao = 'Filme Regular'
+        }
+
+        div_result.innerHTML = `Filme: ${filme.nome} <br>
+        Gênero: ${filme.genero} <br>
+        Nota: ${filme.nota} <br>
+        Classificação: ${filme.classificacao}
+        `
+    }
+</script>
+</html>
