@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Contatos</title>
+</head>
+
+<body>
+    Nome:
+    <input type="text" id="ipt_nome">
+
+    Telefone
+    <input type="text" id="ipt_telefone">
+
+    <button onclick="registrar()">Registrar Contato</button>
+    <button onclick="exibir()">Exibir</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    let contatos = [];
+
+    function registrar() {
+        let nome = ipt_nome.value;
+        let telefone = ipt_telefone.value;
+
+        let contato = {
+            nome,
+            telefone: telefone
+        }
+
+        console.log(contato)
+        contatos.push(contato)
+    }
+
+    function exibir(){
+        let msg = '';
+        
+        for(let i = 0; i < contatos.length; i++){
+            let contato_atual = contatos[i];
+            msg += `Nome: ${contato_atual.nome} | Telefone: ${contato_atual.telefone} <br>`
+        }
+
+        div_result.innerHTML = msg;
+    }
+
+</script>
+
+</html>

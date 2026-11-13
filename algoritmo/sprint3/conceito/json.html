@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+</head>
+
+<body>
+    <h1>Conceito sobre json</h1>
+
+    Nome:
+    <input type="text" id="ipt_first_name">
+
+    Sobrenome:
+    <input type="text" id="ipt_last_name">
+
+    Ano Nascimento:
+    <input type="text" id="ipt_born">
+
+    <button onclick="toGreet()">Cumprimentar</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function toGreet() {
+        let pessoa = {
+            nome: ipt_first_name.value,
+            sobrenome: ipt_last_name.value,
+            anoNasc: Number(ipt_born.value)
+        }
+
+        pessoa.idade = 2026 - pessoa.anoNasc;
+        let pessoaTexto = JSON.stringify(pessoa)
+        delete pessoa.anoNasc;
+
+        div_result.innerHTML = `Nome Completo: ${pessoa.nome} ${pessoa.sobrenome} | Ano Nasc: ${pessoa.anoNasc} <br>
+         ${pessoaTexto}`
+    }
+</script>
+
+</html>
